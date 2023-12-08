@@ -4,7 +4,7 @@ export function Footer() {
     const borderStyles = `border-pinkish border-x-4 lg:border-x-8 border-t-4 lg:border-t-8`;
 
     return (
-        <footer className={`flex-none`}>
+        <footer className={`flex-none opacity-75`}>
             <div className={`flex flex-row pt-2 lg:pt-6`}>
                 <div className={`basis-1/6`}></div>
                 <ul className={`flex flex-row basis-4/6 bg-whiteish ${borderStyles} rounded-t-3xl py-2`}>
