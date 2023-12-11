@@ -2,9 +2,10 @@ import {Layout} from "../components/Layout/Layout.tsx";
 import profilePhoto from '../assets/profile.svg';
 import phoneIcon from "../assets/phone.svg";
 import emailIcon from "../assets/email.svg";
-export function Home() {
+import {Pages} from "../types/Pages.ts";
+export function HomePage() {
     return (
-        <Layout page={'Home'}>
+        <Layout page={Pages.Home}>
             <div className={`flex flex-row items-center justify-center space-x-6 h-full opacity-90`}>
                 <img src={profilePhoto} alt={'profile image'} className={`opacity-100`} />
                 <div className={`flex flex-col items-center justify-center bg-whiteish border border-pinkish border-8 rounded-tl-3xl rounded-br-3xl h-[512px] py-12 px-6`}>

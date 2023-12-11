@@ -3,8 +3,8 @@ import arrowRightIcon from "../../assets/icons/arrow-right.svg";
 import {SkillTypes} from "../../types/SkillTypes.ts";
 
 interface PageSelectorProps {
-    currentPage: string;
-    pages: string[];
+    currentPage: SkillTypes;
+    pages: SkillTypes[];
     setCurrentPage: (page: SkillTypes) => void;
 }
 
@@ -30,7 +30,7 @@ export function PageSelector({ currentPage, setCurrentPage, pages }: PageSelecto
     }
 
     return (
-        <div className={`flex flex-row grow-0 h-1/6 items-center justify-around text-2xl font-bold`}>
+        <div className={`grow-0 h-1/6 grid grid-cols-3 justify-items-center items-center text-2xl font-bold`}>
             <div className={``}>
                 <img
                     src={arrowLeftIcon}

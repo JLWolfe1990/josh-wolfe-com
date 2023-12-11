@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css'
 
-import { Home, Skills } from './pages/index';
+import { HomePage, SkillsPage } from './pages/index';
 
 const router = createBrowserRouter([
-    { path: '/', element: <Home /> },
-    { path: '/home', element: <Home /> },
-    { path: '/skills', element: <Skills /> },
+    { path: '/', element: <HomePage /> },
+    { path: '/home', element: <HomePage /> },
+    { path: '/skills', element: <SkillsPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
