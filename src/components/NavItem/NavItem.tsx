@@ -6,7 +6,7 @@ interface NavItemProps {
     active?: boolean;
     external?: boolean;
 }
-export function NavItem({ label, to, active }: NavItemProps) {
+export function NavItem({ label, to, active, external }: NavItemProps) {
     const activeFontStyles = `font-bold text-white hover:text-blackish`;
     const inactiveFontStyles = `font-bold text-blackish hover:text-white`;
     const fontStyles = active ? activeFontStyles : inactiveFontStyles;
@@ -24,7 +24,7 @@ export function NavItem({ label, to, active }: NavItemProps) {
     return (
         <div className={`flex flex-row justify-center items-center h-full pb-2 lg:pb-6`}>
             <div className={`${fontStyles} ${bgStyles} ${borderStyles} ${roundingStyles} ${spacingStyles} ${transitionStyles} ${transparencyStyles}`}>
-                <Link to={to}>{label}</Link>
+                { external ? (<Link rel="noopener noreferrer" target="_blank" to={to}>{label}</Link>) : (<Link to={to}>{label}</Link>) }
             </div>
         </div>
     );
