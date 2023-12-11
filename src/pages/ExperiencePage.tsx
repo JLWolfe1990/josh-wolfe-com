@@ -4,11 +4,7 @@ import {Section} from "../components/Section/Section.tsx";
 import {useState} from "react";
 
 export function ExperiencePage() {
-    const sections = [
-        'svmx',
-        'pattern'
-    ];
-    const [currentSection, setCurrentSection] = useState(sections[0]);
+    const [currentSection, setCurrentSection] = useState('svmx');
     return (
         <Layout page={Pages.Experience} hasPageMargins={true}>
             <div className={`flex flex-col w-full h-full overflow-y-auto space-y-6`}>

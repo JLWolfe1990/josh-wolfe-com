@@ -1,8 +1,8 @@
 interface SectionProps {
     id: string;
     title: string;
-    subtitle: string;
-    date: string;
+    subtitle?: string;
+    date?: string;
     expanded?: boolean;
     children: React.ReactNode;
     onClick: () => void;
@@ -16,7 +16,7 @@ export function Section({id, title, subtitle, date, expanded, children, onClick}
                     <div>{title}</div>
                     <div className={`whitespace-nowrap`}>{date}</div>
                 </div>
-                <div className={`pt-2 text-xl`}>{subtitle}</div>
+                {subtitle && <div className={`pt-2 text-xl`}>{subtitle}</div>}
             </div>
             <div className={`${expanded ? 'visible' : 'hidden'} flex flex-row`}>
                 <div className={`basis-1/12`}></div>
