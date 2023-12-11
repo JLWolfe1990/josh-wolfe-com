@@ -16,7 +16,7 @@ export function Nav({page}: NavProps) {
                         <NavItem active={page === 'Skills'} label={`Skills`} to={`/skills`} />
                     </li>
                     <li className={`grow`}>
-                        <NavItem active={page === 'Experience'} label={`Experience`} to={`/`} />
+                        <NavItem active={page === 'Experience'} label={`Experience`} to={`/experience`} />
                     </li>
                     <li className={`grow`}>
                         <NavItem active={page === 'FAQ'} label={`FAQs`} to={`/`} />
