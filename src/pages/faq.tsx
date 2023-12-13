@@ -89,7 +89,7 @@ export function FaqPage() {
                     key={`strengths`}
                     id={`strengths`}
                     title={`What are your top 3 strengths?`}
-                    expanded={currentSection === 'stengths'}
+                    expanded={currentSection === 'strengths'}
                     onClick={() => setCurrentSection(currentSection === 'strengths' ? '' : 'strengths')}
                 >
                     <ol>
