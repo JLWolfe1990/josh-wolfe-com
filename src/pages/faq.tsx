@@ -250,7 +250,7 @@ export function FaqPage() {
                         <strong>Task:</strong>
                         I needed to find a way to make her feel heard and valued.
                     </p>
-                    <p>
+                    <div>
                         <strong>Action:</strong>
                         <ol>
                             <li>
@@ -265,15 +265,15 @@ export function FaqPage() {
                                 if I notice that she hasn't given her opinion.
                             </li>
                         </ol>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <h3><strong>Result:</strong></h3>
                         After the first 1:1, she felt heard and valued. Her demiener in meetings changed and she was
                         much more engaged. She was also more willing to speak up in meetings. After about 6 weeks of
                         1:1 meetings, we went down to bi-weekly meetings and then eventually stopped them all together.
                         The issue was completely resolved and she still works with me when she stumbles into similar
                         situations on new teams even though neither of us are at that company anymore.
-                    </p>
+                    </div>
                 </Section>
                 <Section
                     key={`leadership`}
@@ -282,7 +282,7 @@ export function FaqPage() {
                     expanded={currentSection === 'leadership'}
                     onClick={() => setCurrentSection(currentSection === 'leadership' ? '' : 'leadership')}
                 >
-                    <p>
+                    <div>
                         <h3><strong>Situation:</strong></h3>
 
                         We were working on fixing a bug for a large customer. The bug was causing the customer to lose
@@ -294,12 +294,12 @@ export function FaqPage() {
                         <br />
                         I personally ended up finding the issue, but the product lead complained about it in the
                         retrospective meeting. I felt like the product lead was correct that we could have done better.
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <h3><strong>Task:</strong></h3>
                         I needed to find a way to prevent this from happening again.
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <h3><strong>Action:</strong></h3>
                         <ol>
                             <li>
@@ -317,8 +317,8 @@ export function FaqPage() {
                                 I documented the 5Ws system to the team and we agreed to use it going forward.
                             </li>
                         </ol>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <h3><strong>Result:</strong></h3>
                         The 5Ws system was used by the team for the remainder of my time at Shop-Ware. It was also used
                         by the team at Hello Alice after I put it in place there.
@@ -326,7 +326,7 @@ export function FaqPage() {
                         That system is particularly helpful because it forces the developers to understand why the bug
                         was designed in the way that it was. This helps to make sure that the original use case is also
                         accounted for in the fix rather than just resolving the reported problem.
-                    </p>
+                    </div>
                 </Section>
             </div>
         </Layout>

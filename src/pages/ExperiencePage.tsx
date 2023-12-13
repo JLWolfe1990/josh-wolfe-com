@@ -38,7 +38,7 @@ export function ExperiencePage() {
                     >
                     <p>Technical Scope: 100% Green Field Development</p>
                     <br/>
-                    <p>
+                    <div>
                         Complete a Ruby on Rails API for managing a Product Catalog. Features included:
                         <ul>
                             <li>Overall project architecture</li>
@@ -46,7 +46,7 @@ export function ExperiencePage() {
                             <li>Bulk upload and download</li>
                             <li>Product searching</li>
                         </ul>
-                    </p>
+                    </div>
                 </Section>
                 <Section
                     key={`dispatchbot`}
@@ -116,7 +116,7 @@ export function ExperiencePage() {
                         Revolutionized bug life cycle management. Proposed developer infrastructure changes to optimize
                         productivity. Collaborated with cross functional teams to successfully deliver features and bug fixes.
                     </p>
-                    <p>
+                    <div>
                         Key Achievements:
                         <ul>
                             <li>
@@ -131,7 +131,7 @@ export function ExperiencePage() {
                                 stakeholders, and deliver reliable features
                             </li>
                         </ul>
-                    </p>
+                    </div>
                 </Section>
                 <Section
                     key={`shopWare`}
@@ -152,7 +152,7 @@ export function ExperiencePage() {
                         operations by quickly troubleshooting error metrics and performance problems. Designed an advanced
                         database architecture using single table inheritance and polymorphic relationships.
                     </p>
-                    <p>
+                    <div>
                         Key Achievements:
                         <ul>
                             <li>
@@ -167,7 +167,7 @@ export function ExperiencePage() {
                                 Built a large-scale architecture refractor with over 250 files and a 150 line data repair migration
                             </li>
                         </ul>
-                    </p>
+                    </div>
                 </Section>
                 <Section
                     key={`accelerateLearning`}
@@ -185,7 +185,7 @@ export function ExperiencePage() {
                         development to support a shared curriculum database model structure. Improved team results utilizing
                         polyglot. Initiated cross department collaboration with multiple development teams.
                     </p>
-                    <p>
+                    <div>
                         Key Achievements:
                         <ul>
                             <li>
@@ -195,7 +195,7 @@ export function ExperiencePage() {
                                 Collaborated with project managers to assess timelines and prioritize features and bugs
                             </li>
                         </ul>
-                    </p>
+                    </div>
                 </Section>
                 <Section
                     key={`erdosMiller`}
@@ -215,7 +215,7 @@ export function ExperiencePage() {
                         monitoring system and damage building module. Developed a real-time AngularJS front-end comprised of
                         instant updates over various web browsers.
                     </p>
-                    <p>
+                    <div>
                         Key Achievements:
                         <ul>
                             <li>
@@ -225,7 +225,7 @@ export function ExperiencePage() {
                                 Sold $1.5 million in add-on software sales from a key client
                             </li>
                         </ul>
-                    </p>
+                    </div>
                 </Section>
                 <Section
                     key={`iberon`}
@@ -244,7 +244,7 @@ export function ExperiencePage() {
                         Launched a call monitoring software based on the FreeSwitch phone subsystem. Maintained remote
                         operations features valued at $2 million.
                     </p>
-                    <p>
+                    <div>
                         Key Achievements:
                         <ul>
                             <li>
@@ -256,7 +256,7 @@ export function ExperiencePage() {
                                 downtime between calls.
                             </li>
                         </ul>
-                    </p>
+                    </div>
                 </Section>
             </div>
         </Layout>
