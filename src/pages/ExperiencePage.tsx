@@ -54,7 +54,7 @@ export function ExperiencePage() {
                     title={`Director of Software Development`}
                     subtitle={`DispatchBot`}
                     date={`01/2021 - 02/2021`}
-                    expanded={currentSection === 'pattern'}
+                    expanded={currentSection === 'dispatchbot'}
                     onClick={() => setCurrentSection(currentSection === 'dispatchbot' ? '' : 'dispatchbot')}
                 >
                     <p>Technical Scope: 90% Development | 10% Management</p>
