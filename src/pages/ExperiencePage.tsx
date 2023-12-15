@@ -7,11 +7,11 @@ export function ExperiencePage() {
     const [currentSection, setCurrentSection] = useState('svmx');
     return (
         <Layout page={Pages.Experience} hasPageMargins={true}>
-            <div className={`flex flex-col w-full h-full overflow-y-auto space-y-6`}>
+            <div className={`flex flex-col w-full h-full overflow-y-auto space-y-4 lg:space-y-6`}>
                 <Section
                     key={`svmx`}
                     id={`svmx`}
-                    title={`Senior Full-Stack Software Engineer`}
+                    title={`Sr. Full-Stack Software Engineer`}
                     subtitle={`ServiceMax by PTC, Inc.`}
                     date={`05/2021 - Present`}
                     expanded={currentSection === 'svmx'}
@@ -30,7 +30,7 @@ export function ExperiencePage() {
                 <Section
                     key={`pattern`}
                     id={`pattern`}
-                    title={`Senior Back-End Software Engineer`}
+                    title={`Sr. Back-End Software Engineer`}
                     subtitle={`Pattern (Contract)`}
                     date={`02/2021 - 05/2021`}
                     expanded={currentSection === 'pattern'}
@@ -77,7 +77,7 @@ export function ExperiencePage() {
                     <br/>
                     <p>
                         Worked in a rapidly growing startup in the midst of rapidly hiring while simultaneously hardening the
-                        product. Mentored mid and senior level developers on best practices, architecture, project management
+                        product. Mentored mid and Sr. level developers on best practices, architecture, project management
                         and leadership skills. Managed all DevOps projects with tools such as Docker, New Relic, Elasticsearch,
                         AWS ECS, AWS ECR, AWS CodePipeline CI/CD, security and more. Contributed highly to backend
                         improvements, versioned RESTful APIs, code reviews and hiring.
@@ -86,13 +86,13 @@ export function ExperiencePage() {
                 <Section
                     key={`hotelEngine`}
                     id={`hotelEngine`}
-                    title={`Senior Software Engineer`}
+                    title={`Sr. Software Engineer`}
                     subtitle={`Hotel Engine`}
                     date={`02/2020 - 03/2020`}
                     expanded={currentSection === 'hotelEngine'}
                     onClick={() => setCurrentSection(currentSection === 'hotelEngine' ? '' : 'hotelEngine')}
                 >
-                    <p>Technical Scope: Senior Ruby on Rails Engineer and Mentor</p>
+                    <p>Technical Scope: Sr. Ruby on Rails Engineer and Mentor</p>
                     <br/>
                     <p>
                         (Laid off from Covid) Worked in an up-and-coming startup in the hospitality space doubling year over year.
@@ -103,7 +103,7 @@ export function ExperiencePage() {
                 <Section
                     key={`coupa`}
                     id={`coupa`}
-                    title={`Senior Software Engineer`}
+                    title={`Sr. Software Engineer`}
                     subtitle={`Coupa`}
                     date={`03/2019 - 01/2020`}
                     expanded={currentSection === 'coupa'}
@@ -136,7 +136,7 @@ export function ExperiencePage() {
                 <Section
                     key={`shopWare`}
                     id={`shopWare`}
-                    title={`Senior Software Engineer`}
+                    title={`Sr. Software Engineer`}
                     subtitle={`Shop-Ware`}
                     date={`03/2016 - 02/2019`}
                     expanded={currentSection === 'shopWare'}
@@ -172,7 +172,7 @@ export function ExperiencePage() {
                 <Section
                     key={`accelerateLearning`}
                     id={`accelerateLearning`}
-                    title={`Senior Software Engineer`}
+                    title={`Sr. Software Engineer`}
                     subtitle={`Accelerate Learning Inc.`}
                     date={`05/2015 - 03/2016`}
                     expanded={currentSection === 'accelerateLearning'}
@@ -200,7 +200,7 @@ export function ExperiencePage() {
                 <Section
                     key={`erdosMiller`}
                     id={`erdosMiller`}
-                    title={`Senior Software Engineer`}
+                    title={`Sr. Software Engineer`}
                     subtitle={`Erdos Miller`}
                     date={`05/2014 - 05/2015`}
                     expanded={currentSection === 'erdosMiller'}
