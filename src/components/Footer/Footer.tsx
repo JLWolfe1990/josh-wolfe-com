@@ -5,9 +5,9 @@ export function Footer() {
 
     return (
         <footer className={`flex-none opacity-75`}>
-            <div className={`flex flex-row pt-2 lg:pt-6`}>
-                <div className={`basis-1/6`}></div>
-                <ul className={`flex flex-row basis-4/6 bg-whiteish ${borderStyles} rounded-t-3xl py-2`}>
+            <div className={`flex flex-row pt-2 px-4 lg:pt-6`}>
+                <div className={`lg:basis-1/6`}></div>
+                <ul className={`flex flex-row lg:basis-4/6 bg-whiteish ${borderStyles} rounded-t-3xl space-x-2 px-4 py-2`}>
                     <li className={`grow`}>
                         <FooterItem icon={"phone"} to={'tel:832-389-1266'} />
                     </li>
@@ -27,7 +27,7 @@ export function Footer() {
                         <FooterItem icon={"medium"} to={"https://josh-wolfe.medium.com/"}/>
                     </li>
                 </ul>
-                <div className={`basis-1/6`}></div>
+                <div className={`lg:basis-1/6`}></div>
             </div>
         </footer>
     );
