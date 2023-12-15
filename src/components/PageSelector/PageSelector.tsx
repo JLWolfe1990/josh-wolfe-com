@@ -30,16 +30,16 @@ export function PageSelector({ currentPage, setCurrentPage, pages }: PageSelecto
     }
 
     return (
-        <div className={`grow-0 h-1/6 grid grid-cols-3 justify-items-center items-center text-2xl font-bold`}>
-            <div className={``}>
+        <div className={`flex grow-0 h-1/6 grid grid-cols-3 lg:justify-items-center items-center text-xl lg:text-2xl font-bold`}>
+            <div className={`flex justify-items-start`}>
                 <img
                     src={arrowLeftIcon}
                     alt={'arrow left icon'}
                     onClick={onClickPreviousPage}
                     className={`${hasPreviousPage() ? 'visible' : 'hidden'}`} />
             </div>
-            <div className={``}>{currentPage}</div>
-            <div className={``}>
+            <div className={`flex justify-center whitespace-nowrap`}>{currentPage}</div>
+            <div className={`flex justify-end`}>
                 <img
                     src={arrowRightIcon}
                     alt={'arrow right icon'}

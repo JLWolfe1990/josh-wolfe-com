@@ -17,12 +17,13 @@ export function SkillsPage() {
         SkillTypes.BusinessAndManagement
     ];
     const [currentPage, setCurrentPage] = useState(SkillTypes.Languages);
+    const headers = ['Name of Skill', 'Proficiency'];
 
     return (
         <Layout key={Pages.Skills} page={Pages.Skills} hasPageMargins={true}>
             <PaginatedContent>
                 <PaginatedBody visible={currentPage === SkillTypes.Languages}>
-                    <ListTable headers={['Name of Skill', 'Beginner | Intermediate | Advanced']}>
+                    <ListTable headers={headers}>
                         <ListTableItem values={
                             {
                                 'Ruby': 'Advanced',
@@ -40,7 +41,7 @@ export function SkillsPage() {
                     </ListTable>
                 </PaginatedBody>
                 <PaginatedBody visible={currentPage === SkillTypes.Frameworks}>
-                    <ListTable headers={['Name of Skill', 'Beginner | Intermediate | Advanced']}>
+                    <ListTable headers={headers}>
                         <ListTableItem values={
                             {
                                 'Ruby on Rails': 'Advanced',
@@ -55,7 +56,7 @@ export function SkillsPage() {
                     </ListTable>
                 </PaginatedBody>
                 <PaginatedBody visible={currentPage === SkillTypes.ParadigmsAndPatterns}>
-                    <ListTable headers={['Name of Skill', 'Beginner | Intermediate | Advanced']}>
+                    <ListTable headers={headers}>
                         <ListTableItem values={
                             {
                                 'Object Oriented Development': 'Advanced',
@@ -73,7 +74,7 @@ export function SkillsPage() {
                     </ListTable>
                 </PaginatedBody>
                 <PaginatedBody visible={currentPage === SkillTypes.DevOps}>
-                    <ListTable headers={['Name of Skill', 'Beginner | Intermediate | Advanced']}>
+                    <ListTable headers={headers}>
                         <ListTableItem values={
                             {
                                 'Git': 'Advanced',
@@ -95,7 +96,7 @@ export function SkillsPage() {
                     </ListTable>
                 </PaginatedBody>
                 <PaginatedBody visible={currentPage === SkillTypes.BusinessAndManagement}>
-                    <ListTable headers={['Name of Skill', 'Beginner | Intermediate | Advanced']}>
+                    <ListTable headers={headers}>
                         <ListTableItem values={
                             {
                                 'Figma': 'Advanced',
