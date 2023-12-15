@@ -13,13 +13,13 @@ export function Layout({page, children, hasPageMargins}: LayoutProps) {
             <main className={`flex-1 overflow-y-auto`}>
                 { hasPageMargins ? (
                     <div className={`flex flex-row w-full h-full max-h-full opacity-75`}>
-                        <div className={`basis-1/6`}></div>
-                        <div className={`basis-4/6`}>
-                            {hasPageMargins ? <div className={`basis-1/6`}></div> : null}
+                        <div className={`lg:basis-1/6`}></div>
+                        <div className={`p-4 w-full lg:basis-4/6`}>
+                            {hasPageMargins ? <div className={`lg:basis-1/6`}></div> : null}
                             {children}
-                            {hasPageMargins ? <div className={`basis-1/6`}></div> : null}
+                            {hasPageMargins ? <div className={`lg:basis-1/6`}></div> : null}
                         </div>
-                        <div className={`basis-1/6`}></div>
+                        <div className={`lg:basis-1/6`}></div>
                     </div>
                 )
                 :

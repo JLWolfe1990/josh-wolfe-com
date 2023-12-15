@@ -15,7 +15,7 @@ test('can navigate to all of the pages', async ({ page }) => {
 
   // can navigate to experience and the first list item is expanded
   await page.getByRole('link', { name: 'Experience' }).click();
-  await expect(page.getByText('Senior Full-Stack Software')).toBeVisible();
+  await expect(page.getByText('Sr. Full-Stack Software')).toBeVisible();
   await expect(page.getByText('Technical Scope: 100% Development')).toBeVisible();
 
   // can navigate to FAQs
