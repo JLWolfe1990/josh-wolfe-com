@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Josh Wolfe - Palette Options</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #1a1a1a; color: white; padding: 40px; }
+    h1 { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+    .palettes { display: flex; flex-direction: column; gap: 60px; max-width: 1200px; margin: 0 auto; }
+    .palette { background: #2a2a2a; border-radius: 16px; padding: 30px; }
+    .palette h2 { margin-bottom: 8px; }
+    .palette p { color: #888; margin-bottom: 20px; font-size: 0.9rem; }
+    .colors { display: flex; gap: 12px; margin-bottom: 24px; }
+    .color { width: 80px; height: 80px; border-radius: 12px; display: flex; align-items: end; justify-content: center; padding-bottom: 8px; font-size: 0.7rem; font-weight: 600; }
+    .preview { display: grid; grid-template-columns: 200px 1fr; gap: 30px; align-items: center; }
+    .preview img { width: 200px; height: 200px; object-fit: cover; border-radius: 12px; }
+    .preview-text h3 { font-size: 1.5rem; margin-bottom: 8px; }
+    .preview-text .tagline { font-size: 1rem; margin-bottom: 16px; }
+    .preview-text .btn { display: inline-block; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; margin-right: 12px; }
+    
+    /* Palette 1: Midnight Professional */
+    .p1 { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+    .p1 .c1 { background: #0f172a; color: #94a3b8; }
+    .p1 .c2 { background: #1e40af; color: white; }
+    .p1 .c3 { background: #3b82f6; color: white; }
+    .p1 .c4 { background: #93c5fd; color: #0f172a; }
+    .p1 .c5 { background: #f8fafc; color: #0f172a; }
+    .p1 .preview-text h3 { color: #f8fafc; }
+    .p1 .preview-text .tagline { color: #93c5fd; }
+    .p1 .btn-primary { background: #3b82f6; color: white; }
+    .p1 .btn-secondary { background: transparent; border: 2px solid #3b82f6; color: #3b82f6; }
+
+    /* Palette 2: Warm Navy */
+    .p2 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+    .p2 .c1 { background: #1a1a2e; color: #a5b4c4; }
+    .p2 .c2 { background: #0f3460; color: white; }
+    .p2 .c3 { background: #e94560; color: white; }
+    .p2 .c4 { background: #f39c12; color: #1a1a2e; }
+    .p2 .c5 { background: #f5f5f5; color: #1a1a2e; }
+    .p2 .preview-text h3 { color: #f5f5f5; }
+    .p2 .preview-text .tagline { color: #e94560; }
+    .p2 .btn-primary { background: #e94560; color: white; }
+    .p2 .btn-secondary { background: transparent; border: 2px solid #f39c12; color: #f39c12; }
+
+    /* Palette 3: Modern Minimal */
+    .p3 { background: linear-gradient(135deg, #09090b 0%, #18181b 100%); }
+    .p3 .c1 { background: #09090b; color: #a1a1aa; }
+    .p3 .c2 { background: #27272a; color: white; }
+    .p3 .c3 { background: #6366f1; color: white; }
+    .p3 .c4 { background: #22d3ee; color: #09090b; }
+    .p3 .c5 { background: #fafafa; color: #09090b; }
+    .p3 .preview-text h3 { color: #fafafa; }
+    .p3 .preview-text .tagline { color: #22d3ee; }
+    .p3 .btn-primary { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; }
+    .p3 .btn-secondary { background: transparent; border: 2px solid #22d3ee; color: #22d3ee; }
+
+    /* Palette 4: Texas Bold */
+    .p4 { background: linear-gradient(135deg, #0c0c0c 0%, #1c1c1c 100%); }
+    .p4 .c1 { background: #0c0c0c; color: #9ca3af; }
+    .p4 .c2 { background: #292524; color: white; }
+    .p4 .c3 { background: #dc2626; color: white; }
+    .p4 .c4 { background: #fbbf24; color: #0c0c0c; }
+    .p4 .c5 { background: #f5f5f4; color: #0c0c0c; }
+    .p4 .preview-text h3 { color: #f5f5f4; }
+    .p4 .preview-text .tagline { color: #fbbf24; }
+    .p4 .btn-primary { background: #dc2626; color: white; }
+    .p4 .btn-secondary { background: transparent; border: 2px solid #fbbf24; color: #fbbf24; }
+  </style>
+</head>
+<body>
+  <h1>🎨 Josh Wolfe - Color Palette Options</h1>
+  
+  <div class="palettes">
+    
+    <!-- Palette 1 -->
+    <div class="palette p1">
+      <h2>1. Midnight Professional</h2>
+      <p>Clean, trustworthy, enterprise-friendly. The "hire me as your fractional CTO" look.</p>
+      <div class="colors">
+        <div class="color c1">Slate 900</div>
+        <div class="color c2">Blue 800</div>
+        <div class="color c3">Blue 500</div>
+        <div class="color c4">Blue 200</div>
+        <div class="color c5">Slate 50</div>
+      </div>
+      <div class="preview">
+        <img src="src/assets/photos/josh-headshot-400.jpg" alt="Josh">
+        <div class="preview-text">
+          <h3>Josh Wolfe</h3>
+          <div class="tagline">Fractional CTO • AI Automation • Rapid Development</div>
+          <a href="#" class="btn btn-primary">Book a Call</a>
+          <a href="#" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette 2 -->
+    <div class="palette p2">
+      <h2>2. Warm Navy + Pop</h2>
+      <p>Professional base with energetic accents. Says "I'm serious but not boring."</p>
+      <div class="colors">
+        <div class="color c1">Navy Dark</div>
+        <div class="color c2">Navy</div>
+        <div class="color c3">Coral</div>
+        <div class="color c4">Gold</div>
+        <div class="color c5">Off White</div>
+      </div>
+      <div class="preview">
+        <img src="src/assets/photos/josh-headshot-400.jpg" alt="Josh">
+        <div class="preview-text">
+          <h3>Josh Wolfe</h3>
+          <div class="tagline">Fractional CTO • AI Automation • Rapid Development</div>
+          <a href="#" class="btn btn-primary">Book a Call</a>
+          <a href="#" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette 3 -->
+    <div class="palette p3">
+      <h2>3. Modern Minimal (Tech Forward)</h2>
+      <p>Dark mode default, gradient accents. The "I build AI agents" aesthetic.</p>
+      <div class="colors">
+        <div class="color c1">Zinc 950</div>
+        <div class="color c2">Zinc 800</div>
+        <div class="color c3">Indigo</div>
+        <div class="color c4">Cyan</div>
+        <div class="color c5">Zinc 50</div>
+      </div>
+      <div class="preview">
+        <img src="src/assets/photos/josh-headshot-400.jpg" alt="Josh">
+        <div class="preview-text">
+          <h3>Josh Wolfe</h3>
+          <div class="tagline">Fractional CTO • AI Automation • Rapid Development</div>
+          <a href="#" class="btn btn-primary">Book a Call</a>
+          <a href="#" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette 4 -->
+    <div class="palette p4">
+      <h2>4. Texas Bold 🤠</h2>
+      <p>Nod to the Rodeo. Red + gold on black. Bold, confident, Houston pride.</p>
+      <div class="colors">
+        <div class="color c1">Stone 950</div>
+        <div class="color c2">Stone 800</div>
+        <div class="color c3">Red 600</div>
+        <div class="color c4">Amber 400</div>
+        <div class="color c5">Stone 50</div>
+      </div>
+      <div class="preview">
+        <img src="src/assets/photos/josh-headshot-400.jpg" alt="Josh">
+        <div class="preview-text">
+          <h3>Josh Wolfe</h3>
+          <div class="tagline">Fractional CTO • AI Automation • Rapid Development</div>
+          <a href="#" class="btn btn-primary">Book a Call</a>
+          <a href="#" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
