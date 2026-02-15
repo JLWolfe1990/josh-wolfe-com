@@ -76,9 +76,9 @@ export function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden overflow-hidden"
+              className="md:hidden overflow-hidden absolute top-16 left-0 right-0 bg-navy-950/95 backdrop-blur-lg border-b border-navy-800"
             >
-              <div className="py-4 space-y-4 border-t border-navy-800">
+              <div className="py-4 space-y-4 px-4 sm:px-6 lg:px-8">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
