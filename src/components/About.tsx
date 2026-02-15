@@ -104,7 +104,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.01 }}
               transition={{ delay: 0.3 }}
-              className="grid grid-cols-2 gap-4 mt-8"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8"
             >
               {highlights.map((item) => (
                 <div key={item.label} className="flex items-center gap-4 p-4 bg-navy-900/50 rounded-lg border border-navy-800">
