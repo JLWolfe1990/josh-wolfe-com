@@ -77,12 +77,15 @@ export function Hero() {
             className="order-1 lg:order-2 flex justify-center lg:justify-end"
           >
             <div className="relative">
+              {/* Decorative teal ring */}
+              <div className="absolute -inset-3 bg-gradient-to-tr from-teal-600/30 to-teal-400/10 rounded-full blur-sm" />
+              
               <picture>
                 <source srcSet={headshotWebp} type="image/webp" />
                 <img
                   src={headshotJpg}
                   alt="Josh Wolfe"
-                  className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-cover rounded-2xl shadow-2xl shadow-navy-950/50"
+                  className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-2xl shadow-navy-950/50"
                 />
               </picture>
               
