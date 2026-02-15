@@ -117,15 +117,16 @@ export function Projects() {
               className={`group relative overflow-hidden rounded-xl border ${project.borderColor} bg-gradient-to-br ${project.color} p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-navy-950/50`}
             >
               <div className="flex items-start justify-between mb-4">
-                <div className="w-10 h-10 bg-navy-800/50 rounded-lg flex items-center justify-center">
-                  <project.icon className="w-5 h-5 text-white" />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-navy-800/50 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <project.icon className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white group-hover:text-teal-400 transition-colors">
+                    {project.name}
+                  </h3>
                 </div>
-                <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-teal-400 transition-colors" />
+                <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-teal-400 transition-colors flex-shrink-0" />
               </div>
-              
-              <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-teal-400 transition-colors">
-                {project.name}
-              </h3>
               <p className="text-slate-400 leading-relaxed">
                 {project.description}
               </p>
