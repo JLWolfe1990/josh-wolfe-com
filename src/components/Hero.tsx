@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Calendar } from 'lucide-react'
-import headshotWebp from '../assets/photos/josh-headshot-800.webp'
-import headshotJpg from '../assets/photos/josh-headshot-800.jpg'
+import headshotWebp from '../assets/photos/josh-headshot-800-alpha.webp'
+import headshotPng from '../assets/photos/josh-headshot-800.png'
 
 export function Hero() {
   return (
@@ -83,7 +83,7 @@ export function Hero() {
               <picture>
                 <source srcSet={headshotWebp} type="image/webp" />
                 <img
-                  src={headshotJpg}
+                  src={headshotPng}
                   alt="Josh Wolfe"
                   className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-2xl shadow-navy-950/50"
                 />
