@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { href: '#services', label: 'Services' },
+  { href: '#services', label: 'Work' },
   { href: '#about', label: 'About' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#connect', label: 'Connect' },
+  { href: '/blog', label: 'Blog' },
 ]
 
 export function Header() {
@@ -25,16 +23,16 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-navy-950/90 backdrop-blur-md border-b border-navy-800'
-          : 'bg-transparent'
+          ? 'bg-navy-950/92 backdrop-blur-md border-b border-white/10'
+          : 'bg-navy-950/75 backdrop-blur-sm'
       }`}
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
-          <a href="#" className="flex items-center space-x-2">
-            <span className="font-display text-xl md:text-2xl font-semibold text-white">
-              Josh Wolfe
+          <a href="/" className="flex items-center space-x-2">
+            <span className="font-display text-base md:text-lg font-extrabold text-teal-400 tracking-tight">
+              Josh Wolfe, M.B.A.
             </span>
           </a>
 
@@ -43,19 +41,17 @@ export function Header() {
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
-                className="text-slate-300 hover:text-teal-400 transition-colors duration-200 font-medium"
+                href={link.href.startsWith('#') && window.location.pathname !== '/' ? `/${link.href}` : link.href}
+                className="relative text-xs font-semibold text-slate-200 hover:text-teal-400 transition-colors duration-200"
               >
                 {link.label}
               </a>
             ))}
             <a
-              href="https://cal.com/joshwolfe"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
+              href={window.location.pathname !== '/' ? '/#connect' : '#connect'}
+              className="btn-primary !px-5 !py-2 !text-xs"
             >
-              Free Consultation
+              Contact
             </a>
           </div>
 
@@ -70,38 +66,29 @@ export function Header() {
         </div>
 
         {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden overflow-hidden absolute top-16 left-0 right-0 bg-navy-950/95 backdrop-blur-lg border-b border-navy-800"
-            >
-              <div className="py-4 space-y-4 px-4 sm:px-6 lg:px-8">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="block text-slate-300 hover:text-teal-400 transition-colors duration-200 font-medium py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                ))}
+        {isMobileMenuOpen && (
+          <div className="absolute left-0 right-0 top-14 overflow-hidden border-b border-white/10 bg-navy-950/95 backdrop-blur-lg md:hidden">
+            <div className="space-y-4 px-4 py-4 sm:px-6 lg:px-8">
+              {navLinks.map((link) => (
                 <a
-                  href="https://cal.com/joshwolfe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary w-full text-center mt-4"
+                  key={link.href}
+                  href={link.href.startsWith('#') && window.location.pathname !== '/' ? `/${link.href}` : link.href}
+                  className="block py-2 font-medium text-slate-300 transition-colors duration-200 hover:text-teal-400"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Free Consultation
+                  {link.label}
                 </a>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              ))}
+              <a
+                href={window.location.pathname !== '/' ? '/#connect' : '#connect'}
+                className="btn-primary w-full justify-center text-center"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
     </header>
   )

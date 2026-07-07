@@ -1,0 +1,41 @@
+# Josh Wolfe
+
+> Josh Wolfe is an AI-native lead full-stack engineer focused on production software systems, AI-assisted engineering workflows, automation, platform rescue work, and forward-deployed technical delivery.
+
+## Core Pages
+
+- [Home](https://josh-wolfe.com/) - AI-native engineering, services, portfolio, and contact.
+- [Field Notes](https://josh-wolfe.com/blog) - Technical writing on AI-assisted software development, production systems, automation, and delivery.
+- [Your Business Probably Needs a System, Not Just a Website](https://josh-wolfe.com/blog/business-system-not-just-website) - Practical guide to small business automation, lead follow-up systems, and website-connected workflows.
+- [Where AI Actually Helps in a Real Business Workflow](https://josh-wolfe.com/blog/ai-real-business-workflow) - Practical guide to AI workflow automation, human-in-the-loop approval, and safe AI business automation.
+- [The Production Checklist I Want Before Anything Goes Live](https://josh-wolfe.com/blog/production-readiness-checklist) - Practical production readiness checklist for software launches, deployment safety, rollback planning, and post-launch monitoring.
+- [How to Turn a Manual Workflow Into an Internal Tool](https://josh-wolfe.com/blog/manual-workflow-internal-tool) - Practical guide to internal tool development, custom business software, workflow automation, and operations visibility.
+- [How I Scope a Custom Software Project Before Writing Code](https://josh-wolfe.com/blog/custom-software-project-scope) - Practical software discovery and technical scoping process for custom software, MVP scope, risks, and first-release planning.
+- [What a Good Software Handoff Looks Like](https://josh-wolfe.com/blog/software-handoff-checklist) - Practical software handoff checklist for developer transitions, production operations, documentation, runbooks, and ownership.
+- [How I Use AI to Ship Software Without Letting It Get Sloppy](https://josh-wolfe.com/blog/ai-assisted-software-development-workflow) - Practical AI software development workflow with planning, review, testing, and deployment discipline.
+- [What I Do When a Software Project Is Stuck](https://josh-wolfe.com/blog/production-rescue-playbook) - Practical software project rescue playbook for stalled projects, technical recovery, production risk, and delivery sequencing.
+
+## Primary Topics
+
+- AI-assisted software engineering
+- AI software development workflow
+- AI implementation consulting
+- Production software delivery
+- Production readiness checklist
+- Software launch checklist
+- Production deployment checklist
+- Small business automation systems
+- Business website automation
+- Lead follow-up automation
+- Internal tool development
+- Custom business software
+- Manual workflow automation
+- Custom software project scope
+- Software discovery process
+- Technical scoping
+- Software handoff checklist
+- Developer handoff
+- Production handoff
+- AI workflow automation
+- Human-in-the-loop AI
+- Technical project rescue

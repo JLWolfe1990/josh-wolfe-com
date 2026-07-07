@@ -1,66 +1,33 @@
 import { motion } from 'framer-motion'
-import { Briefcase, GraduationCap, Heart, MapPin } from 'lucide-react'
-
-const highlights = [
-  {
-    icon: Briefcase,
-    label: 'Experience',
-    value: '12+ Years',
-    detail: 'Building enterprise software',
-  },
-  {
-    icon: GraduationCap,
-    label: 'Education',
-    value: 'M.B.A.',
-    detail: 'IT Administration',
-  },
-  {
-    icon: MapPin,
-    label: 'Based in',
-    value: 'Katy',
-    detail: 'Texas',
-  },
-  {
-    icon: Heart,
-    label: 'Volunteer',
-    value: 'HLSR',
-    detail: 'IT Committee',
-  },
-]
 
 const experience = [
-  { company: 'ServiceMax by PTC', role: 'Senior Full-Stack Software Engineer', period: '2021 – Present' },
-  { company: 'Hello Alice', role: 'Tech Lead', period: '2020 – 2021' },
-  { company: 'Coupa Software', role: 'Senior Software Engineer', period: '2019 – 2020' },
-  { company: 'Shop-Ware', role: 'Senior Software Engineer', period: '2016 – 2019' },
+  { company: 'ServiceMax / PTC', role: 'Senior Full-Stack Engineer / Tech Lead', period: '2021 – Present' },
+  { company: 'WFSBS / J³ Enterprises', role: 'Founder & Principal Engineer', period: '2016 – Present' },
+  { company: 'Hello Alice', role: 'Tech Lead', period: '2020' },
+  { company: 'Coupa / Shop-Ware / Pattern', role: 'Senior Engineer across growth-stage SaaS', period: '2016 – 2021' },
 ]
 
 const skills = [
-  'System Architecture', 'U/X', 'Agentic Coding', 'Generative AI',
-  'Agile Expert', 'AWS DevOps', 'Ruby on Rails Expert'
+  'Claude Code', 'OpenSpec', 'MCP', 'RAG & Embeddings', 'LangGraph',
+  'React 19', 'Ruby on Rails', 'AWS / EKS', 'Kubernetes', 'Playwright'
 ]
 
 export function About() {
   return (
-    <section id="about" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-navy-950" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-navy-700 to-transparent" />
-      
-      {/* Subtle glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal-600/5 rounded-full blur-[150px]" />
+    <section id="about" className="relative overflow-hidden bg-[#101010] py-20 md:py-28">
+      <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
+      <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 bg-teal-500/10 blur-[130px]" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Column - Story */}
+        <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <motion.span
               initial={{ opacity: 1, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.01 }}
-              className="inline-block text-teal-400 font-medium mb-4"
+              className="eyebrow mb-4 inline-block"
             >
-              About Me
+              Experience & Skills
             </motion.span>
             
             <motion.h2
@@ -68,112 +35,65 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.01 }}
               transition={{ delay: 0.1 }}
-              className="section-heading mb-6"
+              className="section-heading max-w-3xl"
             >
-              Building software that moves the needle
+              A decade plus of shipping products at scale.
             </motion.h2>
-            
-            <motion.div
-              initial={{ opacity: 1, y: 0 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.01 }}
-              transition={{ delay: 0.2 }}
-              className="space-y-4 text-slate-400 leading-relaxed"
-            >
-              <p>
-                I'm a software engineer and technical leader who's spent over a decade 
-                turning complex problems into shipped products. From early-stage startups 
-                to enterprise giants, I've built systems that serve millions and led teams 
-                that deliver.
-              </p>
-              <p>
-                My approach is simple: understand the business problem first, then build 
-                the simplest solution that solves it. I'm not here to over-engineer. I'm 
-                here to ship.
-              </p>
-              <p>
-                When I'm not coding, you'll find me volunteering with the Houston Livestock 
-                Show and Rodeo IT Committee, mentoring other developers, or exploring the 
-                latest in AI and automation.
-              </p>
-            </motion.div>
-
-            {/* Highlights */}
-            <motion.div
-              initial={{ opacity: 1, y: 0 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.01 }}
-              transition={{ delay: 0.3 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8"
-            >
-              {highlights.map((item) => (
-                <div key={item.label} className="flex items-center gap-4 p-4 bg-navy-900/50 rounded-lg border border-navy-800">
-                  <div className="w-12 h-12 bg-teal-600/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-6 h-6 text-teal-400" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-lg font-semibold text-white">{item.value}</div>
-                    <div className="text-sm text-slate-500">{item.detail}</div>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-300">
+              Enterprise platforms, founder-led ventures, AI workflow systems, and the connective work between customers, product, and engineering.
+            </p>
           </div>
 
-          {/* Right Column - Experience & Skills */}
-          <div className="space-y-8">
-            {/* Experience */}
-            <motion.div
-              initial={{ opacity: 1, y: 0 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.01 }}
-              transition={{ delay: 0.2 }}
-            >
-              <h3 className="text-lg font-semibold text-white mb-4">Recent Experience</h3>
-              <div className="space-y-4">
-                {experience.map((job, index) => (
-                  <motion.div
-                    key={job.company}
-                    initial={{ opacity: 1, x: 0 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.01 }}
-                    transition={{ delay: 0.1 * index }}
-                    className="flex items-start gap-4 p-4 bg-navy-900/30 rounded-lg border border-navy-800/50"
-                  >
-                    <div className="w-2 h-2 mt-2 bg-teal-400 rounded-full flex-shrink-0" />
-                    <div className="flex-1">
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <div className="font-medium text-white">{job.role}</div>
-                          <div className="text-slate-400">{job.company}</div>
-                        </div>
-                        <div className="text-sm text-slate-500">{job.period}</div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+          <div className="flex flex-wrap gap-4 font-mono text-xs font-bold uppercase tracking-wider">
+            <span className="text-teal-400">12+ Years Experience</span>
+            <span className="text-slate-300">Full-Stack</span>
+            <span className="text-slate-300">AI Systems</span>
+          </div>
+        </div>
 
-            {/* Skills */}
-            <motion.div
-              initial={{ opacity: 1, y: 0 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.01 }}
-              transition={{ delay: 0.4 }}
-            >
-              <h3 className="text-lg font-semibold text-white mb-4">Core Skills</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 bg-navy-800/50 border border-navy-700 rounded-full text-sm text-slate-300"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
+        <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr]">
+          <div className="relative">
+            <div className="absolute left-5 top-10 bottom-10 z-0 hidden w-px bg-gradient-to-b from-teal-400 via-[#007bff] to-white/20 md:block" />
+            <div className="space-y-5">
+              {experience.map((job) => (
+                <motion.div
+                  key={job.company}
+                  initial={{ opacity: 1, x: 0 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.01 }}
+                  className="relative z-10 rounded-lg border border-white/10 bg-navy-900/75 p-5 md:ml-12"
+                >
+                  <div className="absolute -left-12 top-5 hidden h-10 w-10 rounded-full border border-teal-400 bg-navy-950 shadow-[0_0_24px_rgba(162,255,51,0.28)] md:block" />
+                  <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                    <div>
+                      <h3 className="font-display text-lg font-extrabold text-white">{job.role}</h3>
+                      <p className="text-sm text-slate-300">{job.company}</p>
+                    </div>
+                    <p className="font-mono text-xs font-bold uppercase tracking-wider text-teal-400">{job.period}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div className="artifact-card p-6">
+            <p className="eyebrow mb-5">Current Stack</p>
+            <div className="flex flex-wrap gap-2">
+              {skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-[0.68rem] font-semibold uppercase tracking-wide text-slate-200"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+            <div className="terminal-visual mt-7">
+              <pre>{`role: lead engineer
+mode: customer-facing
+strength: ambiguous systems
+output: production software`}</pre>
+            </div>
           </div>
         </div>
       </div>

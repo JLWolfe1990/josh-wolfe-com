@@ -7,20 +7,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Deep Navy + Teal Palette
         navy: {
-          950: '#0a0f1a',
-          900: '#0f1729',
-          800: '#1e293b',
-          700: '#334155',
-          600: '#475569',
+          950: '#121212',
+          900: '#1d1d1d',
+          800: '#242424',
+          700: '#3a3a3a',
+          600: '#555555',
         },
         teal: {
-          700: '#0f766e',
-          600: '#0d9488',
-          500: '#14b8a6',
-          400: '#2dd4bf',
-          300: '#5eead4',
+          700: '#58b500',
+          600: '#72e600',
+          500: '#8fff1f',
+          400: '#a2ff33',
+          300: '#d7ffab',
         },
         slate: {
           50: '#f8fafc',
@@ -33,7 +32,8 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Playfair Display', 'Georgia', 'serif'],
+        display: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',

@@ -1,141 +1,94 @@
-import { motion } from 'framer-motion'
-import { ExternalLink, Building2, Gamepad2, Users, Briefcase, Sparkles } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
+import allwinLogo from '../assets/brands/allwin-logo.png'
+import bizBuzzBee from '../assets/brands/bizbuzz-bee.png'
+import j3Logo from '../assets/brands/j3-logo.webp'
 
 const projects = [
   {
     name: 'J³ Enterprises',
-    description: 'My software consultancy. Enterprise solutions, AI automation, and technical leadership.',
+    label: 'Venture Studio',
+    description: 'AI product ventures and technical partnership work for production systems, automation, and customer-facing platforms.',
     url: 'https://j3-enterprises.com',
-    icon: Building2,
-    color: 'from-blue-600/20 to-blue-400/10',
-    borderColor: 'border-blue-600/30',
+    visual: 'j3',
   },
   {
-    name: 'Cards After Dark',
-    description: 'A party card game bringing friends together through laughter and unforgettable moments.',
-    url: 'https://cards-after-dark.com',
-    icon: Gamepad2,
-    color: 'from-purple-600/20 to-purple-400/10',
-    borderColor: 'border-purple-600/30',
-  },
-  {
-    name: 'Co-Pals',
-    description: 'Building stronger workplace connections through intelligent matching and engagement tools.',
-    url: 'https://co-pals.com',
-    icon: Users,
-    color: 'from-green-600/20 to-green-400/10',
-    borderColor: 'border-green-600/30',
+    name: 'Allwin Windows',
+    label: 'Embedded Delivery',
+    description: 'SEO/AEO platform, Cloudflare edge pipeline, OpenClaw agents, and Google Workspace migration for a real operating business.',
+    url: 'https://allwinwindows.com',
+    visual: 'allwin',
   },
   {
     name: 'BizBuzz',
-    description: 'Streamlining business operations with smart automation and workflow optimization.',
+    label: 'AI Newsletter SaaS',
+    description: 'Newsletter automation for relationship-led businesses, with AI-assisted review, scheduling, and customer-safe delivery.',
     url: 'https://bizbuzzapp.com',
-    icon: Briefcase,
-    color: 'from-amber-600/20 to-amber-400/10',
-    borderColor: 'border-amber-600/30',
-  },
-  {
-    name: 'Jamie Wolfe',
-    description: 'My wife\'s professional site. Because family comes first, and good design matters.',
-    url: 'https://jamie-wolfe.com',
-    icon: Sparkles,
-    color: 'from-pink-600/20 to-pink-400/10',
-    borderColor: 'border-pink-600/30',
+    visual: 'bizbuzz',
   },
 ]
 
-const containerVariants = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-}
+function ProjectVisual({ type }: { type: string }) {
+  if (type === 'allwin') {
+    return (
+      <div className="brand-card-outline project-card-art brand-card-outline--allwin">
+        <img src={allwinLogo} alt="" className="brand-card-image brand-card-image--wide" />
+      </div>
+    )
+  }
 
-const itemVariants = {
-  hidden: { opacity: 1, y: 0 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4 },
-  },
+  if (type === 'bizbuzz') {
+    return (
+      <div className="brand-card-outline project-card-art brand-card-outline--bizbuzz">
+        <img src={bizBuzzBee} alt="" className="brand-card-image brand-card-image--bee floating-brand-image" />
+      </div>
+    )
+  }
+
+  return (
+    <div className="brand-card-outline project-card-art brand-card-outline--j3">
+      <img src={j3Logo} alt="" className="brand-card-image brand-card-image--mark" />
+    </div>
+  )
 }
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 md:py-32 relative">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-navy-700 to-transparent" />
+    <section id="projects" className="relative overflow-hidden bg-navy-950 py-20 md:py-28">
+      <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
+      <div className="absolute left-0 top-20 h-80 w-80 bg-[#007bff]/10 blur-[130px]" />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <motion.span
-            initial={{ opacity: 1, y: 0 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.01 }}
-            className="inline-block text-teal-400 font-medium mb-4"
-          >
-            Portfolio
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 1, y: 0 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.01 }}
-            transition={{ delay: 0.1 }}
-            className="section-heading mb-4"
-          >
-            Things I've Built
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 1, y: 0 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.01 }}
-            transition={{ delay: 0.2 }}
-            className="section-subheading mx-auto"
-          >
-            From my consultancy to side projects, here's what I've been working on.
-          </motion.p>
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 max-w-3xl">
+          <p className="eyebrow mb-4">Portfolio</p>
+          <h2 className="section-heading">Owned ventures and client systems.</h2>
+          <p className="section-subheading mt-4">
+            The work spans enterprise delivery, product ownership, marketing infrastructure, AI workflows, and production operations.
+          </p>
         </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.01 }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <div className="grid gap-5 md:grid-cols-3">
           {projects.map((project) => (
-            <motion.a
+            <a
               key={project.name}
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              variants={itemVariants}
-              className={`group relative overflow-hidden rounded-xl border ${project.borderColor} bg-gradient-to-br ${project.color} p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-navy-950/50`}
+              className="artifact-card group flex min-h-[29rem] flex-col p-5"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-navy-800/50 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <project.icon className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white group-hover:text-teal-400 transition-colors">
-                    {project.name}
-                  </h3>
-                </div>
-                <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-teal-400 transition-colors flex-shrink-0" />
+              <ProjectVisual type={project.visual} />
+              <div className="mt-6 flex flex-1 flex-col">
+                <p className="eyebrow mb-3">{project.label}</p>
+                <h3 className="font-display text-2xl font-extrabold text-white group-hover:text-teal-400">
+                  {project.name}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300">{project.description}</p>
+                <span className="mt-auto inline-flex items-center whitespace-nowrap pt-6 font-mono text-xs font-bold uppercase tracking-wider text-teal-400">
+                  View company website <ArrowUpRight className="ml-2 h-4 w-4" />
+                </span>
               </div>
-              <p className="text-slate-400 leading-relaxed">
-                {project.description}
-              </p>
-              
-              {/* Hover glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-600/0 to-teal-600/0 group-hover:from-teal-600/5 group-hover:to-transparent transition-all duration-300" />
-            </motion.a>
+            </a>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )
