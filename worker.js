@@ -1,5 +1,6 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
+const DEPLOY_VERSION = '20260707-ca6ba2c';
 const BREVO_CONTACTS_URL = 'https://api.brevo.com/v3/contacts';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
 const SUBSCRIBE_MAX_PER_WINDOW = 5;
@@ -146,7 +147,7 @@ async function handleRequest(request) {
     path = '/index.html';
   }
 
-  const civoUrl = CIVO_BASE + path;
+  const civoUrl = `${CIVO_BASE}${path}?v=${DEPLOY_VERSION}`;
 
   try {
     const response = await fetch(civoUrl, {
