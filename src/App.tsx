@@ -11,7 +11,7 @@ const About = lazy(() => import('./components/About').then((module) => ({ defaul
 const Projects = lazy(() => import('./components/Projects').then((module) => ({ default: module.Projects })))
 const Connect = lazy(() => import('./components/Connect').then((module) => ({ default: module.Connect })))
 
-const siteUrl = 'https://josh-wolfe.com'
+const siteUrl = 'https://www.josh-wolfe.com'
 
 function upsertMeta(attribute: 'name' | 'property', key: string, content: string) {
   let tag = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`)
@@ -65,6 +65,8 @@ function setDefaultMeta() {
   upsertMeta('property', 'og:url', siteUrl)
   upsertMeta('property', 'og:image', `${siteUrl}/og-image.jpg`)
   upsertMeta('name', 'twitter:card', 'summary_large_image')
+  upsertMeta('name', 'twitter:title', title)
+  upsertMeta('name', 'twitter:description', description)
   upsertMeta('name', 'twitter:image', `${siteUrl}/og-image.jpg`)
   setCanonical(siteUrl)
   removeJsonLd('blog-post-schema')
@@ -83,6 +85,13 @@ function setBlogIndexMeta() {
   upsertMeta('property', 'og:description', description)
   upsertMeta('property', 'og:type', 'website')
   upsertMeta('property', 'og:url', `${siteUrl}/blog`)
+  upsertMeta('property', 'og:image', `${siteUrl}/blog/social-card.jpg`)
+  upsertMeta('property', 'og:image:width', '1200')
+  upsertMeta('property', 'og:image:height', '630')
+  upsertMeta('name', 'twitter:card', 'summary_large_image')
+  upsertMeta('name', 'twitter:title', title)
+  upsertMeta('name', 'twitter:description', description)
+  upsertMeta('name', 'twitter:image', `${siteUrl}/blog/social-card.jpg`)
   setCanonical(`${siteUrl}/blog`)
   removeJsonLd('blog-post-schema')
   removeJsonLd('blog-faq-schema')
@@ -97,7 +106,7 @@ function setBlogPostMeta(slug: string) {
   }
 
   const url = `${siteUrl}/blog/${post.slug}`
-  const image = post.image ? `${siteUrl}${post.image}` : `${siteUrl}/og-image.jpg`
+  const image = `${siteUrl}/blog/${post.slug === 'ai-assisted-software-development-workflow' ? 'ai-assisted-software-workflow' : post.slug}/social.jpg`
   const title = `${post.title} | Josh Wolfe`
 
   document.title = title
@@ -108,6 +117,8 @@ function setBlogPostMeta(slug: string) {
   upsertMeta('property', 'og:type', 'article')
   upsertMeta('property', 'og:url', url)
   upsertMeta('property', 'og:image', image)
+  upsertMeta('property', 'og:image:width', '1200')
+  upsertMeta('property', 'og:image:height', '630')
   upsertMeta('property', 'article:published_time', `${post.date}T00:00:00.000Z`)
   upsertMeta('property', 'article:author', 'Josh Wolfe')
   upsertMeta('name', 'twitter:card', 'summary_large_image')
