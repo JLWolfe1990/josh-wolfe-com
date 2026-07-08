@@ -911,6 +911,28 @@
   border-radius: 0.9rem;
 }
 
+.newsletter-embed {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 0.75rem;
+  background: #0f172a;
+}
+
+.newsletter-embed iframe {
+  display: block;
+  width: 100%;
+  height: 430px;
+  border: 0;
+}
+
+.newsletter-embed-compact {
+  max-width: 34rem;
+  margin: 2rem auto 0;
+  text-align: left;
+}
+
 @media (min-width: 768px) {
   .blog-featured-post article {
     grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.95fr);
