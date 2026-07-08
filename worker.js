@@ -1,8 +1,8 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
-const DEPLOY_VERSION = '20260707-bizbuzz-embed';
+const DEPLOY_VERSION = '20260707-bizbuzz-native-form';
 const SITE_URL = 'https://www.josh-wolfe.com';
-const BREVO_CONTACTS_URL = 'https://api.brevo.com/v3/contacts';
+const BIZBUZZ_SUBSCRIBE_URL = 'https://bizbuzz.app/api/subscribe/cmlmdspty0004yd01xbkspf1d';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
 const SUBSCRIBE_MAX_PER_WINDOW = 5;
 const subscribeAttempts = new Map();
@@ -248,37 +248,40 @@ async function handleSubscribe(request) {
     return jsonResponse({ message: 'Enter a valid email address.' }, 400);
   }
 
-  const apiKey = globalThis.BREVO_API_KEY;
-  const listId = Number(globalThis.BREVO_LIST_ID || 2);
+  const firstName = String(payload.firstName || '').trim().slice(0, 100);
+  const lastName = String(payload.lastName || '').trim().slice(0, 100);
 
-  if (!apiKey) {
-    return jsonResponse({ message: 'Newsletter signup is not configured yet.' }, 503);
-  }
-
-  const brevoResponse = await fetch(BREVO_CONTACTS_URL, {
+  const subscribeResponse = await fetch(BIZBUZZ_SUBSCRIBE_URL, {
     method: 'POST',
     headers: {
       accept: 'application/json',
       'content-type': 'application/json',
-      'api-key': apiKey,
     },
     body: JSON.stringify({
       email,
-      listIds: [listId],
-      updateEnabled: true,
+      firstName,
+      lastName,
+      website: '',
     }),
   });
 
-  if (brevoResponse.ok || brevoResponse.status === 201 || brevoResponse.status === 204) {
-    return jsonResponse({ ok: true });
+  const data = await subscribeResponse.json().catch(() => ({}));
+
+  if (subscribeResponse.ok && data.success !== false) {
+    return jsonResponse({
+      ok: true,
+      success: true,
+      message: data.message || "You're subscribed.",
+    });
   }
 
-  const data = await brevoResponse.json().catch(() => ({}));
-  if (data.code === 'duplicate_parameter') {
-    return jsonResponse({ ok: true });
-  }
-
-  return jsonResponse({ message: data.message || 'Could not subscribe right now' }, 502);
+  return jsonResponse(
+    {
+      success: false,
+      error: data.error || data.message || 'Could not subscribe right now',
+    },
+    subscribeResponse.status >= 400 ? subscribeResponse.status : 502,
+  );
 }
 
 async function handleRequest(request) {
