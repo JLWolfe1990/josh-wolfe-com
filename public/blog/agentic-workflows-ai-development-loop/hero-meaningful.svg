@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 760" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic development workflow command center</title>
+  <desc id="desc">A dark engineering workflow board connecting prompt, agent, tools, pull request, review, and deployment stages.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#071114"/>
+      <stop offset="0.48" stop-color="#10251f"/>
+      <stop offset="1" stop-color="#16140d"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" x2="1">
+      <stop offset="0" stop-color="#a2ff33"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" x2="1">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1520" height="760" fill="url(#bg)"/>
+  <g opacity="0.2">
+    <path d="M0 112h1520M0 240h1520M0 368h1520M0 496h1520M0 624h1520" stroke="#ffffff"/>
+    <path d="M128 0v760M320 0v760M512 0v760M704 0v760M896 0v760M1088 0v760M1280 0v760" stroke="#ffffff"/>
+  </g>
+  <g transform="translate(120 126)">
+    <rect x="0" y="0" width="1280" height="508" rx="24" fill="#081215" stroke="#ffffff" stroke-opacity="0.14"/>
+    <rect x="34" y="34" width="1212" height="58" rx="16" fill="#111c20" stroke="#ffffff" stroke-opacity="0.1"/>
+    <circle cx="76" cy="63" r="9" fill="#fb7185"/>
+    <circle cx="106" cy="63" r="9" fill="#fbbf24"/>
+    <circle cx="136" cy="63" r="9" fill="#34d399"/>
+    <text x="184" y="70" fill="#dbeafe" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">agent-workflow.yml</text>
+    <text x="1100" y="70" fill="#a2ff33" font-family="JetBrains Mono, monospace" font-size="16">main: guarded</text>
+    <g transform="translate(70 150)">
+      <path d="M142 78H296M440 78h154M738 78h154M1036 78h86" stroke="url(#green)" stroke-width="8" stroke-linecap="round" opacity="0.75"/>
+      <path d="M595 156c40 54 116 54 156 0" fill="none" stroke="url(#blue)" stroke-width="7" stroke-linecap="round" opacity="0.7"/>
+      <g>
+        <rect width="156" height="156" rx="22" fill="#13201d" stroke="#a2ff33" stroke-opacity="0.55"/>
+        <text x="78" y="69" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Goal</text>
+        <text x="78" y="101" text-anchor="middle" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="15">define done</text>
+      </g>
+      <g transform="translate(298)">
+        <rect width="156" height="156" rx="22" fill="#102129" stroke="#38bdf8" stroke-opacity="0.55"/>
+        <text x="78" y="69" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Agent</text>
+        <text x="78" y="101" text-anchor="middle" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="15">plan tasks</text>
+      </g>
+      <g transform="translate(596)">
+        <rect width="156" height="156" rx="22" fill="#171b28" stroke="#818cf8" stroke-opacity="0.58"/>
+        <text x="78" y="69" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Tools</text>
+        <text x="78" y="101" text-anchor="middle" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="15">git + ci</text>
+      </g>
+      <g transform="translate(894)">
+        <rect width="156" height="156" rx="22" fill="#211b12" stroke="#fbbf24" stroke-opacity="0.6"/>
+        <text x="78" y="69" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Review</text>
+        <text x="78" y="101" text-anchor="middle" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="15">human gate</text>
+      </g>
+      <g transform="translate(596 244)">
+        <rect width="156" height="104" rx="18" fill="#111827" stroke="#ffffff" stroke-opacity="0.16"/>
+        <text x="78" y="47" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Iterate</text>
+        <text x="78" y="73" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="14">fail -> fix</text>
+      </g>
+    </g>
+    <g filter="url(#glow)" opacity="0.8">
+      <circle cx="1108" cy="186" r="8" fill="#a2ff33"/>
+      <circle cx="1168" cy="294" r="5" fill="#38bdf8"/>
+      <circle cx="240" cy="558" r="6" fill="#fbbf24"/>
+    </g>
+  </g>
+</svg>

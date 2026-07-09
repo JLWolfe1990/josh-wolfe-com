@@ -17,6 +17,241 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
   {
+    slug: 'agentic-workflows-ai-development-loop',
+    title: 'Agentic Workflows: How AI Is Automating the Development Loop',
+    date: '2026-07-09',
+    excerpt:
+      'Vibe coding makes individual coding tasks faster. Agentic workflows go further by planning, using tools, checking results, and coordinating multi-step development work.',
+    category: 'AI Engineering',
+    readTime: '8 min read',
+    keywords: [
+      'agentic workflows',
+      'AI development workflow',
+      'AI coding agents',
+      'agent workflows for software development',
+      'AI-assisted software development',
+      'vibe coding',
+      'AI automation for developers',
+    ],
+    image: '/blog/agentic-workflows-ai-development-loop/hero-meaningful.svg',
+    imageAlt:
+      'Agentic development workflow command center connecting prompt, agent, tools, pull request, review, and deployment stages',
+    faq: [
+      {
+        question: 'What is an agentic workflow in software development?',
+        answer:
+          'An agentic workflow is a software development process where an AI agent can plan a goal, use tools, inspect results, recover from errors, and continue through a multi-step task with defined guardrails.',
+      },
+      {
+        question: 'How are agentic workflows different from vibe coding?',
+        answer:
+          'Vibe coding usually turns a natural language request into code. Agentic workflows coordinate the broader loop around the code, including planning, file changes, tests, documentation, pull requests, and review handoffs.',
+      },
+      {
+        question: 'Where do AI coding agents help the most?',
+        answer:
+          'AI coding agents help most with repetitive, multi-step work such as documentation updates, dependency migrations, test repair, cross-repository edits, release checks, and codebase analysis.',
+      },
+      {
+        question: 'How do you keep AI agents from breaking production code?',
+        answer:
+          'Keep agents constrained with scoped tool permissions, staging or branch-only execution, automated checks, explicit success criteria, and human review gates before merge or production deployment.',
+      },
+      {
+        question: 'Should every development workflow use an agent?',
+        answer:
+          'No. Use agents when the task has repeatable steps, clear feedback, and enough tool access to make progress. For unclear product decisions or one-off judgment calls, a human-led workflow is still better.',
+      },
+    ],
+    content: `
+[STATS: 5 | Steps in a useful agent loop; 1 | Human review gate before production; 0 | Value in automating unclear work]
+
+Vibe coding changed the feel of software work. Instead of starting with a blank editor, you describe the thing you want, get a draft, and steer from there.
+
+That is useful, but it is still mostly a single-task pattern: ask for code, review the code, integrate the code.
+
+Agentic workflows are the next jump. They are not just about generating code faster. They are about giving an AI agent a goal, a set of tools, feedback from the system, and enough guardrails to move through an entire development loop.
+
+[IMAGE: /blog/agentic-workflows-ai-development-loop/hero-meaningful.svg | Agentic development workflow command center connecting prompt, agent, tools, pull request, review, and deployment stages | Agentic workflows connect the prompt to the tools, checks, review gates, and deployment path around the code.]
+
+---
+
+[KICKER: The Short Version]
+
+## Agentic Workflows Turn AI From a Coding Assistant Into a Process Runner
+
+A normal AI coding assistant helps with a task.
+
+An agentic workflow helps with a loop.
+
+The difference is tool use and iteration. A coding assistant can draft a function. An agent can inspect the repository, plan the change, edit files, run tests, read the failure, repair the code, open a pull request, and summarize the risk for review.
+
+That does not mean the agent owns the outcome. It means the agent can own more of the mechanical path between "we need this changed" and "this is ready for a human to decide."
+
+[IMAGE: /blog/agentic-workflows-ai-development-loop/agent-loop.svg | Loop diagram showing goal, plan, execute, observe, repair, and pull request review | The useful agent loop is goal, plan, execute, observe, repair, and review.]
+
+## Vibe Coding Is Tactical. Agent Workflows Are Operational.
+
+Vibe coding is strongest when the work is local:
+
+- Build this component
+- Refactor this function
+- Add this endpoint
+- Explain this error
+- Draft this test
+
+Agent workflows are stronger when the work has multiple steps and feedback loops:
+
+- Update documentation after a feature changes
+- Migrate a dependency across several packages
+- Fix a failing test suite and explain the cause
+- Generate a pull request from a product note
+- Audit a codebase for repeated patterns
+- Prepare a release checklist from recent commits
+
+That is why this shift matters. The value is not just faster typing. The value is coordinating the work around the typing.
+
+I still think the best AI-assisted software work starts with clear instructions and a review loop, which is the same principle behind my <a href="/blog/ai-assisted-software-development-workflow">AI-assisted software development workflow</a>. Agents just make more of that loop executable.
+
+## The Agent Loop Has Five Parts
+
+A useful software agent needs more than a model.
+
+It needs a loop:
+
+- Goal: what should be true when the work is done
+- Plan: what steps the agent intends to take
+- Tools: the systems it can read, write, run, or call
+- Feedback: tests, type checks, lint, logs, previews, and API responses
+- Review: a human or policy gate before important changes land
+
+When one of those pieces is missing, the workflow gets fragile.
+
+If the goal is vague, the agent can move quickly in the wrong direction. If the tools are too broad, it can touch things it should not. If feedback is missing, it cannot tell whether it improved anything. If review is missing, speed turns into risk.
+
+## Tool Access Is Where Agents Become Real
+
+The word "agent" gets used loosely. The practical difference is whether the system can act.
+
+For software development, useful tool access usually means the agent can:
+
+- Read the repository
+- Search code and documentation
+- Edit files on a branch
+- Run tests, type checks, lint, and builds
+- Inspect failures and logs
+- Create commits or pull requests
+- Post a concise status update
+
+That is enough to automate real work without pretending the agent is a full autonomous engineer.
+
+For example, a documentation workflow can be straightforward: detect changed files, identify affected docs, draft updates, run link checks, open a pull request, and tag the right reviewer. The agent is not deciding product strategy. It is keeping a repetitive engineering obligation from falling through the cracks.
+
+## The Best First Agent Is Boring
+
+The first agent workflow should not be "build my app."
+
+That is too broad, too hard to validate, and too easy to turn into theater.
+
+Better first workflows are narrow and inspectable:
+
+- Update release notes from merged pull requests
+- Add missing docs for changed API routes
+- Run a dependency update and fix mechanical breakage
+- Convert an approved newsletter into a website draft
+- Find stale TODOs and open focused cleanup issues
+- Watch a scheduled inbox and start a known publishing workflow
+
+Those are good because success is visible. You can tell whether the docs changed, the tests passed, the post appeared, or the issue was created.
+
+That is the same pattern I prefer for <a href="/blog/business-system-not-just-website">business automation systems</a>: start with one loop that creates visible value, then expand once the loop is trusted.
+
+## Guardrails Matter More as Autonomy Increases
+
+The more an agent can do, the more explicit the boundaries need to be.
+
+Good guardrails are not complicated:
+
+- Work on a branch or draft state first
+- Limit which files, commands, and credentials the agent can access
+- Require automated checks before any merge
+- Keep production deploys behind an explicit rule or human approval
+- Make the agent report what it changed and why
+- Preserve logs so failures can be debugged later
+
+[IMAGE: /blog/agentic-workflows-ai-development-loop/guardrails.svg | Layered checklist of guardrails for agentic software development workflows | Agents need narrow goals, scoped tools, fast feedback, and review gates before autonomy is useful.]
+
+These rules are not there because agents are uniquely dangerous. They are there because they are fast. Fast systems need clear brakes.
+
+## Model Choice Matters, but Workflow Design Matters More
+
+Better reasoning models help. Long context helps. Lower cost helps. Tool-calling quality helps.
+
+But model choice is not the whole system.
+
+A strong model inside a vague workflow still produces vague work. A cheaper model inside a well-defined workflow can be surprisingly useful. The real question is whether the agent has the context, tools, feedback, and authority needed for the job.
+
+For agent tasks, I care most about:
+
+- Can it plan a multi-step change without drifting?
+- Can it recover when a command fails?
+- Can it explain uncertainty instead of hiding it?
+- Can it follow the local codebase pattern?
+- Can it produce a reviewable diff?
+
+That last point is the standard. If the output cannot be reviewed, it does not belong in a serious development loop.
+
+## What This Means for Software Teams
+
+The teams that get value from agents will not be the ones that hand over everything and hope.
+
+They will be the ones that turn messy recurring work into explicit workflows:
+
+- Define the trigger
+- Define the inputs
+- Define the permitted tools
+- Define the success criteria
+- Define the review gate
+- Define the confirmation message
+
+Once that is clear, an agent can handle a surprising amount of the mechanical work.
+
+That is the real shift from vibe coding to agent workflows. The prompt is no longer just a request for code. It becomes the entry point to a repeatable operating loop.
+
+## Frequently Asked Questions About Agentic Workflows
+
+## What is an agentic workflow in software development?
+
+An agentic workflow is a software development process where an AI agent can plan a goal, use tools, inspect results, recover from errors, and continue through a multi-step task with defined guardrails.
+
+The important part is the loop. The agent needs feedback from the environment, such as tests or command output, so it can decide whether to continue, repair, or stop for review.
+
+## How are agentic workflows different from vibe coding?
+
+Vibe coding usually turns a natural language request into code. Agentic workflows coordinate the broader loop around the code, including planning, file changes, tests, documentation, pull requests, and review handoffs.
+
+Vibe coding is useful for tactical implementation. Agentic workflows are useful for repeatable development processes that span several steps or systems.
+
+## Where do AI coding agents help the most?
+
+AI coding agents help most with repetitive, multi-step work such as documentation updates, dependency migrations, test repair, cross-repository edits, release checks, and codebase analysis.
+
+The best candidates have clear inputs, visible outputs, and automated feedback the agent can use while it works.
+
+## How do you keep AI agents from breaking production code?
+
+Keep agents constrained with scoped tool permissions, staging or branch-only execution, automated checks, explicit success criteria, and human review gates before merge or production deployment.
+
+Autonomy should increase only after the workflow is observable and boring. If the agent cannot explain what it changed, why it changed it, and what checks passed, it should not ship.
+
+## Should every development workflow use an agent?
+
+No. Use agents when the task has repeatable steps, clear feedback, and enough tool access to make progress. For unclear product decisions or one-off judgment calls, a human-led workflow is still better.
+
+The point is not to automate everything. The point is to automate the parts of the development loop that are valuable, repeatable, and verifiable.
+`,
+  },
+  {
     slug: 'business-system-not-just-website',
     title: 'Your Business Probably Needs a System, Not Just a Website',
     date: '2026-07-07',

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic development loop</title>
+  <desc id="desc">A loop diagram showing goal, plan, execute, observe, repair, and pull request review.</desc>
+  <rect width="1520" height="834" fill="#081114"/>
+  <g transform="translate(110 90)">
+    <rect width="1300" height="654" rx="28" fill="#101820" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="70" y="80" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">Agentic workflow loop</text>
+    <text x="70" y="122" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="20">The agent owns the loop. The engineer owns the outcome.</text>
+    <g fill="none" stroke="#a2ff33" stroke-width="9" stroke-linecap="round" opacity="0.82">
+      <path d="M300 340c0-130 106-236 236-236h214"/>
+      <path d="M935 104c130 0 236 106 236 236s-106 236-236 236H702"/>
+      <path d="M748 72l70 32-70 32"/>
+      <path d="M690 544l-70 32 70 32"/>
+    </g>
+    <g font-family="Inter, Arial, sans-serif">
+      <g transform="translate(218 265)">
+        <rect width="188" height="118" rx="20" fill="#13201d" stroke="#a2ff33" stroke-opacity="0.55"/>
+        <text x="94" y="52" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="800">Goal</text>
+        <text x="94" y="82" text-anchor="middle" fill="#cbd5e1" font-size="16">Define success</text>
+      </g>
+      <g transform="translate(500 105)">
+        <rect width="188" height="118" rx="20" fill="#102129" stroke="#38bdf8" stroke-opacity="0.55"/>
+        <text x="94" y="52" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="800">Plan</text>
+        <text x="94" y="82" text-anchor="middle" fill="#cbd5e1" font-size="16">Break into steps</text>
+      </g>
+      <g transform="translate(820 105)">
+        <rect width="188" height="118" rx="20" fill="#171b28" stroke="#818cf8" stroke-opacity="0.58"/>
+        <text x="94" y="52" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="800">Execute</text>
+        <text x="94" y="82" text-anchor="middle" fill="#cbd5e1" font-size="16">Use tools</text>
+      </g>
+      <g transform="translate(1050 265)">
+        <rect width="188" height="118" rx="20" fill="#211b12" stroke="#fbbf24" stroke-opacity="0.6"/>
+        <text x="94" y="52" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="800">Observe</text>
+        <text x="94" y="82" text-anchor="middle" fill="#cbd5e1" font-size="16">Read results</text>
+      </g>
+      <g transform="translate(820 505)">
+        <rect width="188" height="118" rx="20" fill="#21151a" stroke="#fb7185" stroke-opacity="0.58"/>
+        <text x="94" y="52" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="800">Repair</text>
+        <text x="94" y="82" text-anchor="middle" fill="#cbd5e1" font-size="16">Recover safely</text>
+      </g>
+      <g transform="translate(500 505)">
+        <rect width="188" height="118" rx="20" fill="#111827" stroke="#ffffff" stroke-opacity="0.18"/>
+        <text x="94" y="52" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="800">PR</text>
+        <text x="94" y="82" text-anchor="middle" fill="#cbd5e1" font-size="16">Review gate</text>
+      </g>
+    </g>
+  </g>
+</svg>
