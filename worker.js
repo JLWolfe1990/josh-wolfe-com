@@ -1,6 +1,6 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
-const DEPLOY_VERSION = '20260707-bizbuzz-native-form';
+const DEPLOY_VERSION = '20260709-agentic-workflows';
 const SITE_URL = 'https://www.josh-wolfe.com';
 const BIZBUZZ_SUBSCRIBE_URL = 'https://bizbuzz.app/api/subscribe/cmlmdspty0004yd01xbkspf1d';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
@@ -29,6 +29,13 @@ const BLOG_INDEX_META = {
 };
 
 const BLOG_POST_META = {
+  'agentic-workflows-ai-development-loop': {
+    title: 'Agentic Workflows: How AI Is Automating the Development Loop | Josh Wolfe',
+    description:
+      'A practical look at how agentic workflows extend vibe coding into planning, tool use, checks, pull requests, review handoffs, and deployable software loops.',
+    image: `${SITE_URL}/blog/agentic-workflows-ai-development-loop/hero-meaningful.svg`,
+    date: '2026-07-09',
+  },
   'business-system-not-just-website': {
     title: 'Your Business Probably Needs a System, Not Just a Website | Josh Wolfe',
     description:
