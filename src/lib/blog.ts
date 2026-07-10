@@ -17,6 +17,257 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
   {
+    slug: 'ai-coding-stack-fragmentation',
+    title: 'The AI Coding Stack Is Fragmenting, and That Is Good',
+    date: '2026-07-10',
+    excerpt:
+      'AI coding is splitting into fast pair-coding tools and slower agentic workflows. The winning pattern is knowing which layer belongs in each part of the development loop.',
+    category: 'AI Engineering',
+    readTime: '9 min read',
+    keywords: [
+      'AI coding stack',
+      'vibe coding',
+      'agentic coding',
+      'AI coding agents',
+      'AI software development tools',
+      'prompting AI coding agents',
+      'AI-assisted software development',
+    ],
+    image: '/blog/ai-coding-stack-fragmentation/hero-meaningful.svg',
+    imageAlt:
+      'Fragmented AI coding stack with fast pair-coding tools, agent workflows, review gates, and production systems connected on one engineering console',
+    faq: [
+      {
+        question: 'What is the AI coding stack?',
+        answer:
+          'The AI coding stack is the set of tools, models, prompts, agent workflows, review practices, and deployment checks a team uses to move from software intent to production code.',
+      },
+      {
+        question: 'Why is the AI coding stack fragmenting?',
+        answer:
+          'It is fragmenting because quick code generation, repository-scale refactoring, autonomous tool use, review, testing, and production deployment have different requirements. One model or product is unlikely to be best at every layer.',
+      },
+      {
+        question: 'What is the difference between vibe coding and agentic coding?',
+        answer:
+          'Vibe coding is fast, conversational, and usually focused on a local coding task. Agentic coding is slower, more explicit, and better suited for multi-step work where the system must plan, use tools, inspect results, and recover from failures.',
+      },
+      {
+        question: 'How should teams choose AI coding tools?',
+        answer:
+          'Teams should choose AI coding tools by workflow layer: fast assistants for local implementation, agents for repeatable multi-step work, and conventional CI, review, and deployment controls for production confidence.',
+      },
+      {
+        question: 'Do AI agents replace normal software engineering process?',
+        answer:
+          'No. AI agents make parts of the process executable, but they still need scoped tasks, automated feedback, review gates, and production checks. The process becomes more important, not less.',
+      },
+    ],
+    content: `
+[STATS: 2 | Main layers in modern AI coding; 1 | Review gate before production; 0 | Reason to force every task into one tool]
+
+AI coding used to sound like one category. You picked a model or an editor plugin, wrote a prompt, got code back, and argued about whether the output was good.
+
+That phase is already too simple.
+
+The AI coding stack is splitting into layers. Some tools are optimized for the fast back-and-forth of "vibe coding." Others are built for longer-running agentic workloads that plan, use tools, check output, and keep moving across a bigger surface area.
+
+That fragmentation is not a problem. It is what happens when a market matures enough to stop pretending one workflow covers everything.
+
+[IMAGE: /blog/ai-coding-stack-fragmentation/hero-meaningful.svg | Fragmented AI coding stack with fast pair-coding tools, agent workflows, review gates, and production systems connected on one engineering console | The AI coding stack is becoming a layered system, not a single assistant.]
+
+---
+
+[KICKER: The Short Version]
+
+## The AI Coding Stack Is Becoming a Set of Specialized Layers
+
+Fast coding assistants and autonomous agents are solving different jobs.
+
+A fast assistant is useful when the work is local, the feedback loop is tight, and a human is actively steering. An agentic workflow is useful when the work has multiple steps, multiple tools, and enough validation that the system can make progress without asking after every edit.
+
+Trying to collapse those into one category creates bad expectations.
+
+Vibe coding should feel immediate. Agentic coding should feel dependable. Those are different product requirements, different prompt styles, different failure modes, and often different models.
+
+[IMAGE: /blog/ai-coding-stack-fragmentation/stack-map.svg | Map of AI coding layers from prompt and pair-coding assistant through agent orchestration, CI checks, review, and deploy | A useful AI coding stack separates fast local help from slower operational workflows.]
+
+## Vibe Coding Optimizes for Flow
+
+Vibe coding works best when you are already close to the code.
+
+You know the intent. You can see the file. You can judge whether the answer fits. You want a model that understands nearby context, responds quickly, and lets you steer without ceremony.
+
+Good tasks for this layer look like:
+
+- Add a loading state to this component
+- Explain this TypeScript error
+- Draft the first version of this endpoint
+- Refactor this function without changing behavior
+- Write tests for this utility
+- Convert this rough idea into a working UI slice
+
+The prompt can be conversational because the human is still holding the shape of the work.
+
+That is why latency matters so much here. If the model takes too long, it breaks flow. If the answer is too elaborate, it creates review drag. If it ignores local conventions, it creates cleanup work.
+
+For vibe coding, the right question is not "can this system complete the whole project?" The right question is "does it help me keep momentum without lowering the quality bar?"
+
+## Agentic Coding Optimizes for Continuity
+
+Agentic workloads are different.
+
+The value is not one clever completion. The value is continuity across a loop.
+
+An agent can inspect the repo, plan a sequence, edit files, run commands, read failures, repair the change, and report what happened. That makes it useful for work where the mechanical path is larger than the individual code edits.
+
+Good tasks for this layer look like:
+
+- Migrate a test suite from one framework to another
+- Convert a newsletter or intake email into a published site update
+- Update docs after a feature change
+- Fix a class of lint errors across multiple packages
+- Audit routes, metadata, and sitemap entries before a deploy
+- Run a release checklist and stop on the first failed gate
+
+This is slower than vibe coding, and that is fine. The agent is doing more than producing a snippet. It is operating a workflow.
+
+I wrote more about that broader loop in <a href="/blog/agentic-workflows-ai-development-loop">Agentic Workflows: How AI Is Automating the Development Loop</a>. The important point here is that the agent layer should be judged by reviewable outcomes, not by how magical the interaction feels.
+
+## The Prompt Style Changes by Layer
+
+One reason teams get inconsistent results is that they use the same prompt style everywhere.
+
+That does not work well.
+
+For vibe coding, short prompts are often better:
+
+- "Add optimistic UI to this form."
+- "Make this component keyboard accessible."
+- "Fix the failing type error without changing the public API."
+
+The surrounding editor context, nearby files, and human steering do a lot of the work.
+
+For agents, vague prompts create drift. The agent needs structure:
+
+- Goal: what should be true when the task is complete
+- Scope: which files, packages, or systems are in bounds
+- Steps: how to approach the work
+- Checks: which commands prove the change
+- Stop conditions: when to ask or fail instead of guessing
+- Report: what the final handoff should include
+
+[IMAGE: /blog/ai-coding-stack-fragmentation/prompt-patterns.svg | Comparison of short conversational vibe coding prompts and explicit agent prompts with goal, scope, checks, and stop conditions | Prompting style should change with the layer: conversational for pair coding, explicit for agents.]
+
+That is not because agents are dumb. It is because they are allowed to act over a larger surface area. More autonomy needs more explicit boundaries.
+
+## Fragmentation Is a Sign the Category Is Growing Up
+
+Fragmentation can feel annoying when you just want to pick a tool and move on.
+
+But in software, healthy ecosystems usually specialize.
+
+We do not expect the editor, test runner, CI system, observability stack, package manager, and deployment platform to be the same product. They connect, but they optimize for different jobs.
+
+AI coding is moving in the same direction:
+
+- Editor assistants for fast local implementation
+- Chat tools for design, explanation, and exploration
+- Agents for multi-step repository work
+- CI and test systems for objective feedback
+- Review tools for human judgment
+- Deployment systems for production release
+
+The stack gets more powerful when those layers are clear.
+
+The danger is not having multiple tools. The danger is using the wrong layer for the job and then blaming the whole category when it disappoints.
+
+## Teams Need an AI Coding Stack, Not an AI Coding Toy
+
+The practical move is to map your development loop.
+
+Where do engineers need fast help while they are in flow? Put vibe coding there.
+
+Where does the team repeat multi-step work with clear checks? Put agents there.
+
+Where does risk increase? Put review, CI, staging, observability, and deploy controls there.
+
+For serious teams, the AI coding stack should answer a few boring questions:
+
+- What can an assistant read?
+- What can an agent write?
+- Which commands must pass?
+- When does the workflow stop?
+- Who reviews the final diff?
+- How does the change get deployed?
+- What gets logged for debugging later?
+
+That is where the value shows up. Not in a demo where a model writes a toy app, but in a system where routine work becomes faster, safer, and easier to inspect.
+
+This is the same reason I care about <a href="/blog/ai-assisted-software-development-workflow">AI-assisted software development workflows</a> more than isolated prompts. The workflow is what keeps the output useful after the novelty wears off.
+
+## The Right Abstraction Is the Workflow Boundary
+
+The most important design decision is where the AI stops.
+
+For a small local change, the boundary might be the file. The assistant suggests code, and the human accepts or rejects it.
+
+For an agentic workflow, the boundary might be a pull request. The agent can edit, test, and summarize, but it cannot merge.
+
+For a publishing workflow, the boundary might be live verification. The agent can draft, build, sync assets, deploy the Worker, verify the URL, and only then mark the intake email consumed.
+
+That boundary matters because it turns autonomy into something operational. The agent can do useful work, but the system still knows what counts as done.
+
+## What I Would Do Now
+
+If I were adding AI coding to a team today, I would not start by standardizing on one magic tool.
+
+I would define three lanes:
+
+- Pairing lane: fast assistant usage inside normal development
+- Agent lane: repeatable multi-step workflows with logs and checks
+- Production lane: CI, review, deploy, observability, and rollback discipline
+
+Then I would pick tools that fit each lane.
+
+The best stack is not the one with the most autonomy. It is the one where each layer knows its job, hands off cleanly, and leaves a trail a senior engineer can review.
+
+That is why fragmentation is good. It forces better questions.
+
+## Frequently Asked Questions About the AI Coding Stack
+
+## What is the AI coding stack?
+
+The AI coding stack is the set of tools, models, prompts, agent workflows, review practices, and deployment checks a team uses to move from software intent to production code.
+
+It includes more than code generation. A serious stack covers planning, local implementation, repository automation, testing, review, release, and production verification.
+
+## Why is the AI coding stack fragmenting?
+
+The AI coding stack is fragmenting because quick code generation, repository-scale refactoring, autonomous tool use, review, testing, and production deployment have different requirements.
+
+Fast pair-coding tools need low latency and tight local context. Agent workflows need planning, tool use, memory, error recovery, and clear stop conditions. Those are different jobs.
+
+## What is the difference between vibe coding and agentic coding?
+
+Vibe coding is fast, conversational, and usually focused on a local coding task. Agentic coding is slower, more explicit, and better suited for multi-step work where the system must plan, use tools, inspect results, and recover from failures.
+
+Vibe coding keeps a human in the steering loop. Agentic coding gives the system more of the mechanical workflow, usually behind stronger guardrails.
+
+## How should teams choose AI coding tools?
+
+Teams should choose AI coding tools by workflow layer: fast assistants for local implementation, agents for repeatable multi-step work, and conventional CI, review, and deployment controls for production confidence.
+
+Do not ask one tool to carry the whole process. Match the tool to the job, then define the handoff between layers.
+
+## Do AI agents replace normal software engineering process?
+
+No. AI agents make parts of the process executable, but they still need scoped tasks, automated feedback, review gates, and production checks.
+
+The process becomes more important, not less. The more an agent can do, the more clearly the team needs to define what is allowed, what must pass, and when the agent should stop.
+`,
+  },
+  {
     slug: 'agentic-workflows-ai-development-loop',
     title: 'Agentic Workflows: How AI Is Automating the Development Loop',
     date: '2026-07-09',

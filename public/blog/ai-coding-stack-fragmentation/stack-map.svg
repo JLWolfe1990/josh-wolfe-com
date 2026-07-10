@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="834" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">AI coding stack layer map</title>
+  <desc id="desc">A layered map from prompt and pair-coding assistant through agent orchestration, CI checks, review, and production deployment.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0a1020"/>
+      <stop offset="1" stop-color="#12251d"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop offset="0" stop-color="#a2ff33"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1520" height="834" fill="url(#bg)"/>
+  <g opacity="0.12" stroke="#ffffff">
+    <path d="M120 100h1280M120 220h1280M120 340h1280M120 460h1280M120 580h1280M120 700h1280"/>
+  </g>
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="136" y="92" fill="#a2ff33" font-size="20" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">WORKFLOW LAYERS</text>
+    <text x="136" y="140" fill="#ffffff" font-size="44" font-weight="800">Use the right AI layer for the job</text>
+  </g>
+  <g transform="translate(140 210)" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <g>
+      <rect width="220" height="110" rx="18" fill="#111827" stroke="#334155"/>
+      <text x="28" y="43" fill="#ffffff" font-size="25" font-weight="800">Intent</text>
+      <text x="28" y="77" fill="#a8b3c4" font-size="18">brief, bug, task</text>
+    </g>
+    <g transform="translate(265 0)">
+      <rect width="220" height="110" rx="18" fill="#102033" stroke="#335476"/>
+      <text x="28" y="43" fill="#ffffff" font-size="25" font-weight="800">Pair tool</text>
+      <text x="28" y="77" fill="#a8b3c4" font-size="18">fast local edits</text>
+    </g>
+    <g transform="translate(530 0)">
+      <rect width="220" height="110" rx="18" fill="#10251c" stroke="#3c6b46"/>
+      <text x="28" y="43" fill="#ffffff" font-size="25" font-weight="800">Agent</text>
+      <text x="28" y="77" fill="#a8b3c4" font-size="18">plan and tools</text>
+    </g>
+    <g transform="translate(795 0)">
+      <rect width="220" height="110" rx="18" fill="#161a25" stroke="#4b5563"/>
+      <text x="28" y="43" fill="#ffffff" font-size="25" font-weight="800">Checks</text>
+      <text x="28" y="77" fill="#a8b3c4" font-size="18">test, build, lint</text>
+    </g>
+    <g transform="translate(1060 0)">
+      <rect width="220" height="110" rx="18" fill="#111827" stroke="#334155"/>
+      <text x="28" y="43" fill="#ffffff" font-size="25" font-weight="800">Review</text>
+      <text x="28" y="77" fill="#a8b3c4" font-size="18">human judgment</text>
+    </g>
+    <g fill="none" stroke="url(#line)" stroke-width="5" stroke-linecap="round">
+      <path d="M220 55h45"/>
+      <path d="M485 55h45"/>
+      <path d="M750 55h45"/>
+      <path d="M1015 55h45"/>
+    </g>
+  </g>
+  <g transform="translate(188 418)" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <rect width="1144" height="250" rx="26" fill="#0b1220" stroke="#293548"/>
+    <text x="46" y="65" fill="#ffffff" font-size="32" font-weight="800">The boundary is the product decision</text>
+    <text x="46" y="110" fill="#a8b3c4" font-size="22">Fast assistants stop at the suggestion. Agents stop at a checked, reviewable handoff.</text>
+    <g transform="translate(46 148)">
+      <rect width="245" height="60" rx="12" fill="#132033"/>
+      <text x="22" y="39" fill="#dbeafe" font-size="18">file-level suggestion</text>
+      <rect x="285" width="245" height="60" rx="12" fill="#13251f"/>
+      <text x="307" y="39" fill="#dcfce7" font-size="18">pull request draft</text>
+      <rect x="570" width="245" height="60" rx="12" fill="#1d2230"/>
+      <text x="592" y="39" fill="#e5e7eb" font-size="18">verified build</text>
+      <rect x="855" width="245" height="60" rx="12" fill="#17251c"/>
+      <text x="877" y="39" fill="#dcfce7" font-size="18">production smoke</text>
+    </g>
+  </g>
+</svg>

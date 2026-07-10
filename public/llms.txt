@@ -6,6 +6,8 @@
 
 - [Home](https://josh-wolfe.com/) - AI-native engineering, services, portfolio, and contact.
 - [Field Notes](https://josh-wolfe.com/blog) - Technical writing on AI-assisted software development, production systems, automation, and delivery.
+- [The AI Coding Stack Is Fragmenting, and That Is Good](https://josh-wolfe.com/blog/ai-coding-stack-fragmentation) - Practical guide to choosing between vibe coding tools, agentic coding workflows, review gates, and production controls in a layered AI coding stack.
+- [Agentic Workflows: How AI Is Automating the Development Loop](https://josh-wolfe.com/blog/agentic-workflows-ai-development-loop) - Practical guide to agentic workflows, AI coding agents, tool use, review gates, and software development automation.
 - [Your Business Probably Needs a System, Not Just a Website](https://josh-wolfe.com/blog/business-system-not-just-website) - Practical guide to small business automation, lead follow-up systems, and website-connected workflows.
 - [Where AI Actually Helps in a Real Business Workflow](https://josh-wolfe.com/blog/ai-real-business-workflow) - Practical guide to AI workflow automation, human-in-the-loop approval, and safe AI business automation.
 - [The Production Checklist I Want Before Anything Goes Live](https://josh-wolfe.com/blog/production-readiness-checklist) - Practical production readiness checklist for software launches, deployment safety, rollback planning, and post-launch monitoring.
@@ -18,6 +20,11 @@
 ## Primary Topics
 
 - AI-assisted software engineering
+- AI coding stack
+- Vibe coding
+- Agentic coding
+- AI coding agents
+- AI software development tools
 - AI software development workflow
 - AI implementation consulting
 - Production software delivery

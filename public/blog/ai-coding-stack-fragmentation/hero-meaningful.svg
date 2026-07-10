@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="760" viewBox="0 0 1520 760" role="img" aria-labelledby="title desc">
+  <title id="title">Fragmented AI coding stack</title>
+  <desc id="desc">A dark engineering console showing fast pair coding tools, agent workflows, review gates, and production systems connected as layers.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.52" stop-color="#111827"/>
+      <stop offset="1" stop-color="#13251f"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" x2="1">
+      <stop offset="0" stop-color="#a2ff33"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <rect width="1520" height="760" fill="url(#bg)"/>
+  <g opacity="0.18" stroke="#a2ff33" stroke-width="1">
+    <path d="M0 124h1520M0 252h1520M0 380h1520M0 508h1520M0 636h1520"/>
+    <path d="M132 0v760M324 0v760M516 0v760M708 0v760M900 0v760M1092 0v760M1284 0v760"/>
+  </g>
+  <path d="M160 565c184-126 314-188 502-175 159 12 224 90 360 87 136-3 223-88 340-184" fill="none" stroke="#22d3ee" stroke-width="3" opacity="0.42"/>
+  <g filter="url(#soft)">
+    <rect x="118" y="118" width="1284" height="524" rx="28" fill="#0b1220" stroke="#26364d"/>
+    <rect x="158" y="158" width="360" height="180" rx="18" fill="#111c2e" stroke="#32435c"/>
+    <rect x="580" y="158" width="360" height="180" rx="18" fill="#101f1a" stroke="#35543e"/>
+    <rect x="1002" y="158" width="360" height="180" rx="18" fill="#151923" stroke="#42495a"/>
+    <rect x="158" y="414" width="360" height="150" rx="18" fill="#151923" stroke="#42495a"/>
+    <rect x="580" y="414" width="360" height="150" rx="18" fill="#111c2e" stroke="#32435c"/>
+    <rect x="1002" y="414" width="360" height="150" rx="18" fill="#101f1a" stroke="#35543e"/>
+  </g>
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="194" y="205" fill="#ffffff" font-size="34" font-weight="800">Vibe coding</text>
+    <text x="194" y="250" fill="#b6c2d1" font-size="22">fast local implementation</text>
+    <text x="194" y="292" fill="#a2ff33" font-size="20" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">prompt -> edit -> steer</text>
+    <text x="616" y="205" fill="#ffffff" font-size="34" font-weight="800">Agents</text>
+    <text x="616" y="250" fill="#b6c2d1" font-size="22">multi-step repository work</text>
+    <text x="616" y="292" fill="#a2ff33" font-size="20" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">plan -> run -> repair</text>
+    <text x="1038" y="205" fill="#ffffff" font-size="34" font-weight="800">Review gates</text>
+    <text x="1038" y="250" fill="#b6c2d1" font-size="22">human judgment and policy</text>
+    <text x="1038" y="292" fill="#a2ff33" font-size="20" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">diff -> checks -> approve</text>
+    <text x="194" y="466" fill="#ffffff" font-size="30" font-weight="800">CI feedback</text>
+    <text x="194" y="506" fill="#b6c2d1" font-size="21">tests, types, lint, build</text>
+    <text x="616" y="466" fill="#ffffff" font-size="30" font-weight="800">Deploy path</text>
+    <text x="616" y="506" fill="#b6c2d1" font-size="21">assets, worker, cache, smoke</text>
+    <text x="1038" y="466" fill="#ffffff" font-size="30" font-weight="800">Production</text>
+    <text x="1038" y="506" fill="#b6c2d1" font-size="21">observable, reversible, live</text>
+  </g>
+  <g fill="none" stroke="url(#green)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M518 248h62"/>
+    <path d="M940 248h62"/>
+    <path d="M338 338v76"/>
+    <path d="M760 338v76"/>
+    <path d="M1182 338v76"/>
+    <path d="M518 488h62"/>
+    <path d="M940 488h62"/>
+  </g>
+  <g fill="#a2ff33">
+    <circle cx="158" cy="158" r="5"/>
+    <circle cx="580" cy="158" r="5"/>
+    <circle cx="1002" cy="158" r="5"/>
+    <circle cx="158" cy="414" r="5"/>
+    <circle cx="580" cy="414" r="5"/>
+    <circle cx="1002" cy="414" r="5"/>
+  </g>
+</svg>
