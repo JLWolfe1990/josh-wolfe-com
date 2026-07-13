@@ -2,7 +2,7 @@
   "$schema": "/opt/homebrew/lib/node_modules/wrangler/config-schema.json",
   "name": "josh-wolfe-com",
   "main": "worker.js",
-  "account_id": "d26416049d31166eb145d47d7b4f2a86",
+  "account_id": "55c84df414e8212cfcf7b7deef3e27ea",
   "compatibility_date": "2026-07-13",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": false,

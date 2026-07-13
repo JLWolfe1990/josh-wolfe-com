@@ -68,6 +68,7 @@ test('wrangler config pins both production routes to this Worker', () => {
 
   assert.equal(config.name, 'josh-wolfe-com')
   assert.equal(config.main, 'worker.js')
+  assert.equal(config.account_id, '55c84df414e8212cfcf7b7deef3e27ea')
   assert.equal(config.workers_dev, false)
   assert.deepEqual(
     config.routes.map((route) => route.pattern),
