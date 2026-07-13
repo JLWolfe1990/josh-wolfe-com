@@ -1,6 +1,6 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
-const DEPLOY_VERSION = '20260713-ai-assisted-data-workflows';
+const DEPLOY_VERSION = '20260713-worker-route-metadata';
 const SITE_URL = 'https://www.josh-wolfe.com';
 const BIZBUZZ_SUBSCRIBE_URL = 'https://bizbuzz.app/api/subscribe/cmlmdspty0004yd01xbkspf1d';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
@@ -346,6 +346,7 @@ async function handleRequest(request) {
             'Content-Type': 'text/html; charset=utf-8',
             'Cache-Control': 'public, max-age=300',
             'Access-Control-Allow-Origin': '*',
+            'X-Worker-Deploy-Version': DEPLOY_VERSION,
           },
         });
       }
@@ -366,6 +367,7 @@ async function handleRequest(request) {
           'Cache-Control': cacheControl,
           'Access-Control-Allow-Origin': '*',
           'X-Content-Type-Options': 'nosniff',
+          'X-Worker-Deploy-Version': DEPLOY_VERSION,
         },
       });
     }
@@ -377,6 +379,7 @@ async function handleRequest(request) {
         'Cache-Control': cacheControl,
         'Access-Control-Allow-Origin': '*',
         'X-Content-Type-Options': 'nosniff',
+        'X-Worker-Deploy-Version': DEPLOY_VERSION,
       },
     });
   } catch (error) {
