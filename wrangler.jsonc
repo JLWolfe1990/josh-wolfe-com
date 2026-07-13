@@ -1,5 +1,5 @@
 {
-  "$schema": "/opt/homebrew/lib/node_modules/wrangler/config-schema.json",
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "josh-wolfe-com",
   "main": "worker.js",
   "account_id": "55c84df414e8212cfcf7b7deef3e27ea",
