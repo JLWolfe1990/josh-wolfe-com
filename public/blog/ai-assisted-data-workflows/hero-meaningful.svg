@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="760" viewBox="0 0 1520 760" role="img" aria-labelledby="title desc">
+  <title id="title">AI-assisted data workflow</title>
+  <desc id="desc">A dark production console connecting browser capture, transformation examples, validation checks, and database storage.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.55" stop-color="#111827"/>
+      <stop offset="1" stop-color="#10251c"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0" stop-color="#a2ff33"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="26" stdDeviation="30" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="1520" height="760" fill="url(#bg)"/>
+  <g opacity="0.16" stroke="#a2ff33" stroke-width="1">
+    <path d="M0 112h1520M0 238h1520M0 364h1520M0 490h1520M0 616h1520"/>
+    <path d="M150 0v760M342 0v760M534 0v760M726 0v760M918 0v760M1110 0v760M1302 0v760"/>
+  </g>
+  <path d="M156 558c150-94 266-137 414-121 153 17 232 93 376 82 146-11 233-108 414-204" fill="none" stroke="#22d3ee" stroke-width="4" opacity="0.36"/>
+  <g filter="url(#shadow)" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <rect x="116" y="118" width="1288" height="524" rx="28" fill="#0b1220" stroke="#26364d"/>
+    <rect x="164" y="172" width="280" height="214" rx="20" fill="#111c2e" stroke="#355476"/>
+    <rect x="482" y="172" width="280" height="214" rx="20" fill="#10251c" stroke="#3c6b46"/>
+    <rect x="800" y="172" width="280" height="214" rx="20" fill="#171b28" stroke="#4b5563"/>
+    <rect x="1118" y="172" width="238" height="214" rx="20" fill="#101f1a" stroke="#35543e"/>
+    <text x="200" y="228" fill="#ffffff" font-size="28" font-weight="800">Capture</text>
+    <text x="200" y="270" fill="#b6c2d1" font-size="20">screenshots, HTML, APIs</text>
+    <text x="200" y="326" fill="#a2ff33" font-size="18" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">source_id + evidence</text>
+    <text x="518" y="228" fill="#ffffff" font-size="28" font-weight="800">Transform</text>
+    <text x="518" y="270" fill="#b6c2d1" font-size="20">examples become rules</text>
+    <text x="518" y="326" fill="#a2ff33" font-size="18" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">input -> clean rows</text>
+    <text x="836" y="228" fill="#ffffff" font-size="28" font-weight="800">Validate</text>
+    <text x="836" y="270" fill="#b6c2d1" font-size="20">types, ranges, drift</text>
+    <text x="836" y="326" fill="#a2ff33" font-size="18" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">pass | review | fail</text>
+    <text x="1154" y="228" fill="#ffffff" font-size="28" font-weight="800">Store</text>
+    <text x="1154" y="270" fill="#b6c2d1" font-size="20">portable schema</text>
+    <text x="1154" y="326" fill="#a2ff33" font-size="18" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">SQL + logs</text>
+    <rect x="208" y="456" width="1104" height="92" rx="18" fill="#111827" stroke="#2d3a4d"/>
+    <text x="250" y="512" fill="#ffffff" font-size="28" font-weight="800">Prompt as specification</text>
+    <text x="586" y="512" fill="#94a3b8" font-size="22">fields, examples, schema, checks, and review boundaries</text>
+  </g>
+  <g fill="none" stroke="url(#accent)" stroke-width="5" stroke-linecap="round">
+    <path d="M444 279h38"/>
+    <path d="M762 279h38"/>
+    <path d="M1080 279h38"/>
+    <path d="M760 386v70"/>
+  </g>
+</svg>

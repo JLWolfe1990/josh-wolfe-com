@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="834" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">AI data pipeline map</title>
+  <desc id="desc">A four-stage AI data pipeline showing capture, transform, validate, and store with review checkpoints.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#08111f"/>
+      <stop offset="1" stop-color="#12251d"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop offset="0" stop-color="#a2ff33"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1520" height="834" fill="url(#bg)"/>
+  <g opacity="0.12" stroke="#ffffff">
+    <path d="M120 128h1280M120 256h1280M120 384h1280M120 512h1280M120 640h1280"/>
+  </g>
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="136" y="104" fill="#a2ff33" font-size="20" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">PIPELINE CONTRACT</text>
+    <text x="136" y="154" fill="#ffffff" font-size="46" font-weight="800">Every handoff needs evidence</text>
+    <text x="136" y="198" fill="#a8b3c4" font-size="22">AI helps move messy source material toward a checked, queryable contract.</text>
+  </g>
+  <g transform="translate(136 286)" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <g>
+      <rect width="260" height="180" rx="22" fill="#111c2e" stroke="#335476"/>
+      <text x="34" y="58" fill="#ffffff" font-size="30" font-weight="800">1. Capture</text>
+      <text x="34" y="100" fill="#a8b3c4" font-size="19">URL, screenshot, HTML,</text>
+      <text x="34" y="128" fill="#a8b3c4" font-size="19">timestamp, source ID</text>
+    </g>
+    <g transform="translate(326 0)">
+      <rect width="260" height="180" rx="22" fill="#10251c" stroke="#3c6b46"/>
+      <text x="34" y="58" fill="#ffffff" font-size="30" font-weight="800">2. Transform</text>
+      <text x="34" y="100" fill="#a8b3c4" font-size="19">examples, mappings,</text>
+      <text x="34" y="128" fill="#a8b3c4" font-size="19">normalization rules</text>
+    </g>
+    <g transform="translate(652 0)">
+      <rect width="260" height="180" rx="22" fill="#171b28" stroke="#4b5563"/>
+      <text x="34" y="58" fill="#ffffff" font-size="30" font-weight="800">3. Validate</text>
+      <text x="34" y="100" fill="#a8b3c4" font-size="19">type, range, source,</text>
+      <text x="34" y="128" fill="#a8b3c4" font-size="19">drift, business rules</text>
+    </g>
+    <g transform="translate(978 0)">
+      <rect width="260" height="180" rx="22" fill="#101f1a" stroke="#35543e"/>
+      <text x="34" y="58" fill="#ffffff" font-size="30" font-weight="800">4. Store</text>
+      <text x="34" y="100" fill="#a8b3c4" font-size="19">SQL, JSONL, logs,</text>
+      <text x="34" y="128" fill="#a8b3c4" font-size="19">review status</text>
+    </g>
+    <g fill="none" stroke="url(#line)" stroke-width="6" stroke-linecap="round">
+      <path d="M260 90h66"/>
+      <path d="M586 90h66"/>
+      <path d="M912 90h66"/>
+    </g>
+  </g>
+  <g transform="translate(214 560)" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <rect width="1092" height="112" rx="22" fill="#0b1220" stroke="#293548"/>
+    <text x="42" y="48" fill="#ffffff" font-size="28" font-weight="800">Review queue</text>
+    <text x="42" y="84" fill="#a8b3c4" font-size="20">Rows with missing evidence, ambiguous values, schema errors, or drift should pause here instead of entering production silently.</text>
+  </g>
+</svg>

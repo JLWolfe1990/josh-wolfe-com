@@ -17,6 +17,297 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
   {
+    slug: 'ai-assisted-data-workflows',
+    title: 'From Prompt to Production Data Workflow',
+    date: '2026-07-13',
+    excerpt:
+      'AI-assisted data workflows are useful when prompts become repeatable contracts: capture the source, transform it with examples, store it in a portable schema, and verify every step.',
+    category: 'AI Engineering',
+    readTime: '10 min read',
+    keywords: [
+      'AI-assisted data workflows',
+      'AI data pipelines',
+      'AI data extraction',
+      'LLM data workflows',
+      'AI-assisted web scraping',
+      'structured data pipelines',
+      'vibe coding data pipeline',
+    ],
+    image: '/blog/ai-assisted-data-workflows/hero-meaningful.svg',
+    imageAlt:
+      'AI-assisted data workflow console connecting browser capture, transformation examples, schema checks, and production storage',
+    faq: [
+      {
+        question: 'What is an AI-assisted data workflow?',
+        answer:
+          'An AI-assisted data workflow uses an LLM or agent to help capture, transform, validate, and store data, while the team still owns the schema, tests, and production contract.',
+      },
+      {
+        question: 'How do you make AI-generated data pipelines reliable?',
+        answer:
+          'Make them reliable by breaking the pipeline into small verified steps, saving examples, versioning schemas and transformations, running repeatable checks, and monitoring production output.',
+      },
+      {
+        question: 'Can AI replace web scraper selectors?',
+        answer:
+          'AI can reduce the need for brittle selectors by interpreting screenshots, HTML, and examples, but production workflows still need fallbacks, validation, and alerts when source pages change.',
+      },
+      {
+        question: 'What should be stored from an AI data extraction pipeline?',
+        answer:
+          'Store the normalized output, the source reference, extraction timestamp, model or prompt version, validation status, and enough raw evidence to debug a bad row later.',
+      },
+      {
+        question: 'Are AI-assisted data workflows portable?',
+        answer:
+          'They are portable when the AI produces standard artifacts such as SQL schemas, CSV or JSON outputs, documented APIs, and versioned transformation code instead of opaque tool-only state.',
+      },
+    ],
+    content: `
+[STATS: 4 | Stages from source to queryable data; 1 | Schema contract to protect; 0 | Excuses for unverified output]
+
+AI-assisted data work gets interesting when the prompt stops being a request for a script and starts being a specification for a repeatable pipeline.
+
+That is the shift worth paying attention to.
+
+The old version of this workflow sounded like "write me a scraper." The production version sounds more like: "Capture these pages, extract these fields, normalize them with these examples, store them in this schema, and tell me which rows failed validation."
+
+That is a much better abstraction.
+
+It does not remove data engineering judgment. It moves the boring plumbing closer to natural language and forces the team to define the contract that actually matters.
+
+[IMAGE: /blog/ai-assisted-data-workflows/hero-meaningful.svg | AI-assisted data workflow console connecting browser capture, transformation examples, schema checks, and production storage | A useful AI data workflow turns a prompt into a checked path from source material to queryable data.]
+
+---
+
+[KICKER: The Short Version]
+
+## AI-Assisted Data Workflows Need Contracts, Not Just Prompts
+
+The mistake is treating AI-assisted data work as a magic extraction step.
+
+Extraction is only one part of the workflow. The real system needs a source capture, a transformation contract, a storage model, validation, and a way to inspect failures.
+
+The model can help with all of that, but it cannot be the only place the rules live.
+
+For a serious workflow, the prompt should define:
+
+- The source material the system is allowed to inspect
+- The fields that must be extracted
+- Examples of acceptable and unacceptable output
+- The normalized schema
+- The validation rules
+- The evidence needed for debugging
+- The command or check that proves the pipeline still works
+
+That is the difference between a clever demo and something a team can run again next week.
+
+[IMAGE: /blog/ai-assisted-data-workflows/pipeline-map.svg | Four-stage AI data pipeline from capture to transform to validate to store with explicit review checkpoints | The pipeline should make every handoff visible: capture, transform, validate, and store.]
+
+## Start With the Capture Layer
+
+Data pipelines usually fail at the edge.
+
+The website changes. The PDF has weird formatting. The screenshot has a modal covering the number you needed. The table has merged cells. The API sends a field as a string in one response and a number in another.
+
+AI tools help because they can reason over messier input than a fragile selector can. A model can inspect a screenshot, compare nearby labels, infer that "In stock" maps to availability, and produce a first draft of structured output.
+
+That is useful.
+
+But capture still needs boundaries. The system should know where the source came from, when it was captured, and what evidence supports each extracted value.
+
+For browser-driven workflows, that often means saving:
+
+- The URL or source identifier
+- The capture timestamp
+- A screenshot or HTML snapshot when legally and operationally appropriate
+- The prompt or extractor version
+- The extracted fields
+- A validation status
+
+That evidence matters later. When someone asks why a row says a product was unavailable, you should be able to inspect the source state that produced the answer.
+
+## Transform With Examples, Not Vibes
+
+LLMs are good at understanding intent, but complex transformations still need examples.
+
+If you want clean data, show the model what clean means.
+
+For example, do not only say:
+
+- "Normalize the company names."
+- "Extract the product price."
+- "Convert this page into rows."
+
+Give it a few input and output pairs:
+
+- Input: "ACME, Inc." Output: "Acme"
+- Input: "$1,299 / mo" Output: amount 1299, interval month, currency USD
+- Input: "Ships in 2-3 business days" Output: availability delayed, lead time 2 to 3 days
+
+Examples turn the prompt into a transformation spec. They also become test fixtures.
+
+This is especially important when the workflow moves from one-off analysis to production automation. A human can forgive ambiguity in a chat. A database cannot.
+
+[IMAGE: /blog/ai-assisted-data-workflows/validation-matrix.svg | Validation matrix showing extracted values checked against type, range, source evidence, and business rules | Examples and validation checks turn AI output into data a team can trust.]
+
+## Store the Contract, Not Just the Output
+
+Getting data into a database is not the hard part. Keeping the data useful is.
+
+A good AI-assisted pipeline should output standard, portable artifacts:
+
+- SQL schema or migration files
+- JSON Schema, Zod, or equivalent validation contracts
+- CSV, JSONL, or API payloads with documented fields
+- Transformation code or declarative mapping files
+- Run logs with prompt and model versions
+
+The AI can help generate those artifacts. The team should own them in version control.
+
+That keeps the workflow portable. You are not betting the business on an opaque extraction session. You are using the model to create and maintain the same boring contracts you would want in any other data system.
+
+I think about this the same way I think about <a href="/blog/ai-coding-stack-fragmentation">the fragmented AI coding stack</a>. The model is one layer. The workflow around it is what makes the output dependable.
+
+## Validation Is the Product Boundary
+
+The most important question is not "Can AI extract this?"
+
+The better question is "How will we know when the extraction is wrong?"
+
+For AI-assisted data workflows, validation should happen at several levels:
+
+- Type checks: is the value shaped correctly?
+- Range checks: is the number plausible?
+- Required fields: did the extractor miss anything?
+- Cross-field checks: do related values agree?
+- Source checks: can we trace the value back to evidence?
+- Drift checks: did the source layout or language change?
+- Business checks: would this row cause a bad downstream decision?
+
+This is where the workflow becomes production-grade.
+
+You do not need perfect extraction to get value. You need a system that marks uncertainty, quarantines bad rows, and gives a human enough context to repair the rule or prompt.
+
+That is a healthier failure mode than silently writing bad data.
+
+## Use AI Where the Shape Is Messy
+
+AI is strongest when the input is messy and the desired output is clear.
+
+That makes it a strong fit for:
+
+- Extracting structured fields from pages, screenshots, PDFs, and email
+- Normalizing inconsistent labels or names
+- Converting examples into transformation rules
+- Drafting schemas from sample data
+- Generating validation checks
+- Explaining why a row failed
+- Producing a first migration or query
+
+It is a weaker fit for being the only source of truth.
+
+If downstream billing, compliance, inventory, medical, legal, or financial decisions depend on the data, the AI should be inside a controlled workflow with explicit checks and review paths.
+
+The right mental model is not "the model knows the data." The right mental model is "the model helps move messy source material toward a contract."
+
+## A Practical Pattern for Teams
+
+If I were building this for a team, I would start with one narrow workflow and make it boring.
+
+Pick a source that matters. Pick five fields. Collect ten examples. Define the output schema. Run the extractor. Inspect every row. Turn the mistakes into tests.
+
+Then repeat.
+
+The workflow might look like this:
+
+- Capture a small batch of source material
+- Ask the AI to extract a draft dataset
+- Compare the output against hand-checked examples
+- Save the schema and transformation rules
+- Add validation for the mistakes you found
+- Store only rows that pass the contract
+- Send uncertain rows to a review queue
+- Track failures by source, field, and prompt version
+
+That is not flashy, but it works.
+
+It also gives the team confidence to widen the workflow without pretending the model is infallible.
+
+## The Prompt Becomes the Spec
+
+The best prompts for data workflows read less like commands and more like acceptance criteria.
+
+Instead of:
+
+- "Scrape this site and put it in a database."
+
+Use:
+
+- "Extract product name, price, availability, and source URL from these captured pages. Return JSONL matching this schema. If price is missing or ambiguous, set validation_status to review and include the source evidence. Do not infer availability without visible text. Run the sample validation and report failures."
+
+That prompt gives the AI room to help while keeping the output inspectable.
+
+It also creates a shared language between the person requesting the work, the agent implementing it, and the system validating it.
+
+That is where AI-assisted software work is headed generally. I wrote about the broader loop in <a href="/blog/agentic-workflows-ai-development-loop">Agentic Workflows: How AI Is Automating the Development Loop</a>. Data workflows are just one of the clearest places to see the pattern.
+
+## What I Would Watch in Production
+
+Once the workflow is live, the operational questions matter more than the prompt.
+
+I would track:
+
+- Extraction success rate
+- Review queue volume
+- Fields most likely to fail validation
+- Source pages most likely to drift
+- Time from capture to stored row
+- Rows changed by human review
+- Downstream incidents caused by bad data
+
+Those numbers tell you whether the workflow is improving or just producing more output.
+
+The goal is not to maximize automation. The goal is to make the path from messy input to trusted data faster, cheaper, and easier to inspect.
+
+AI can absolutely help with that.
+
+But the production win comes from the contract around the model: examples, schemas, validation, logs, and review.
+
+## Frequently Asked Questions About AI-Assisted Data Workflows
+
+## What is an AI-assisted data workflow?
+
+An AI-assisted data workflow uses an LLM or agent to help capture, transform, validate, and store data, while the team still owns the schema, tests, and production contract.
+
+The AI is useful because it can interpret messy source material and draft transformations quickly. The workflow is useful because it turns that draft into repeatable, inspectable data.
+
+## How do you make AI-generated data pipelines reliable?
+
+Make AI-generated data pipelines reliable by breaking them into small verified steps, saving examples, versioning schemas and transformations, running repeatable checks, and monitoring production output.
+
+Treat model output like untrusted input until it passes the contract. The pipeline should mark uncertainty, quarantine failures, and make bad rows easy to debug.
+
+## Can AI replace web scraper selectors?
+
+AI can reduce the need for brittle selectors by interpreting screenshots, HTML, and examples, but production workflows still need fallbacks, validation, and alerts when source pages change.
+
+Selectors are not the only fragile part of scraping. Source drift, missing values, ambiguous labels, and downstream schema changes still need engineering controls.
+
+## What should be stored from an AI data extraction pipeline?
+
+Store the normalized output, the source reference, extraction timestamp, model or prompt version, validation status, and enough raw evidence to debug a bad row later.
+
+That evidence can include a source URL, HTML snapshot, screenshot reference, extracted text span, or row-level explanation depending on the workflow and data policy.
+
+## Are AI-assisted data workflows portable?
+
+AI-assisted data workflows are portable when the AI produces standard artifacts such as SQL schemas, CSV or JSON outputs, documented APIs, and versioned transformation code instead of opaque tool-only state.
+
+Use the AI to speed up boring contracts. Do not let the contract live only inside a prompt window or vendor-specific session.
+`,
+  },
+  {
     slug: 'ai-coding-stack-fragmentation',
     title: 'The AI Coding Stack Is Fragmenting, and That Is Good',
     date: '2026-07-10',

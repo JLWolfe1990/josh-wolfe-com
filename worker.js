@@ -1,6 +1,6 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
-const DEPLOY_VERSION = '20260710-ai-coding-stack-fragmentation';
+const DEPLOY_VERSION = '20260713-ai-assisted-data-workflows';
 const SITE_URL = 'https://www.josh-wolfe.com';
 const BIZBUZZ_SUBSCRIBE_URL = 'https://bizbuzz.app/api/subscribe/cmlmdspty0004yd01xbkspf1d';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
@@ -29,6 +29,13 @@ const BLOG_INDEX_META = {
 };
 
 const BLOG_POST_META = {
+  'ai-assisted-data-workflows': {
+    title: 'From Prompt to Production Data Workflow | Josh Wolfe',
+    description:
+      'A practical guide to AI-assisted data workflows: capture messy sources, transform with examples, validate output, and store portable production data.',
+    image: `${SITE_URL}/blog/ai-assisted-data-workflows/hero-meaningful.svg`,
+    date: '2026-07-13',
+  },
   'ai-coding-stack-fragmentation': {
     title: 'The AI Coding Stack Is Fragmenting, and That Is Good | Josh Wolfe',
     description:
