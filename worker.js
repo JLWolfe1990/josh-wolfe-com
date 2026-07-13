@@ -346,7 +346,7 @@ async function handleRequest(request) {
             'Content-Type': 'text/html; charset=utf-8',
             'Cache-Control': 'public, max-age=300',
             'Access-Control-Allow-Origin': '*',
-            'X-Worker-Deploy-Version': DEPLOY_VERSION,
+            'X-Josh-Deploy-Version': DEPLOY_VERSION,
           },
         });
       }
@@ -367,7 +367,7 @@ async function handleRequest(request) {
           'Cache-Control': cacheControl,
           'Access-Control-Allow-Origin': '*',
           'X-Content-Type-Options': 'nosniff',
-          'X-Worker-Deploy-Version': DEPLOY_VERSION,
+          'X-Josh-Deploy-Version': DEPLOY_VERSION,
         },
       });
     }
@@ -379,7 +379,7 @@ async function handleRequest(request) {
         'Cache-Control': cacheControl,
         'Access-Control-Allow-Origin': '*',
         'X-Content-Type-Options': 'nosniff',
-        'X-Worker-Deploy-Version': DEPLOY_VERSION,
+        'X-Josh-Deploy-Version': DEPLOY_VERSION,
       },
     });
   } catch (error) {

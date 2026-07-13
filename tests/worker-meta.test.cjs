@@ -57,7 +57,7 @@ test('serves route-specific HTML with an observable deploy-version header', asyn
   const html = await response.text()
 
   assert.equal(response.status, 200)
-  assert.equal(response.headers.get('x-worker-deploy-version'), worker.DEPLOY_VERSION)
+  assert.equal(response.headers.get('x-josh-deploy-version'), worker.DEPLOY_VERSION)
   assert.match(html, /<title>From Prompt to Production Data Workflow \| Josh Wolfe<\/title>/)
 })
 
