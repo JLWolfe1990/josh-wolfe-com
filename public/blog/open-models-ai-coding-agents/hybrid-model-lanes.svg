@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="834" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">Hybrid AI coding model lanes</title>
+  <desc id="desc">Architecture diagram showing proprietary exploration, open model operation, shared evaluations, and production review gates.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101412"/>
+      <stop offset="0.55" stop-color="#17201a"/>
+      <stop offset="1" stop-color="#231b12"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffbd8a"/>
+      <stop offset="0.5" stop-color="#a2ff33"/>
+      <stop offset="1" stop-color="#24d6b3"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#000" flood-opacity="0.34"/>
+    </filter>
+  </defs>
+  <rect width="1520" height="834" fill="url(#bg)"/>
+  <text x="118" y="96" fill="#f4fff7" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">A practical hybrid model strategy</text>
+  <text x="118" y="134" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="19">Use the strongest model where it matters, but keep repeatable work portable through the same checks.</text>
+
+  <g filter="url(#shadow)" font-family="Inter, Arial, sans-serif">
+    <rect x="118" y="210" width="390" height="180" rx="24" fill="#151b18" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="150" y="258" fill="#ffbd8a" font-size="18" font-weight="800">Lane 1</text>
+    <text x="150" y="300" fill="#f6eee7" font-size="32" font-weight="800">Proprietary exploration</text>
+    <text x="150" y="340" fill="#a8b6af" font-size="17">Ambiguous tasks, architecture,</text>
+    <text x="150" y="366" fill="#a8b6af" font-size="17">hard debugging, repo synthesis</text>
+
+    <rect x="118" y="484" width="390" height="180" rx="24" fill="#151b18" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="150" y="532" fill="#24d6b3" font-size="18" font-weight="800">Lane 2</text>
+    <text x="150" y="574" fill="#effffb" font-size="32" font-weight="800">Open model operation</text>
+    <text x="150" y="614" fill="#a8b6af" font-size="17">Pinned versions, controlled runtime,</text>
+    <text x="150" y="640" fill="#a8b6af" font-size="17">fallbacks for repeatable agent work</text>
+
+    <rect x="638" y="324" width="314" height="226" rx="26" fill="#101613" stroke="#a2ff33" stroke-opacity="0.48"/>
+    <text x="678" y="378" fill="#a2ff33" font-size="18" font-weight="800">Shared contract</text>
+    <text x="678" y="422" fill="#f4fff7" font-size="34" font-weight="800">Same workflow</text>
+    <text x="678" y="468" fill="#a8b6af" font-size="17">Prompt template</text>
+    <text x="678" y="496" fill="#a8b6af" font-size="17">Tool permissions</text>
+    <text x="678" y="524" fill="#a8b6af" font-size="17">Replayable inputs</text>
+
+    <rect x="1084" y="210" width="318" height="454" rx="30" fill="#151b18" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="1126" y="264" fill="#7ad7ff" font-size="18" font-weight="800">Production gate</text>
+    <text x="1126" y="310" fill="#f4fff7" font-size="34" font-weight="800">Evidence wins</text>
+    <g fill="#a8b6af" font-size="17">
+      <text x="1126" y="366">1. Tests pass</text>
+      <text x="1126" y="406">2. Diff is reviewable</text>
+      <text x="1126" y="446">3. Failures are captured</text>
+      <text x="1126" y="486">4. Cost is understood</text>
+      <text x="1126" y="526">5. Human can approve</text>
+    </g>
+    <rect x="1126" y="570" width="204" height="20" rx="10" fill="url(#line)"/>
+  </g>
+
+  <path d="M508 300 C574 300 580 384 638 400" fill="none" stroke="url(#line)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M508 574 C574 574 580 490 638 474" fill="none" stroke="url(#line)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M952 438 H1084" fill="none" stroke="url(#line)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M1056 414 L1088 438 L1056 462" fill="none" stroke="#a2ff33" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="278" y="706" width="964" height="54" rx="27" fill="#0e1311" stroke="#a2ff33" stroke-opacity="0.24"/>
+  <text x="330" y="741" fill="#dfffe7" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">The model can change. The agent contract, evaluation set, and review gate should remain stable.</text>
+</svg>

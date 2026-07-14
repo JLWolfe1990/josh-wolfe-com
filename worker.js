@@ -1,6 +1,6 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
-const DEPLOY_VERSION = '20260713-worker-route-metadata';
+const DEPLOY_VERSION = '20260714-open-models-ai-coding-agents';
 const SITE_URL = 'https://www.josh-wolfe.com';
 const BIZBUZZ_SUBSCRIBE_URL = 'https://bizbuzz.app/api/subscribe/cmlmdspty0004yd01xbkspf1d';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
@@ -29,6 +29,13 @@ const BLOG_INDEX_META = {
 };
 
 const BLOG_POST_META = {
+  'open-models-ai-coding-agents': {
+    title: 'Open Models Are Your Hedge Against AI Coding Vendor Lock-In | Josh Wolfe',
+    description:
+      'A practical AI coding strategy for avoiding model and vendor lock-in with portable agent contracts, open model fallbacks, evaluations, and production review gates.',
+    image: `${SITE_URL}/blog/open-models-ai-coding-agents/hero-meaningful.svg`,
+    date: '2026-07-14',
+  },
   'ai-assisted-data-workflows': {
     title: 'From Prompt to Production Data Workflow | Josh Wolfe',
     description:

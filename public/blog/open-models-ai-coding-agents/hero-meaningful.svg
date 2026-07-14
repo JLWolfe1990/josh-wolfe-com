@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="760" viewBox="0 0 1520 760" role="img" aria-labelledby="title desc">
+  <title id="title">Portable AI coding agent control room</title>
+  <desc id="desc">Engineering console showing proprietary APIs, open model lanes, evaluation gates, and production review controls for AI coding agents.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101414"/>
+      <stop offset="0.52" stop-color="#18211d"/>
+      <stop offset="1" stop-color="#211b13"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#23302b"/>
+      <stop offset="1" stop-color="#121716"/>
+    </linearGradient>
+    <linearGradient id="lime" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a2ff33"/>
+      <stop offset="1" stop-color="#25e0b0"/>
+    </linearGradient>
+    <filter id="soft">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1520" height="760" fill="url(#bg)"/>
+  <path d="M0 610 C210 540 320 720 520 620 S910 520 1120 600 S1370 680 1520 590 V760 H0 Z" fill="#111413" opacity="0.72"/>
+  <path d="M90 116 H1430" stroke="#ffffff" stroke-opacity="0.08"/>
+  <path d="M90 644 H1430" stroke="#ffffff" stroke-opacity="0.08"/>
+
+  <g filter="url(#soft)">
+    <rect x="122" y="114" width="1276" height="520" rx="28" fill="#0d1110" stroke="#ffffff" stroke-opacity="0.14"/>
+    <rect x="162" y="154" width="1196" height="72" rx="18" fill="#151d1a" stroke="#ffffff" stroke-opacity="0.1"/>
+    <circle cx="198" cy="190" r="8" fill="#ff8f5a"/>
+    <circle cx="226" cy="190" r="8" fill="#ffd166"/>
+    <circle cx="254" cy="190" r="8" fill="#7ee787"/>
+    <text x="300" y="198" fill="#d9efe7" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">AI coding workflow portability</text>
+    <text x="1128" y="198" fill="#98a69f" font-family="Inter, Arial, sans-serif" font-size="16">versioned contract</text>
+
+    <g transform="translate(162 264)">
+      <rect width="318" height="260" rx="22" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.12"/>
+      <text x="28" y="44" fill="#ffbd8a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Proprietary lane</text>
+      <text x="28" y="78" fill="#d7ddd9" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">Explore</text>
+      <text x="28" y="116" fill="#9aa7a0" font-family="Inter, Arial, sans-serif" font-size="16">High-context tasks</text>
+      <text x="28" y="146" fill="#9aa7a0" font-family="Inter, Arial, sans-serif" font-size="16">Ambiguous planning</text>
+      <text x="28" y="176" fill="#9aa7a0" font-family="Inter, Arial, sans-serif" font-size="16">Hard debugging</text>
+      <rect x="28" y="208" width="214" height="16" rx="8" fill="#ffbd8a" opacity="0.72"/>
+    </g>
+
+    <g transform="translate(602 264)">
+      <rect width="318" height="260" rx="22" fill="#121916" stroke="#a2ff33" stroke-opacity="0.42"/>
+      <text x="28" y="44" fill="#a2ff33" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Portable contract</text>
+      <text x="28" y="78" fill="#f4fff7" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">Evaluate</text>
+      <text x="28" y="116" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="16">Prompt template</text>
+      <text x="28" y="146" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="16">Tool boundaries</text>
+      <text x="28" y="176" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="16">Tests and gates</text>
+      <rect x="28" y="208" width="250" height="16" rx="8" fill="url(#lime)"/>
+    </g>
+
+    <g transform="translate(1040 264)">
+      <rect width="318" height="260" rx="22" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.12"/>
+      <text x="28" y="44" fill="#62e6c7" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Open model lane</text>
+      <text x="28" y="78" fill="#d7fff4" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">Operate</text>
+      <text x="28" y="116" fill="#9aa7a0" font-family="Inter, Arial, sans-serif" font-size="16">Pinned versions</text>
+      <text x="28" y="146" fill="#9aa7a0" font-family="Inter, Arial, sans-serif" font-size="16">Controlled runtime</text>
+      <text x="28" y="176" fill="#9aa7a0" font-family="Inter, Arial, sans-serif" font-size="16">Fallback capacity</text>
+      <rect x="28" y="208" width="232" height="16" rx="8" fill="#62e6c7" opacity="0.82"/>
+    </g>
+
+    <path d="M492 394 H582" stroke="url(#lime)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M932 394 H1020" stroke="url(#lime)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M556 370 L586 394 L556 418" fill="none" stroke="#a2ff33" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M994 370 L1024 394 L994 418" fill="none" stroke="#a2ff33" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="162" y="590" fill="#f7fff8" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">Own the workflow. Swap the model.</text>
+  <text x="162" y="624" fill="#9daaa3" font-family="Inter, Arial, sans-serif" font-size="18">Prompts, evaluations, tools, and review gates are the durable parts of an AI coding system.</text>
+</svg>

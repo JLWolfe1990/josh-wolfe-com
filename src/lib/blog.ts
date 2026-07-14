@@ -17,6 +17,282 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
   {
+    slug: 'open-models-ai-coding-agents',
+    title: 'Open Models Are Your Hedge Against AI Coding Vendor Lock-In',
+    date: '2026-07-14',
+    excerpt:
+      'AI coding agents are becoming workflow infrastructure. Open models give teams a practical hedge against pricing shocks, model deprecation, policy changes, and vendor-specific prompt debt.',
+    category: 'AI Engineering',
+    readTime: '9 min read',
+    keywords: [
+      'open models for AI coding',
+      'AI coding vendor lock-in',
+      'AI coding agents',
+      'open source coding models',
+      'LLM vendor lock-in',
+      'enterprise AI coding strategy',
+      'AI development workflow portability',
+    ],
+    image: '/blog/open-models-ai-coding-agents/hero-meaningful.svg',
+    imageAlt:
+      'Engineering control room comparing proprietary AI coding APIs with portable open model infrastructure, evaluation gates, and agent workflows',
+    faq: [
+      {
+        question: 'What is AI coding vendor lock-in?',
+        answer:
+          'AI coding vendor lock-in happens when a team depends so heavily on one proprietary model, API, prompt style, pricing model, and tool workflow that switching providers would disrupt engineering delivery.',
+      },
+      {
+        question: 'Why do open models matter for AI coding agents?',
+        answer:
+          'Open models matter because coding agents are becoming operational infrastructure. Teams need the ability to pin versions, run evaluations, control deployment, and move critical workflows without waiting on one vendor.',
+      },
+      {
+        question: 'Should teams replace proprietary coding models with open models?',
+        answer:
+          'Not always. A practical strategy uses proprietary models where they are clearly better, while moving repeatable and business-critical agent workflows toward portable prompts, evaluations, and open model fallbacks.',
+      },
+      {
+        question: 'How can a team reduce AI model lock-in?',
+        answer:
+          'Reduce model lock-in by separating prompts from vendors, keeping test suites for agent tasks, tracking model versions, using adapter layers, saving failure cases, and regularly evaluating open model alternatives.',
+      },
+      {
+        question: 'Are open coding models ready for production workflows?',
+        answer:
+          'Open coding models are ready for some production workflows when tasks are narrow, evaluated, and guarded by tests. They are not a universal replacement, but they are good enough to be part of a serious portability plan.',
+      },
+    ],
+    content: `
+[STATS: 3 | Lock-in surfaces to control; 2 | Model lanes worth testing; 1 | Portable agent contract to own]
+
+AI coding agents are moving from novelty into infrastructure.
+
+That changes the model-choice conversation.
+
+When a model is only helping you draft a function, vendor dependency is annoying but manageable. When an agent is reading repositories, planning migrations, writing tests, updating docs, and running release checks, the model becomes part of the delivery system.
+
+At that point, "which model is best this week?" is the wrong question.
+
+The better question is: "How much of our engineering workflow can we move if the vendor changes the terms?"
+
+[IMAGE: /blog/open-models-ai-coding-agents/hero-meaningful.svg | Engineering control room comparing proprietary AI coding APIs with portable open model infrastructure, evaluation gates, and agent workflows | Open models give AI coding workflows an escape hatch when proprietary APIs, pricing, or behavior change.]
+
+---
+
+[KICKER: The Short Version]
+
+## AI Coding Vendor Lock-In Is a Workflow Problem
+
+Vendor lock-in in AI coding is not just about the model endpoint.
+
+It shows up in the whole workflow around the model:
+
+- Prompts tuned to one model's habits
+- Agent loops built around one API's tool-calling behavior
+- Rate limits and pricing assumptions baked into automation
+- Evaluation results that only compare one vendor's current release
+- Team habits shaped around one editor, chat surface, or hosted agent
+- Production tasks that cannot run if the provider is unavailable
+
+That dependency is easy to ignore while the system is working. It becomes expensive when a model is deprecated, pricing moves, latency changes, policy tightens, or quality shifts under the same model name.
+
+Open models are not a magic fix. They are leverage.
+
+They give the team another lane: a way to run a known model, pin behavior, test locally or in a controlled cloud, and keep critical workflows from depending entirely on one proprietary roadmap.
+
+[IMAGE: /blog/open-models-ai-coding-agents/lock-in-map.svg | Map of AI coding lock-in surfaces across model API, prompt behavior, agent tools, cost controls, and production review gates | Lock-in lives across the model, prompts, tool contract, cost model, and review workflow.]
+
+## The Risk Gets Bigger When Agents Do Real Work
+
+For pair coding, the human is close to the output.
+
+You ask for a component, inspect the answer, accept part of it, and keep moving. If the model gets worse for a week, it is frustrating, but you can adapt.
+
+Agent workflows create a different dependency. The model may be responsible for:
+
+- Choosing which files to inspect
+- Planning a multi-step change
+- Calling tools in the right order
+- Reading command failures
+- Deciding whether a test failure is related
+- Summarizing the risk for review
+- Stopping when the success criteria are not met
+
+That is a lot of operational behavior to leave entirely inside a black box.
+
+This is why I think model portability matters more for agents than it did for autocomplete. The agent is not just producing text. It is coordinating work.
+
+I wrote about the layered AI coding stack in <a href="/blog/ai-coding-stack-fragmentation">The AI Coding Stack Is Fragmenting, and That Is Good</a>. This is the model strategy that falls out of that same idea: the more important the workflow layer becomes, the more deliberately you should design the escape hatch.
+
+## Proprietary Models Are Still Useful
+
+This is not an argument for purity.
+
+The best proprietary models are excellent. They are often better at messy reasoning, repo-wide synthesis, multimodal debugging, and understanding vague requests. If a task is exploratory, high-context, or ambiguous, using the best available proprietary model can be the right call.
+
+The mistake is treating that as the whole strategy.
+
+Use proprietary models where the extra capability creates real value. Then make sure the workflow around them is portable:
+
+- Store prompts in version control when they become part of a process
+- Keep task inputs and outputs inspectable
+- Save examples of successful and failed runs
+- Run objective checks outside the model
+- Avoid depending on model-specific formatting quirks
+- Keep a second model lane available for regression testing
+
+That gives you the benefit of frontier capability without turning every internal process into vendor-specific glue.
+
+## Open Models Are Good Enough for More Than Teams Think
+
+Open coding models do not need to beat the best proprietary model at every task to be strategically useful.
+
+They need to be good enough for defined workflows.
+
+That distinction matters. A narrow agent task with a strong harness can run well on a smaller or open model because the workflow provides the context, guardrails, and feedback:
+
+- Update changelog entries from merged commits
+- Draft unit tests for a known utility
+- Convert a structured issue into a branch checklist
+- Classify build failures into known buckets
+- Generate first-pass docs from typed interfaces
+- Check whether a migration touched expected files
+- Rewrite simple prompts into a standard agent instruction format
+
+Those tasks are not glamorous, but they are real.
+
+If an open model can handle 30 percent of repeatable agent work behind tests, that changes the economics and the risk profile. You now have a hedge. You have a fallback. You have a way to compare vendors against something you control.
+
+[IMAGE: /blog/open-models-ai-coding-agents/hybrid-model-lanes.svg | Hybrid AI coding architecture with proprietary exploration lane, open model production lane, shared evaluations, and review gates | A practical AI coding strategy uses proprietary and open model lanes against the same workflow contract.]
+
+## Build Around a Portable Agent Contract
+
+The most useful abstraction is not "which model are we using?"
+
+It is the contract around the agent.
+
+For a serious coding workflow, define:
+
+- Inputs: issue, repo path, constraints, examples, and allowed tools
+- Instructions: goal, scope, stop conditions, and output format
+- Checks: tests, type checks, lint, build, screenshots, or live gates
+- Evidence: files changed, commands run, failures observed, and final diff
+- Review: who or what decides whether the output is accepted
+
+If that contract is explicit, you can evaluate multiple models against the same job. If the contract only lives inside a vendor-specific chat session, you are stuck comparing vibes.
+
+This is the same reason production workflows need validation. In <a href="/blog/ai-assisted-data-workflows">From Prompt to Production Data Workflow</a>, the point was that prompts become useful when they produce checked artifacts. Coding agents are no different.
+
+## What Lock-In Looks Like in Practice
+
+The warning signs are usually boring.
+
+A team is drifting into lock-in when:
+
+- Nobody can name the model versions used for critical agent tasks
+- Prompts are copied around in private chats instead of source control
+- The workflow has no tests independent of the model's answer
+- Cost assumptions depend on one provider's current pricing
+- Switching models breaks tool calls, formatting, or retry behavior
+- The team cannot replay a failed agent run with another model
+- Evaluation means "the last demo looked good"
+
+None of those are fatal on day one.
+
+Together, they mean the team is building on behavior it cannot inspect, pin, or move.
+
+## A Practical Portability Plan
+
+You do not need to boil the ocean.
+
+Start with one agent workflow that already matters. For example, a docs update workflow, a test-generation workflow, or an intake-to-publish workflow.
+
+Then make it portable:
+
+- Write the instruction as a repo-owned prompt or task template
+- Define the exact inputs and expected output
+- Add a small evaluation set from real past examples
+- Run the workflow through your primary proprietary model
+- Run the same workflow through one open model
+- Compare diff quality, pass rate, repair rate, latency, and cost
+- Keep the checks outside the model
+
+The goal is not to crown a permanent winner. The goal is to make switching measurable.
+
+That is what reduces lock-in: not abstract optionality, but repeatable evidence that another lane can handle the job.
+
+## Where I Would Draw the Line
+
+For high-risk production code, I still want human review, tests, and deploy gates no matter which model is used.
+
+Open does not mean automatically safe. Proprietary does not mean automatically better. The model is only one component in the system.
+
+I would be comfortable moving more work to open models when:
+
+- The task is narrow and repeatable
+- The repository context is bounded
+- The output is reviewed or tested
+- The model version is pinned
+- Failures are captured as new examples
+- The workflow can fall back to a stronger model when needed
+
+I would keep frontier proprietary models in the loop for ambiguous architecture decisions, large migrations, unusual debugging, and situations where the cost of a weak answer is higher than the cost of the model.
+
+That is a hybrid strategy, and it is the boring answer because it is the useful one.
+
+## The Team That Owns the Workflow Owns the Future
+
+The next phase of AI coding will not be won by teams that blindly standardize on one model.
+
+It will be won by teams that make their workflows portable, evaluated, and easy to inspect.
+
+Open models matter because they force that discipline. They remind the team to separate the durable parts of the system from the vendor-specific parts:
+
+- The workflow is yours
+- The checks are yours
+- The examples are yours
+- The review standard is yours
+- The model is replaceable
+
+That is the posture I want for AI coding agents.
+
+Use the best proprietary model when it earns its place. Keep open models close enough that switching is a tested option, not a fantasy.
+
+## Frequently Asked Questions About Open Models and AI Coding Lock-In
+
+## What is AI coding vendor lock-in?
+
+AI coding vendor lock-in happens when a team depends so heavily on one proprietary model, API, prompt style, pricing model, and tool workflow that switching providers would disrupt engineering delivery.
+
+The dependency usually grows gradually. Prompts, evaluations, agent tools, cost assumptions, and team habits start to fit one provider's behavior until moving becomes painful.
+
+## Why do open models matter for AI coding agents?
+
+Open models matter because coding agents are becoming operational infrastructure.
+
+When agents run repeatable engineering workflows, teams need the ability to pin versions, run evaluations, control deployment, and keep a fallback lane available if a proprietary provider changes price, policy, latency, or behavior.
+
+## Should teams replace proprietary coding models with open models?
+
+Teams should not replace proprietary coding models blindly.
+
+A better strategy is hybrid: use proprietary models for ambiguous, high-context, or frontier tasks, while moving repeatable and business-critical workflows toward portable prompts, objective checks, and open model fallbacks.
+
+## How can a team reduce AI model lock-in?
+
+A team can reduce AI model lock-in by separating prompts from vendors, keeping tests for agent tasks, tracking model versions, using adapter layers, saving failure cases, and regularly evaluating open model alternatives.
+
+The practical goal is to make switching measurable. If the team can replay the same workflow against another model and compare results, it has leverage.
+
+## Are open coding models ready for production workflows?
+
+Open coding models are ready for some production workflows when tasks are narrow, evaluated, and guarded by tests.
+
+They are not a universal replacement for frontier proprietary models. They are a serious part of a portability strategy when the workflow contract is clear and the output is independently checked.
+`,
+  },
+  {
     slug: 'ai-assisted-data-workflows',
     title: 'From Prompt to Production Data Workflow',
     date: '2026-07-13',
