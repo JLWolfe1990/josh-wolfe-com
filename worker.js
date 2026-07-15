@@ -1,6 +1,6 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
-const DEPLOY_VERSION = '20260714-open-models-ai-coding-agents';
+const DEPLOY_VERSION = '20260715-ai-agent-file-deletion-guardrails';
 const SITE_URL = 'https://www.josh-wolfe.com';
 const BIZBUZZ_SUBSCRIBE_URL = 'https://bizbuzz.app/api/subscribe/cmlmdspty0004yd01xbkspf1d';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
@@ -29,6 +29,13 @@ const BLOG_INDEX_META = {
 };
 
 const BLOG_POST_META = {
+  'ai-agent-file-deletion-guardrails': {
+    title: 'When AI Coding Agents Delete Files, the Problem Is the Safety Model | Josh Wolfe',
+    description:
+      'A practical guide to AI coding agent safety, file deletion risks, destructive action guardrails, scoped permissions, review gates, and recoverable workflows.',
+    image: `${SITE_URL}/blog/ai-agent-file-deletion-guardrails/hero-meaningful.svg`,
+    date: '2026-07-15',
+  },
   'open-models-ai-coding-agents': {
     title: 'Open Models Are Your Hedge Against AI Coding Vendor Lock-In | Josh Wolfe',
     description:

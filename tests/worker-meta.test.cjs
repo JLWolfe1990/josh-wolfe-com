@@ -46,19 +46,30 @@ test('injects article metadata for the open-model AI coding route', () => {
   assert.doesNotMatch(html, /content="default description"/)
 })
 
+test('injects article metadata for the AI agent safety route', () => {
+  const worker = loadWorker(async () => new Response(baseHtml))
+  const html = worker.injectRouteMeta(baseHtml, '/blog/ai-agent-file-deletion-guardrails')
+
+  assert.match(html, /<title>When AI Coding Agents Delete Files, the Problem Is the Safety Model \| Josh Wolfe<\/title>/)
+  assert.match(html, /rel="canonical" href="https:\/\/www\.josh-wolfe\.com\/blog\/ai-agent-file-deletion-guardrails"/)
+  assert.match(html, /property="og:type" content="article"/)
+  assert.match(html, /property="article:published_time" content="2026-07-15T00:00:00\.000Z"/)
+  assert.doesNotMatch(html, /content="default description"/)
+})
+
 test('serves route-specific HTML with an observable deploy-version header', async () => {
   const worker = loadWorker(async () =>
     new Response(baseHtml, { status: 200, headers: { 'content-type': 'text/html; charset=utf-8' } }),
   )
 
   const response = await worker.handleRequest(
-    new Request('https://www.josh-wolfe.com/blog/open-models-ai-coding-agents'),
+    new Request('https://www.josh-wolfe.com/blog/ai-agent-file-deletion-guardrails'),
   )
   const html = await response.text()
 
   assert.equal(response.status, 200)
   assert.equal(response.headers.get('x-josh-deploy-version'), worker.DEPLOY_VERSION)
-  assert.match(html, /<title>Open Models Are Your Hedge Against AI Coding Vendor Lock-In \| Josh Wolfe<\/title>/)
+  assert.match(html, /<title>When AI Coding Agents Delete Files, the Problem Is the Safety Model \| Josh Wolfe<\/title>/)
 })
 
 test('wrangler config pins both production routes to this Worker', () => {

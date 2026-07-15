@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="834" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">AI agent recovery loop</title>
+  <desc id="desc">Recovery loop showing branch isolation, reviewable diff, validation, backup, and rollback before a destructive agent action is accepted.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101412"/>
+      <stop offset="0.55" stop-color="#17201a"/>
+      <stop offset="1" stop-color="#231b12"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a2ff33"/>
+      <stop offset="0.45" stop-color="#24d6b3"/>
+      <stop offset="1" stop-color="#ffd166"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#000" flood-opacity="0.34"/>
+    </filter>
+  </defs>
+  <rect width="1520" height="834" fill="url(#bg)"/>
+  <text x="118" y="96" fill="#f4fff7" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">Design recovery before autonomy</text>
+  <text x="118" y="134" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="19">An agent can move quickly only when the workflow makes rollback predictable.</text>
+
+  <circle cx="760" cy="432" r="244" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="42"/>
+  <circle cx="760" cy="432" r="244" fill="none" stroke="url(#ring)" stroke-width="12" stroke-dasharray="340 80 220 70 180 90" stroke-linecap="round"/>
+  <path d="M961 296 L1018 292 L990 342" fill="none" stroke="#a2ff33" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#shadow)" font-family="Inter, Arial, sans-serif">
+    <rect x="146" y="252" width="300" height="148" rx="24" fill="#151b18" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="178" y="306" fill="#a2ff33" font-size="18" font-weight="800">1. Isolate</text>
+    <text x="178" y="350" fill="#f4fff7" font-size="30" font-weight="800">Clean branch</text>
+    <text x="178" y="382" fill="#a8b6af" font-size="16">No unrelated local work</text>
+
+    <rect x="610" y="170" width="300" height="148" rx="24" fill="#151b18" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="642" y="224" fill="#62e6c7" font-size="18" font-weight="800">2. Explain</text>
+    <text x="642" y="268" fill="#effffb" font-size="30" font-weight="800">Planned diff</text>
+    <text x="642" y="300" fill="#a8b6af" font-size="16">Files, reasons, risk</text>
+
+    <rect x="1074" y="252" width="300" height="148" rx="24" fill="#151b18" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="1106" y="306" fill="#ffd166" font-size="18" font-weight="800">3. Validate</text>
+    <text x="1106" y="350" fill="#fff8df" font-size="30" font-weight="800">Tests and smoke</text>
+    <text x="1106" y="382" fill="#a8b6af" font-size="16">Evidence beats claims</text>
+
+    <rect x="894" y="584" width="300" height="148" rx="24" fill="#151b18" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="926" y="638" fill="#ffbd8a" font-size="18" font-weight="800">4. Recover</text>
+    <text x="926" y="682" fill="#fff2e8" font-size="30" font-weight="800">Rollback ready</text>
+    <text x="926" y="714" fill="#a8b6af" font-size="16">Git, backup, artifact</text>
+
+    <rect x="326" y="584" width="300" height="148" rx="24" fill="#151b18" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="358" y="638" fill="#7ad7ff" font-size="18" font-weight="800">5. Accept</text>
+    <text x="358" y="682" fill="#eef9ff" font-size="30" font-weight="800">Review gate</text>
+    <text x="358" y="714" fill="#a8b6af" font-size="16">Human or policy approval</text>
+  </g>
+
+  <rect x="596" y="378" width="328" height="110" rx="22" fill="#0e1311" stroke="#a2ff33" stroke-opacity="0.34"/>
+  <text x="638" y="424" fill="#f5fff7" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800">Destructive action?</text>
+  <text x="638" y="458" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="17">Stop until recovery is boring.</text>
+</svg>

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="760" viewBox="0 0 1520 760" role="img" aria-labelledby="title desc">
+  <title id="title">AI coding agent safety control room</title>
+  <desc id="desc">Control room for an AI coding agent with protected files, destructive action gates, audit logs, and recovery checkpoints.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1413"/>
+      <stop offset="0.52" stop-color="#18221f"/>
+      <stop offset="1" stop-color="#241914"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#23302b"/>
+      <stop offset="1" stop-color="#111716"/>
+    </linearGradient>
+    <linearGradient id="safe" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a2ff33"/>
+      <stop offset="1" stop-color="#24d6b3"/>
+    </linearGradient>
+    <linearGradient id="warn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff8f5a"/>
+      <stop offset="1" stop-color="#ffd166"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.36"/>
+    </filter>
+  </defs>
+  <rect width="1520" height="760" fill="url(#bg)"/>
+  <path d="M0 608 C220 540 330 708 532 620 S904 520 1128 602 S1370 680 1520 586 V760 H0 Z" fill="#101412" opacity="0.74"/>
+  <g opacity="0.1" stroke="#ffffff">
+    <path d="M90 116 H1430"/>
+    <path d="M90 644 H1430"/>
+    <path d="M210 80 V690"/>
+    <path d="M1310 80 V690"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="126" y="108" width="1268" height="526" rx="30" fill="#0d1110" stroke="#ffffff" stroke-opacity="0.14"/>
+    <rect x="166" y="148" width="1188" height="74" rx="18" fill="#151d1a" stroke="#ffffff" stroke-opacity="0.1"/>
+    <circle cx="202" cy="185" r="8" fill="#ff8f5a"/>
+    <circle cx="230" cy="185" r="8" fill="#ffd166"/>
+    <circle cx="258" cy="185" r="8" fill="#7ee787"/>
+    <text x="304" y="193" fill="#d9efe7" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Agent safety console</text>
+    <text x="1112" y="193" fill="#98a69f" font-family="Inter, Arial, sans-serif" font-size="16">destructive action pending</text>
+
+    <g transform="translate(166 264)" font-family="Inter, Arial, sans-serif">
+      <rect width="344" height="258" rx="24" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.12"/>
+      <text x="28" y="44" fill="#a2ff33" font-size="18" font-weight="800">Protected scope</text>
+      <text x="28" y="82" fill="#f4fff7" font-size="34" font-weight="800">Branch only</text>
+      <text x="28" y="124" fill="#a8b6af" font-size="16">No main checkout edits</text>
+      <text x="28" y="154" fill="#a8b6af" font-size="16">No hidden file deletion</text>
+      <text x="28" y="184" fill="#a8b6af" font-size="16">Diff remains reviewable</text>
+      <rect x="28" y="212" width="248" height="16" rx="8" fill="url(#safe)"/>
+    </g>
+
+    <g transform="translate(588 264)" font-family="Inter, Arial, sans-serif">
+      <rect width="344" height="258" rx="24" fill="#121916" stroke="#ffbd8a" stroke-opacity="0.5"/>
+      <text x="28" y="44" fill="#ffbd8a" font-size="18" font-weight="800">Delete gate</text>
+      <text x="28" y="82" fill="#fff5e8" font-size="34" font-weight="800">Needs approval</text>
+      <text x="28" y="124" fill="#a8b6af" font-size="16">Name files first</text>
+      <text x="28" y="154" fill="#a8b6af" font-size="16">Explain reason</text>
+      <text x="28" y="184" fill="#a8b6af" font-size="16">Show dry-run or diff</text>
+      <rect x="28" y="212" width="286" height="16" rx="8" fill="url(#warn)"/>
+    </g>
+
+    <g transform="translate(1010 264)" font-family="Inter, Arial, sans-serif">
+      <rect width="344" height="258" rx="24" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.12"/>
+      <text x="28" y="44" fill="#62e6c7" font-size="18" font-weight="800">Recovery path</text>
+      <text x="28" y="82" fill="#d7fff4" font-size="34" font-weight="800">Rollback ready</text>
+      <text x="28" y="124" fill="#a8b6af" font-size="16">Commit evidence</text>
+      <text x="28" y="154" fill="#a8b6af" font-size="16">Validation output</text>
+      <text x="28" y="184" fill="#a8b6af" font-size="16">Deploy gate header</text>
+      <rect x="28" y="212" width="236" height="16" rx="8" fill="#62e6c7" opacity="0.86"/>
+    </g>
+
+    <path d="M522 394 H568" stroke="url(#safe)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M944 394 H990" stroke="url(#safe)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M548 370 L578 394 L548 418" fill="none" stroke="#a2ff33" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M970 370 L1000 394 L970 418" fill="none" stroke="#a2ff33" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="166" y="590" fill="#f7fff8" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">Treat destructive actions like production changes.</text>
+  <text x="166" y="624" fill="#9daaa3" font-family="Inter, Arial, sans-serif" font-size="18">Scope, approval, evidence, and recovery are what make agent autonomy useful instead of reckless.</text>
+</svg>

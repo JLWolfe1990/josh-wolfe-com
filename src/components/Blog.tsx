@@ -14,6 +14,9 @@ const categoryClasses: Record<string, string> = {
 const visuals = ['dashboard', 'orbital', 'terminal', 'lines']
 
 const imageDimensions: Record<string, { width: number; height: number }> = {
+  '/blog/ai-agent-file-deletion-guardrails/hero-meaningful.svg': { width: 1520, height: 760 },
+  '/blog/ai-agent-file-deletion-guardrails/action-gates.svg': { width: 1520, height: 834 },
+  '/blog/ai-agent-file-deletion-guardrails/recovery-loop.svg': { width: 1520, height: 834 },
   '/blog/open-models-ai-coding-agents/hero-meaningful.svg': { width: 1520, height: 760 },
   '/blog/open-models-ai-coding-agents/lock-in-map.svg': { width: 1520, height: 834 },
   '/blog/open-models-ai-coding-agents/hybrid-model-lanes.svg': { width: 1520, height: 834 },

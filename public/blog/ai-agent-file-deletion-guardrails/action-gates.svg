@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="834" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">AI agent action gates</title>
+  <desc id="desc">Diagram separating ordinary edits, risky rewrites, destructive deletes, command execution, and deployment into different approval gates.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101412"/>
+      <stop offset="0.58" stop-color="#17201a"/>
+      <stop offset="1" stop-color="#221912"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a2ff33"/>
+      <stop offset="0.5" stop-color="#ffd166"/>
+      <stop offset="1" stop-color="#ff8f5a"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000" flood-opacity="0.32"/>
+    </filter>
+  </defs>
+  <rect width="1520" height="834" fill="url(#bg)"/>
+  <g opacity="0.11" stroke="#ffffff">
+    <path d="M120 168 H1400"/>
+    <path d="M120 308 H1400"/>
+    <path d="M120 448 H1400"/>
+    <path d="M120 588 H1400"/>
+    <path d="M280 110 V704"/>
+    <path d="M520 110 V704"/>
+    <path d="M760 110 V704"/>
+    <path d="M1000 110 V704"/>
+    <path d="M1240 110 V704"/>
+  </g>
+
+  <text x="120" y="92" fill="#f5fff7" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">Give each agent action the right gate</text>
+  <text x="120" y="130" fill="#aab5ae" font-family="Inter, Arial, sans-serif" font-size="19">Reading files is not the same risk as deleting them. The permission model should know the difference.</text>
+
+  <g filter="url(#shadow)" font-family="Inter, Arial, sans-serif">
+    <rect x="120" y="198" width="228" height="174" rx="22" fill="#151b18" stroke="#a2ff33" stroke-opacity="0.35"/>
+    <text x="150" y="246" fill="#a2ff33" font-size="19" font-weight="800">Read</text>
+    <text x="150" y="286" fill="#f4fff7" font-size="28" font-weight="800">Inspect</text>
+    <text x="150" y="324" fill="#98a49e" font-size="16">Broad access is usually fine</text>
+
+    <rect x="400" y="198" width="228" height="174" rx="22" fill="#151b18" stroke="#ffffff" stroke-opacity="0.14"/>
+    <text x="430" y="246" fill="#62e6c7" font-size="19" font-weight="800">Write</text>
+    <text x="430" y="286" fill="#dbe4df" font-size="28" font-weight="800">Edit</text>
+    <text x="430" y="324" fill="#98a49e" font-size="16">Use branch and diff review</text>
+
+    <rect x="680" y="198" width="228" height="174" rx="22" fill="#151b18" stroke="#ffffff" stroke-opacity="0.14"/>
+    <text x="710" y="246" fill="#ffd166" font-size="19" font-weight="800">Rewrite</text>
+    <text x="710" y="286" fill="#dbe4df" font-size="28" font-weight="800">Refactor</text>
+    <text x="710" y="324" fill="#98a49e" font-size="16">Require plan and checks</text>
+
+    <rect x="960" y="198" width="228" height="174" rx="22" fill="#151b18" stroke="#ff8f5a" stroke-opacity="0.42"/>
+    <text x="990" y="246" fill="#ff8f5a" font-size="19" font-weight="800">Delete</text>
+    <text x="990" y="286" fill="#fff2e8" font-size="28" font-weight="800">Destroy</text>
+    <text x="990" y="324" fill="#b8aaa0" font-size="16">Explicit approval first</text>
+
+    <rect x="400" y="492" width="228" height="174" rx="22" fill="#151b18" stroke="#ffffff" stroke-opacity="0.14"/>
+    <text x="430" y="540" fill="#7ad7ff" font-size="19" font-weight="800">Command</text>
+    <text x="430" y="580" fill="#dbe4df" font-size="28" font-weight="800">Execute</text>
+    <text x="430" y="618" fill="#98a49e" font-size="16">Capture output and exit</text>
+
+    <rect x="680" y="492" width="228" height="174" rx="22" fill="#151b18" stroke="#ff8f5a" stroke-opacity="0.42"/>
+    <text x="710" y="540" fill="#ff8f5a" font-size="19" font-weight="800">Deploy</text>
+    <text x="710" y="580" fill="#fff2e8" font-size="28" font-weight="800">Publish</text>
+    <text x="710" y="618" fill="#b8aaa0" font-size="16">Separate live gate</text>
+  </g>
+
+  <path d="M348 285 H400 M628 285 H680 M908 285 H960 M514 372 V492 M794 372 V492" stroke="url(#line)" stroke-width="6" stroke-linecap="round"/>
+  <rect x="1062" y="520" width="338" height="126" rx="20" fill="#0e1311" stroke="#ffbd8a" stroke-opacity="0.34"/>
+  <text x="1094" y="562" fill="#f5fff7" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">Escalate by risk</text>
+  <text x="1094" y="598" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="16">The more irreversible the action,</text>
+  <text x="1094" y="624" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="16">the more evidence the agent owes.</text>
+</svg>

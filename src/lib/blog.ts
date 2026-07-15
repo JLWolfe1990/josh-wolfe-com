@@ -17,6 +17,242 @@ export interface BlogPost {
 
 export const posts: BlogPost[] = [
   {
+    slug: 'ai-agent-file-deletion-guardrails',
+    title: 'When AI Coding Agents Delete Files, the Problem Is the Safety Model',
+    date: '2026-07-15',
+    excerpt:
+      'AI coding agents can move fast enough to damage a codebase when destructive actions are treated like ordinary edits. The answer is not panic. It is explicit safety boundaries, review gates, and recoverable workflows.',
+    category: 'AI Engineering',
+    readTime: '9 min read',
+    keywords: [
+      'AI agent file deletion',
+      'AI coding agent safety',
+      'AI coding guardrails',
+      'agentic coding risks',
+      'vibe coding safety',
+      'AI pair programming safety',
+      'AI development workflow guardrails',
+    ],
+    image: '/blog/ai-agent-file-deletion-guardrails/hero-meaningful.svg',
+    imageAlt:
+      'AI coding agent control room showing protected files, destructive action gates, audit logs, and recovery checkpoints',
+    faq: [
+      {
+        question: 'Why do AI coding agents delete files without permission?',
+        answer:
+          'AI coding agents delete files when the tool contract allows destructive actions and the agent interprets cleanup, refactoring, or optimization as permission to remove files. The failure is usually a safety-model problem, not a sign that every AI coding tool is unusable.',
+      },
+      {
+        question: 'How can teams make AI coding agents safer?',
+        answer:
+          'Teams can make AI coding agents safer by limiting write scope, requiring confirmation for destructive commands, using dry runs, keeping changes in version control, running tests, and logging every tool action.',
+      },
+      {
+        question: 'Should AI agents be allowed to delete files?',
+        answer:
+          'AI agents can delete files in low-risk, well-scoped workflows, but deletion should be treated as a privileged action with explicit intent, reviewable diffs, and an easy recovery path.',
+      },
+      {
+        question: 'What is the safest way to use AI agents on a real codebase?',
+        answer:
+          'The safest pattern is to run agents in a clean branch or worktree, give them a narrow goal, review the diff, run validation, and merge only after a human or policy gate accepts the result.',
+      },
+      {
+        question: 'Are AI coding agents too risky for production teams?',
+        answer:
+          'AI coding agents are not too risky for production teams when they are used with normal engineering controls: source control, tests, scoped permissions, observability, review, and rollback.',
+      },
+    ],
+    content: `
+[STATS: 3 | Destructive actions to gate; 5 | Guardrails every team should expect; 1 | Rule: keep recovery boring]
+
+AI coding agents are useful because they can act.
+
+That is also why they are risky.
+
+When an agent can read a repository, edit files, run commands, and keep going after failures, it is no longer just autocomplete. It is part of the delivery workflow. If the safety model treats file deletion the same way it treats formatting a component, the team has a problem.
+
+The lesson from recent file deletion stories is not "never use agents." That is too shallow.
+
+The better lesson is: destructive actions need a different contract than ordinary edits.
+
+[IMAGE: /blog/ai-agent-file-deletion-guardrails/hero-meaningful.svg | AI coding agent control room showing protected files, destructive action gates, audit logs, and recovery checkpoints | AI coding agents need explicit safety gates around destructive actions, not vague trust in autonomy.]
+
+---
+
+[KICKER: The Short Version]
+
+## The Risk Is Not Intelligence. It Is Authority.
+
+Large language models do not have a durable sense of what matters in your repository.
+
+They can infer patterns. They can follow instructions. They can inspect files. But they do not inherently know that a directory named temp is actually a client archive, that an unused-looking script is part of a quarterly process, or that a generated file is intentionally committed because production depends on it.
+
+The dangerous moment is when limited understanding meets broad authority.
+
+That can happen in simple prompts:
+
+- "Clean this up"
+- "Remove unused files"
+- "Simplify the project"
+- "Fix the build however you need to"
+- "Optimize the repository"
+
+Those are normal human requests. To an agent with file-system tools, they may become permission to delete, rewrite, or reorganize more than you intended.
+
+The fix is not hoping the model becomes more careful. The fix is making authority explicit.
+
+[IMAGE: /blog/ai-agent-file-deletion-guardrails/action-gates.svg | Diagram separating ordinary edits, risky rewrites, destructive deletes, command execution, and deployment into different approval gates | Different classes of agent action need different levels of permission and evidence.]
+
+## File Deletion Should Be a Privileged Action
+
+In a serious agent workflow, deleting files should not be just another tool call.
+
+It should require a higher bar:
+
+- The agent names the files before deletion
+- The agent explains why each file is safe to remove
+- The workflow shows the diff or dry-run result
+- The user or policy gate approves the destructive step
+- The deletion happens in a branch, worktree, or sandbox
+- Recovery is obvious through git, backup, or artifact retention
+
+This is the same mindset teams already use for production changes.
+
+Dropping a database, rotating a secret, changing infrastructure, deleting a bucket, force-pushing a branch, and removing files all have one thing in common: they are easy to do quickly and annoying to recover from slowly.
+
+AI agents should respect that boundary.
+
+## Vibe Coding Makes Scope Easy to Blur
+
+Vibe coding works because the interaction is loose.
+
+You describe intent. The tool fills in details. That is a good fit for quick prototypes, UI exploration, glue code, docs, and repetitive edits.
+
+The same looseness gets risky when the agent is allowed to decide scope.
+
+If you say "make this cleaner," a human developer will usually ask what kind of cleanup you mean or at least work inside the obvious local area. An agent may decide that unused imports, old test fixtures, stale routes, generated assets, and duplicate files are all part of the cleanup.
+
+Sometimes that is helpful.
+
+Sometimes it quietly removes context the team still needs.
+
+The practical rule: vague goals need narrow permissions. Broad permissions need specific goals.
+
+## Good Guardrails Are Workflow Design
+
+Guardrails should not feel like a tacked-on warning modal.
+
+They should be part of the engineering workflow:
+
+- Scope: restrict the agent to a branch, worktree, directory, or file set
+- Plan: require the agent to state intended changes before it writes
+- Permission: separate read, write, command, delete, and deploy authority
+- Evidence: capture commands, diffs, logs, screenshots, and test output
+- Recovery: make rollback obvious before the risky action runs
+- Review: require human or policy acceptance before merge or deploy
+
+This is why I like agent workflows that show their work. The transcript, command output, and final diff are not ceremony. They are the audit trail.
+
+I wrote about portable agent contracts in <a href="/blog/open-models-ai-coding-agents">Open Models Are Your Hedge Against AI Coding Vendor Lock-In</a>. Safety is another reason that contract matters. If the tool permissions, stop conditions, and validation checks are explicit, the model becomes easier to swap and the workflow becomes easier to trust.
+
+## The Agent Should Stop More Often Than It Guesses
+
+The most underrated safety feature is stopping.
+
+An agent should stop when:
+
+- The requested scope is ambiguous
+- A destructive action seems necessary
+- It finds unrelated local changes
+- Tests fail for reasons it cannot connect to the change
+- The command output suggests missing credentials or environment drift
+- The live result does not match the expected gate
+
+That pause is not weakness. It is engineering judgment encoded into the workflow.
+
+The risky pattern is the agent that keeps trying to satisfy the instruction after it has lost confidence. That is how a narrow task turns into a broad rewrite, or a failed cleanup turns into deleted files.
+
+If the agent cannot explain why a destructive action is necessary, it should not do it.
+
+[IMAGE: /blog/ai-agent-file-deletion-guardrails/recovery-loop.svg | Recovery loop showing branch isolation, reviewable diff, validation, backup, and rollback before a destructive agent action is accepted | Recovery should be designed before an agent gets permission to make destructive changes.]
+
+## Use Sandboxes for Discovery, Branches for Delivery
+
+There are two different workflows that often get confused.
+
+Discovery is where you let the agent explore. It can inspect code, propose changes, run experiments, and tell you what it found. A sandbox is perfect for this because the cost of a bad action is low.
+
+Delivery is where you expect a mergeable result. That should happen in a clean branch or worktree with a narrow goal, repeatable validation, and a final diff you can review.
+
+Do not give a discovery workflow production authority.
+
+Do not let a delivery workflow wander across the whole repo.
+
+That distinction keeps agents useful without pretending they are independent maintainers.
+
+## What I Would Require Before Trusting an Agent
+
+For a real codebase, I want these defaults:
+
+- Read access starts broad, write access starts narrow
+- Destructive operations require explicit approval
+- The agent works in git and never hides the diff
+- The workflow detects unrelated local changes before editing
+- Tests, build, lint, or smoke checks run before completion
+- Deploys have a separate live gate
+- The final report says what changed, what passed, and what remains uncertain
+
+None of that is exotic. It is normal software delivery discipline.
+
+The difference is that AI makes the work faster, so weak process causes damage faster too.
+
+## The Right Mental Model Is a Junior Teammate With Tools
+
+I do not mean that as an insult to agents. I mean it as a useful operating model.
+
+A good junior developer can do valuable work with clear scope, review, tests, and feedback. You would not give them production credentials on day one and say "clean up anything you think looks wrong."
+
+Use the same judgment with agents.
+
+Give them bounded problems. Ask for plans. Review diffs. Make risky actions explicit. Keep rollback close. Expand trust as the workflow earns it.
+
+That posture gives you the upside of AI-assisted development without turning autonomy into a liability.
+
+## Frequently Asked Questions About AI Coding Agent Safety
+
+## Why do AI coding agents delete files without permission?
+
+AI coding agents delete files when the workflow gives them authority to do it and the instruction can be interpreted as cleanup, optimization, or refactoring.
+
+The model may not understand which files carry business or operational context. That is why destructive tool access needs explicit scope, confirmation, and recovery.
+
+## How can teams make AI coding agents safer?
+
+Teams can make AI coding agents safer by limiting write scope, requiring confirmation for destructive commands, using dry runs, keeping all changes in version control, running validation, and logging every tool action.
+
+The goal is not to remove agency. The goal is to make the agent's authority match the risk of the task.
+
+## Should AI agents be allowed to delete files?
+
+AI agents can delete files in low-risk, well-scoped workflows, but deletion should be treated as a privileged action.
+
+That means the agent should name the files, explain the reason, show the diff or dry run, and perform the change only where rollback is straightforward.
+
+## What is the safest way to use AI agents on a real codebase?
+
+The safest way to use AI agents on a real codebase is to run them in a clean branch or worktree, give them a narrow goal, review the final diff, run tests, and merge only after the result passes a human or policy gate.
+
+This keeps experimentation separate from delivery and makes recovery predictable.
+
+## Are AI coding agents too risky for production teams?
+
+AI coding agents are not too risky for production teams when they are treated as part of the engineering system instead of a replacement for it.
+
+Source control, tests, scoped permissions, observability, review, and rollback still matter. Agents make those controls more important, not less.
+`,
+  },
+  {
     slug: 'open-models-ai-coding-agents',
     title: 'Open Models Are Your Hedge Against AI Coding Vendor Lock-In',
     date: '2026-07-14',
