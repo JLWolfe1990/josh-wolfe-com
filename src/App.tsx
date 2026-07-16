@@ -111,7 +111,7 @@ function setBlogPostMeta(slug: string) {
 
   document.title = title
   upsertMeta('name', 'description', post.excerpt)
-  upsertMeta('name', 'keywords', post.keywords?.join(', ') || post.category)
+  upsertMeta('name', 'keywords', post.keywords?.join(', ') ?? post.category)
   upsertMeta('property', 'og:title', post.title)
   upsertMeta('property', 'og:description', post.excerpt)
   upsertMeta('property', 'og:type', 'article')

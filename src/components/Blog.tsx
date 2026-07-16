@@ -14,6 +14,9 @@ const categoryClasses: Record<string, string> = {
 const visuals = ['dashboard', 'orbital', 'terminal', 'lines']
 
 const imageDimensions: Record<string, { width: number; height: number }> = {
+  '/blog/model-routing-ai-coding-tasks/hero-meaningful.svg': { width: 1520, height: 760 },
+  '/blog/model-routing-ai-coding-tasks/routing-lanes.svg': { width: 1520, height: 834 },
+  '/blog/model-routing-ai-coding-tasks/escalation-loop.svg': { width: 1520, height: 834 },
   '/blog/ai-agent-file-deletion-guardrails/hero-meaningful.svg': { width: 1520, height: 760 },
   '/blog/ai-agent-file-deletion-guardrails/action-gates.svg': { width: 1520, height: 834 },
   '/blog/ai-agent-file-deletion-guardrails/recovery-loop.svg': { width: 1520, height: 834 },
@@ -550,7 +553,7 @@ export function BlogPost({ slug }: { slug: string }) {
               <img
                 className="blog-hero-background-image"
                 src={post.image}
-                alt={post.imageAlt || post.title}
+                alt={post.imageAlt ?? post.title}
                 width={heroDimensions?.width}
                 height={heroDimensions?.height}
                 loading="eager"

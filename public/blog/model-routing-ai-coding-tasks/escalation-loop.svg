@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="834" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">AI model routing escalation loop</title>
+  <desc id="desc">A production routing loop showing fast attempt, confidence check, escalation, validation, and telemetry feedback for AI coding agents.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101414"/>
+      <stop offset="1" stop-color="#211b13"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a2ff33"/>
+      <stop offset="1" stop-color="#25e0b0"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.34"/>
+    </filter>
+  </defs>
+  <rect width="1520" height="834" fill="url(#bg)"/>
+  <text x="140" y="132" fill="#f4fff7" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="800">Escalate when the cheap answer gets expensive</text>
+  <text x="140" y="172" fill="#9facaa" font-family="Inter, Arial, sans-serif" font-size="18">A router should promote work before a bad answer reaches the developer.</text>
+  <g filter="url(#shadow)" font-family="Inter, Arial, sans-serif">
+    <g transform="translate(174 302)">
+      <circle cx="110" cy="110" r="110" fill="#111816" stroke="#a2ff33" stroke-opacity="0.45"/>
+      <text x="110" y="92" text-anchor="middle" fill="#a2ff33" font-size="20" font-weight="800">1</text>
+      <text x="110" y="128" text-anchor="middle" fill="#f5fff7" font-size="26" font-weight="800">Try fast</text>
+      <text x="110" y="160" text-anchor="middle" fill="#a9b8b0" font-size="15">small model</text>
+    </g>
+    <g transform="translate(492 302)">
+      <circle cx="110" cy="110" r="110" fill="#121a17" stroke="#25e0b0" stroke-opacity="0.45"/>
+      <text x="110" y="92" text-anchor="middle" fill="#25e0b0" font-size="20" font-weight="800">2</text>
+      <text x="110" y="128" text-anchor="middle" fill="#f5fff7" font-size="26" font-weight="800">Check</text>
+      <text x="110" y="160" text-anchor="middle" fill="#a9b8b0" font-size="15">confidence + tests</text>
+    </g>
+    <g transform="translate(810 302)">
+      <circle cx="110" cy="110" r="110" fill="#191817" stroke="#ffbd8a" stroke-opacity="0.5"/>
+      <text x="110" y="92" text-anchor="middle" fill="#ffbd8a" font-size="20" font-weight="800">3</text>
+      <text x="110" y="128" text-anchor="middle" fill="#fff7ef" font-size="26" font-weight="800">Promote</text>
+      <text x="110" y="160" text-anchor="middle" fill="#a9b8b0" font-size="15">deeper model</text>
+    </g>
+    <g transform="translate(1128 302)">
+      <circle cx="110" cy="110" r="110" fill="#121817" stroke="#ffffff" stroke-opacity="0.2"/>
+      <text x="110" y="92" text-anchor="middle" fill="#dbeee6" font-size="20" font-weight="800">4</text>
+      <text x="110" y="128" text-anchor="middle" fill="#f5fff7" font-size="26" font-weight="800">Learn</text>
+      <text x="110" y="160" text-anchor="middle" fill="#a9b8b0" font-size="15">route telemetry</text>
+    </g>
+    <path d="M406 412 H470" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M724 412 H788" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M1042 412 H1106" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M1238 536 C1070 692 476 692 284 536" fill="none" stroke="#25e0b0" stroke-width="7" stroke-linecap="round" stroke-opacity="0.65"/>
+    <path d="M313 536 L280 536 L290 568" fill="none" stroke="#25e0b0" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.65"/>
+  </g>
+  <rect x="230" y="646" width="1060" height="74" rx="22" fill="#0c1110" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="270" y="692" fill="#e6f4ee" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Useful rule:</text>
+  <text x="406" y="692" fill="#a9b8b0" font-family="Inter, Arial, sans-serif" font-size="20">if the router cannot explain the route, use the safer lane or stop.</text>
+</svg>

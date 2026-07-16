@@ -1,6 +1,6 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
-const DEPLOY_VERSION = '20260715-ai-agent-file-deletion-guardrails';
+const DEPLOY_VERSION = '20260716-model-routing-ai-coding-tasks';
 const SITE_URL = 'https://www.josh-wolfe.com';
 const BIZBUZZ_SUBSCRIBE_URL = 'https://bizbuzz.app/api/subscribe/cmlmdspty0004yd01xbkspf1d';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
@@ -29,6 +29,13 @@ const BLOG_INDEX_META = {
 };
 
 const BLOG_POST_META = {
+  'model-routing-ai-coding-tasks': {
+    title: 'Model Routing Unlocked: How to Pick the Right AI for Every Coding Task | Josh Wolfe',
+    description:
+      'A practical guide to model routing for AI coding tools: classify tasks by speed, cost, context, risk, validation, and escalation needs.',
+    image: `${SITE_URL}/blog/model-routing-ai-coding-tasks/hero-meaningful.svg`,
+    date: '2026-07-16',
+  },
   'ai-agent-file-deletion-guardrails': {
     title: 'When AI Coding Agents Delete Files, the Problem Is the Safety Model | Josh Wolfe',
     description:

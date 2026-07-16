@@ -1,5 +1,5 @@
 interface ListTableItemProps {
-    values: { [key: string]: string };
+    values: Record<string, string>;
 }
 
 export function ListTableItem({values}: ListTableItemProps) {

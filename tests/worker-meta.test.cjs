@@ -35,6 +35,18 @@ const baseHtml = `<!doctype html><html><head>
   <meta property="og:title" content="Josh Wolfe | AI-Native Lead Engineer" />
 </head><body><div id="root"></div></body></html>`
 
+test('injects article metadata for the model routing route', () => {
+  const worker = loadWorker(async () => new Response(baseHtml))
+  const html = worker.injectRouteMeta(baseHtml, '/blog/model-routing-ai-coding-tasks')
+
+  assert.match(html, /<title>Model Routing Unlocked: How to Pick the Right AI for Every Coding Task \| Josh Wolfe<\/title>/)
+  assert.match(html, /rel="canonical" href="https:\/\/www\.josh-wolfe\.com\/blog\/model-routing-ai-coding-tasks"/)
+  assert.match(html, /property="og:type" content="article"/)
+  assert.match(html, /property="article:published_time" content="2026-07-16T00:00:00\.000Z"/)
+  assert.match(html, /property="og:image" content="https:\/\/www\.josh-wolfe\.com\/blog\/model-routing-ai-coding-tasks\/hero-meaningful\.svg"/)
+  assert.doesNotMatch(html, /content="default description"/)
+})
+
 test('injects article metadata for the open-model AI coding route', () => {
   const worker = loadWorker(async () => new Response(baseHtml))
   const html = worker.injectRouteMeta(baseHtml, '/blog/open-models-ai-coding-agents')
@@ -63,13 +75,13 @@ test('serves route-specific HTML with an observable deploy-version header', asyn
   )
 
   const response = await worker.handleRequest(
-    new Request('https://www.josh-wolfe.com/blog/ai-agent-file-deletion-guardrails'),
+    new Request('https://www.josh-wolfe.com/blog/model-routing-ai-coding-tasks'),
   )
   const html = await response.text()
 
   assert.equal(response.status, 200)
   assert.equal(response.headers.get('x-josh-deploy-version'), worker.DEPLOY_VERSION)
-  assert.match(html, /<title>When AI Coding Agents Delete Files, the Problem Is the Safety Model \| Josh Wolfe<\/title>/)
+  assert.match(html, /<title>Model Routing Unlocked: How to Pick the Right AI for Every Coding Task \| Josh Wolfe<\/title>/)
 })
 
 test('wrangler config pins both production routes to this Worker', () => {

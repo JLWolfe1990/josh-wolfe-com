@@ -4,6 +4,12 @@ import { Check, Loader2 } from 'lucide-react'
 
 type SubscribeStatus = 'idle' | 'loading' | 'success' | 'error'
 
+interface SubscribeResponse {
+  success?: boolean
+  error?: string
+  message?: string
+}
+
 export function NewsletterSubscribe({ compact = false }: { compact?: boolean }) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -28,14 +34,14 @@ export function NewsletterSubscribe({ compact = false }: { compact?: boolean }) 
         body: JSON.stringify({ email, firstName, lastName, website }),
       })
 
-      const data = await response.json().catch(() => ({}))
+      const data = (await response.json().catch(() => ({}))) as SubscribeResponse
 
       if (!response.ok || data.success === false) {
-        throw new Error(data.error || data.message || 'Could not subscribe right now')
+        throw new Error(data.error ?? data.message ?? 'Could not subscribe right now')
       }
 
       setStatus('success')
-      setMessage(data.message || "You're subscribed.")
+      setMessage(data.message ?? "You're subscribed.")
       setFirstName('')
       setLastName('')
       setEmail('')
@@ -56,7 +62,12 @@ export function NewsletterSubscribe({ compact = false }: { compact?: boolean }) 
   }
 
   return (
-    <form onSubmit={handleSubmit} className={`newsletter-form ${compact ? 'newsletter-form-compact' : ''}`}>
+    <form
+      onSubmit={(event) => {
+        void handleSubmit(event)
+      }}
+      className={`newsletter-form ${compact ? 'newsletter-form-compact' : ''}`}
+    >
       <div className="newsletter-name-grid">
         <label>
           <span>First name</span>

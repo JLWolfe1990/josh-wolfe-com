@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="834" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">Task routing lanes for AI coding systems</title>
+  <desc id="desc">A routing matrix that maps coding task classes to fast, standard, and reasoning model lanes with validation gates.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101615"/>
+      <stop offset="1" stop-color="#201a13"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a2ff33"/>
+      <stop offset="1" stop-color="#25e0b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1520" height="834" fill="url(#bg)"/>
+  <rect x="102" y="92" width="1316" height="650" rx="30" fill="#0c1110" stroke="#ffffff" stroke-opacity="0.14"/>
+  <text x="150" y="156" fill="#f4fff7" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">Route coding work by risk and evidence</text>
+  <text x="150" y="194" fill="#9facaa" font-family="Inter, Arial, sans-serif" font-size="18">A router is useful when each lane has a job, an exit condition, and a fallback.</text>
+  <g transform="translate(150 256)" font-family="Inter, Arial, sans-serif">
+    <rect width="1220" height="86" rx="18" fill="#16211d" stroke="#ffffff" stroke-opacity="0.1"/>
+    <text x="30" y="54" fill="#a2ff33" font-size="22" font-weight="800">Classify</text>
+    <text x="220" y="54" fill="#e6f4ee" font-size="20">task size, blast radius, ambiguity, required context</text>
+    <path d="M1110 43 H1170" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M1150 24 L1174 43 L1150 62" fill="none" stroke="#a2ff33" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(150 382)" font-family="Inter, Arial, sans-serif">
+    <rect width="360" height="244" rx="22" fill="#121916" stroke="#a2ff33" stroke-opacity="0.34"/>
+    <text x="28" y="46" fill="#a2ff33" font-size="20" font-weight="800">Fast model</text>
+    <text x="28" y="88" fill="#f5fff7" font-size="28" font-weight="800">Known moves</text>
+    <text x="28" y="130" fill="#a9b8b0" font-size="17">Names, snippets, boilerplate</text>
+    <text x="28" y="164" fill="#a9b8b0" font-size="17">Tiny diffs and formatting</text>
+    <text x="28" y="198" fill="#a9b8b0" font-size="17">Fallback: escalate on uncertainty</text>
+  </g>
+  <g transform="translate(580 382)" font-family="Inter, Arial, sans-serif">
+    <rect width="360" height="244" rx="22" fill="#141c19" stroke="#25e0b0" stroke-opacity="0.36"/>
+    <text x="28" y="46" fill="#25e0b0" font-size="20" font-weight="800">Standard model</text>
+    <text x="28" y="88" fill="#f5fff7" font-size="28" font-weight="800">Reviewable work</text>
+    <text x="28" y="130" fill="#a9b8b0" font-size="17">Focused refactors and tests</text>
+    <text x="28" y="164" fill="#a9b8b0" font-size="17">File-local reasoning</text>
+    <text x="28" y="198" fill="#a9b8b0" font-size="17">Fallback: ask or promote</text>
+  </g>
+  <g transform="translate(1010 382)" font-family="Inter, Arial, sans-serif">
+    <rect width="360" height="244" rx="22" fill="#191817" stroke="#ffbd8a" stroke-opacity="0.42"/>
+    <text x="28" y="46" fill="#ffbd8a" font-size="20" font-weight="800">Reasoning model</text>
+    <text x="28" y="88" fill="#fff7ef" font-size="28" font-weight="800">Risky decisions</text>
+    <text x="28" y="130" fill="#a9b8b0" font-size="17">Architecture, failure analysis</text>
+    <text x="28" y="164" fill="#a9b8b0" font-size="17">Cross-system tradeoffs</text>
+    <text x="28" y="198" fill="#a9b8b0" font-size="17">Gate: tests, diff, review</text>
+  </g>
+  <rect x="150" y="668" width="1220" height="38" rx="19" fill="#101614" stroke="#ffffff" stroke-opacity="0.1"/>
+  <rect x="168" y="681" width="340" height="12" rx="6" fill="#a2ff33"/>
+  <rect x="536" y="681" width="380" height="12" rx="6" fill="#25e0b0"/>
+  <rect x="944" y="681" width="300" height="12" rx="6" fill="#ffbd8a"/>
+  <text x="1260" y="693" fill="#9facaa" font-family="Inter, Arial, sans-serif" font-size="15">measure every route</text>
+</svg>

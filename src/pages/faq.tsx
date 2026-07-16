@@ -163,7 +163,7 @@ export function FaqPage() {
                             <h3><strong>Knit-picking</strong></h3>
                             <p>
                                 I can be knit-picky. I have a tendency to get stuck on a particular issue and not let it
-                                go quickly enough. This doesn't cause issues with relationships in the office because it
+                                go quickly enough. This doesn&apos;t cause issues with relationships in the office because it
                                 is not that bad, but I do have to keep it in mind during meetings to try to keep from
                                 potentially derailing them.
                             </p>
@@ -262,7 +262,7 @@ export function FaqPage() {
                             </li>
                             <li>
                                 Allow her more space to speak during meetings by directly asking her what she thinks
-                                if I notice that she hasn't given her opinion.
+                                if I notice that she hasn&apos;t given her opinion.
                             </li>
                         </ol>
                     </div>

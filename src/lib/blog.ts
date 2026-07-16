@@ -8,14 +8,262 @@ export interface BlogPost {
   keywords?: string[]
   image?: string
   imageAlt?: string
-  faq?: Array<{
+  faq?: {
     question: string
     answer: string
-  }>
+  }[]
   content: string
 }
 
 export const posts: BlogPost[] = [
+  {
+    slug: 'model-routing-ai-coding-tasks',
+    title: 'Model Routing Unlocked: How to Pick the Right AI for Every Coding Task',
+    date: '2026-07-16',
+    excerpt:
+      'Model routing helps AI coding systems stay fast, affordable, and reliable by matching each request to the model lane that fits its complexity, risk, and evidence requirements.',
+    category: 'AI Engineering',
+    readTime: '8 min read',
+    keywords: [
+      'model routing for AI coding',
+      'AI model routing',
+      'coding agent model selection',
+      'LLM routing strategy',
+      'AI coding assistant architecture',
+      'vibe coding model routing',
+      'AI pair programming latency',
+    ],
+    image: '/blog/model-routing-ai-coding-tasks/hero-meaningful.svg',
+    imageAlt:
+      'AI coding model routing dashboard with fast, review, reasoning, and telemetry lanes for coding tasks',
+    faq: [
+      {
+        question: 'What is model routing for AI coding tools?',
+        answer:
+          'Model routing for AI coding tools is the practice of sending different coding requests to different models based on task complexity, latency needs, cost, context, and risk.',
+      },
+      {
+        question: 'When should a coding assistant use a smaller model?',
+        answer:
+          'A coding assistant should use a smaller model for predictable, low-risk work such as autocomplete, boilerplate, simple transformations, formatting, and file-local edits with clear tests.',
+      },
+      {
+        question: 'When should a coding task be routed to a stronger reasoning model?',
+        answer:
+          'A coding task should be routed to a stronger reasoning model when the work requires architecture judgment, ambiguous debugging, cross-file changes, security-sensitive choices, or a higher cost of being wrong.',
+      },
+      {
+        question: 'Does model routing add latency?',
+        answer:
+          'Model routing adds a small classification cost, but a simple router can reduce total latency by keeping routine requests on fast models and escalating only when the task needs deeper reasoning.',
+      },
+      {
+        question: 'How do you make model routing reliable?',
+        answer:
+          'Reliable model routing needs clear task classes, fallback rules, validation gates, telemetry, and regular review of cases where the router picked the wrong lane.',
+      },
+    ],
+    content: `
+[STATS: 3 | Model lanes to start with; 50 ms | Target for lightweight coding feedback; 1 | Rule: route by risk]
+
+The best model for an AI coding task is not always the largest one.
+
+Sometimes the right answer is the fastest model you can trust. Sometimes it is the model with the cheapest token price. Sometimes it is the model that can sit with a messy architecture problem long enough to avoid a bad decision.
+
+That is what model routing is for.
+
+Model routing is the layer that decides which model should handle a request before the request becomes expensive, slow, or risky. For AI coding tools, that decision matters because developers feel latency immediately, teams feel token cost over time, and production code feels bad judgment forever.
+
+[IMAGE: /blog/model-routing-ai-coding-tasks/hero-meaningful.svg | AI coding model routing dashboard with fast, review, reasoning, and telemetry lanes | Model routing works when each coding task lands in the lane that matches its speed, cost, and risk profile.]
+
+---
+
+[KICKER: The Short Version]
+
+## Model Routing Is an Engineering Control
+
+Model routing is the intelligent process of sending different requests to different language models based on their characteristics.
+
+In an AI coding assistant, those characteristics usually include:
+
+- Task complexity
+- Amount of code context required
+- Latency tolerance
+- Cost sensitivity
+- Risk if the model is wrong
+- Confidence signal from earlier attempts
+- Validation available after the answer
+
+That sounds abstract until you look at normal coding work.
+
+Autocomplete for a variable name should not wait on a heavyweight reasoning model. A file-local test scaffold probably does not need the same model you would use for a production incident. A cross-service architecture change should not be treated like a text completion.
+
+If every request goes to the biggest model, the system is slower and more expensive than it needs to be.
+
+If every request goes to the cheapest model, the system becomes fast in exactly the places where it should be careful.
+
+The router is the control that keeps those tradeoffs explicit.
+
+[IMAGE: /blog/model-routing-ai-coding-tasks/routing-lanes.svg | Routing matrix mapping coding tasks to fast, standard, and reasoning model lanes | A useful router separates known moves, reviewable work, and risky decisions into different model lanes.]
+
+## Start With Three Model Lanes
+
+You do not need a complicated router on day one.
+
+Start with three lanes.
+
+- Fast lane: autocomplete, naming, boilerplate, small transformations, formatting, obvious file-local edits
+- Standard lane: focused refactors, unit tests, diff summaries, small feature work, documentation updates
+- Reasoning lane: architecture, ambiguous debugging, cross-file design changes, security choices, production incidents
+
+This is enough structure to stop treating all coding tasks as equal.
+
+The fast lane optimizes for responsiveness. Developers expect it to feel immediate. If the request is short, familiar, and easy to validate, a smaller model is usually the better product experience.
+
+The standard lane handles work that needs context but still has a tight scope. This is where most AI pair-programming requests live: write a test, explain a function, change a component, update a query, summarize a diff.
+
+The reasoning lane is for work where a wrong answer is costly. If the model needs to compare tradeoffs, inspect multiple files, diagnose a failure, or explain how a change will behave in production, do not optimize for the cheapest answer first.
+
+## Route by Risk, Not Just Token Count
+
+Token count is a useful signal, but it is a weak strategy by itself.
+
+A short request can be dangerous:
+
+- "Fix auth"
+- "Make this safe"
+- "Remove dead code"
+- "Refactor billing"
+- "Why is production down?"
+
+Those prompts are short, but they are not simple.
+
+A long request can be routine if it contains clear inputs, a narrow transformation, and a testable output. Converting a long JSON fixture, reformatting generated types, or writing repetitive assertions may not require deep reasoning.
+
+Better routing uses several signals together:
+
+- Words that imply high blast radius, such as auth, billing, security, migration, production, delete, deploy, or rollback
+- Number of files or systems involved
+- Whether the code path touches customer data, money, permissions, or infrastructure
+- Whether tests or type checks can verify the result
+- Whether the prompt asks for judgment or just transformation
+- Whether the model reports low confidence or produces unstable output
+
+The point is not to perfectly classify every request. The point is to avoid obvious mismatches.
+
+## Use Escalation Instead of One-Shot Guessing
+
+The practical production pattern is not "pick one model and hope."
+
+It is escalation.
+
+Try the cheapest reliable lane first when the task is low risk. If the answer is incomplete, uncertain, slow, or fails validation, promote the task to a stronger model with the evidence from the first attempt.
+
+That gives you a routing loop:
+
+- Classify the request
+- Try the first model lane
+- Check confidence, tests, lint, type errors, or diff quality
+- Escalate when the evidence is weak
+- Record the route and outcome
+
+This matters because coding work gives you more validation signals than ordinary chat. You can run tests. You can inspect diffs. You can compile. You can compare output to a schema. You can ask the model to explain the change and see whether the explanation matches the code.
+
+Use those signals.
+
+[IMAGE: /blog/model-routing-ai-coding-tasks/escalation-loop.svg | Escalation loop for AI coding model routing from fast attempt through confidence checks, promotion, validation, and telemetry | Escalation keeps routine work fast while promoting uncertain or risky work before it reaches the developer.]
+
+## Cost Optimization Is Real, but It Is Not the Whole Point
+
+Model routing often gets sold as cost optimization.
+
+That is valid. If 80% of routine requests can run on a smaller model, the unit economics improve quickly. Teams building high-volume coding assistants, internal automation, support tooling, or agentic development systems should care about that.
+
+But cost is not the only reason routing matters.
+
+Routing also improves product feel. Fast tasks feel fast. Hard tasks can show progress, gather context, or move into a deeper lane without blocking every interaction behind the same model.
+
+Routing also improves reliability. A strong router can require additional evidence before a risky answer is accepted. For example, it can route a production migration to a reasoning model and require a rollback plan, tests, and a human review step before treating the answer as done.
+
+That makes routing part of the safety model, not just the finance model.
+
+I wrote about agent safety in <a href="/blog/ai-agent-file-deletion-guardrails">When AI Coding Agents Delete Files, the Problem Is the Safety Model</a>. Model routing belongs in that same conversation. The model lane should match the authority and blast radius of the action.
+
+## What to Measure
+
+A router that does not measure outcomes becomes folklore.
+
+Track the basics:
+
+- Route selected
+- Reason for the route
+- Model used
+- Latency
+- Token cost
+- Validation result
+- Escalation count
+- User acceptance or rejection
+- Post-hoc defect rate when available
+
+You are looking for two kinds of mistakes.
+
+The first is over-routing: sending too much easy work to expensive models. That usually shows up as high cost, high latency, and little quality improvement.
+
+The second is under-routing: sending risky work to weak models. That shows up as failed tests, bad diffs, user corrections, production defects, or repeated escalations.
+
+The router should get better as it sees both.
+
+## A Simple Router Is Usually Enough to Start
+
+For a first version, use boring rules.
+
+Route to the reasoning lane when the prompt mentions high-risk domains, crosses multiple files, asks for architecture judgment, modifies infrastructure, or lacks a clear validation path.
+
+Route to the standard lane when the work is scoped but not trivial.
+
+Route to the fast lane when the work is small, local, familiar, and easy to check.
+
+Then measure what happens.
+
+You can add embeddings, classifiers, historical task outcomes, ensemble routing, or model confidence scoring later. Those can help, but they are not the foundation.
+
+The foundation is a clear policy:
+
+Simple work gets speed. Risky work gets evidence. Novel work gets reasoning depth.
+
+## Frequently Asked Questions About Model Routing for AI Coding
+
+## What is model routing for AI coding tools?
+
+Model routing for AI coding tools is the practice of sending different coding requests to different models based on complexity, latency needs, cost, context, and risk.
+
+It is similar to load balancing, but the routing decision is about capability and evidence rather than only traffic distribution.
+
+## When should a coding assistant use a smaller model?
+
+A coding assistant should use a smaller model for predictable, low-risk work such as autocomplete, boilerplate, simple transformations, formatting, and file-local edits with clear validation.
+
+The task should be easy to check and cheap to retry if the first answer is wrong.
+
+## When should a coding task be routed to a stronger reasoning model?
+
+A coding task should be routed to a stronger reasoning model when the work requires architecture judgment, ambiguous debugging, cross-file changes, security-sensitive choices, or a higher cost of being wrong.
+
+If the router cannot explain why a cheap model is safe, use the stronger lane or stop for clarification.
+
+## Does model routing add latency?
+
+Model routing adds a small classification cost, but it can reduce total latency by keeping routine requests on fast models and escalating only when deeper reasoning is needed.
+
+The trick is to keep the first classifier simple and use validation signals to decide when to promote.
+
+## How do you make model routing reliable?
+
+Reliable model routing needs clear task classes, fallback rules, validation gates, telemetry, and regular review of cases where the router picked the wrong lane.
+
+Do not judge the router only by average cost. Also measure failed validations, user corrections, escalations, and defects.
+`,
+  },
   {
     slug: 'ai-agent-file-deletion-guardrails',
     title: 'When AI Coding Agents Delete Files, the Problem Is the Safety Model',
@@ -1453,7 +1701,7 @@ Bad AI fits are usually vague: "make the business automated" or "have AI handle 
 
 My bias is to build the boring system first. Capture the data cleanly. Define the statuses. Make the handoffs visible. Then add AI where it removes real friction.
 
-That is the same shape behind my <a href=\"/#services\">AI systems and automation work</a>: practical workflows first, intelligence where it helps, and humans in control of the decisions that matter.
+That is the same shape behind my <a href="/#services">AI systems and automation work</a>: practical workflows first, intelligence where it helps, and humans in control of the decisions that matter.
 
 ## The Right Question Is Not "Do We Need a New Website?"
 

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="760" viewBox="0 0 1520 760" role="img" aria-labelledby="title desc">
+  <title id="title">Model routing control room for AI coding tasks</title>
+  <desc id="desc">Engineering dashboard that routes simple, review, and architecture coding tasks to different AI model lanes based on latency, cost, and reasoning depth.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1514"/>
+      <stop offset="0.52" stop-color="#18231f"/>
+      <stop offset="1" stop-color="#241c15"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#24302c"/>
+      <stop offset="1" stop-color="#111716"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a2ff33"/>
+      <stop offset="1" stop-color="#25e0b0"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#000" flood-opacity="0.36"/>
+    </filter>
+  </defs>
+  <rect width="1520" height="760" fill="url(#bg)"/>
+  <path d="M0 612 C220 540 350 704 560 626 S934 534 1136 604 S1352 670 1520 586 V760 H0 Z" fill="#0d1110" opacity="0.78"/>
+  <path d="M88 116 H1432" stroke="#ffffff" stroke-opacity="0.08"/>
+  <path d="M88 644 H1432" stroke="#ffffff" stroke-opacity="0.08"/>
+  <g filter="url(#shadow)">
+    <rect x="122" y="112" width="1276" height="522" rx="28" fill="#0c1110" stroke="#ffffff" stroke-opacity="0.14"/>
+    <rect x="162" y="152" width="1196" height="72" rx="18" fill="#151e1a" stroke="#ffffff" stroke-opacity="0.1"/>
+    <circle cx="198" cy="188" r="8" fill="#ff8f5a"/>
+    <circle cx="226" cy="188" r="8" fill="#ffd166"/>
+    <circle cx="254" cy="188" r="8" fill="#7ee787"/>
+    <text x="300" y="196" fill="#e6f4ee" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">AI coding model router</text>
+    <text x="1130" y="196" fill="#94a49c" font-family="Inter, Arial, sans-serif" font-size="16">route by risk, not vibes</text>
+    <g transform="translate(162 268)">
+      <rect width="286" height="238" rx="22" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.12"/>
+      <text x="28" y="44" fill="#a2ff33" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Fast lane</text>
+      <text x="28" y="82" fill="#f5fff7" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">50 ms</text>
+      <text x="28" y="118" fill="#9facaa" font-family="Inter, Arial, sans-serif" font-size="16">Autocomplete</text>
+      <text x="28" y="148" fill="#9facaa" font-family="Inter, Arial, sans-serif" font-size="16">Small edits</text>
+      <text x="28" y="178" fill="#9facaa" font-family="Inter, Arial, sans-serif" font-size="16">Known patterns</text>
+      <rect x="28" y="204" width="198" height="14" rx="7" fill="#a2ff33" opacity="0.78"/>
+    </g>
+    <g transform="translate(494 268)">
+      <rect width="286" height="238" rx="22" fill="#121a17" stroke="#25e0b0" stroke-opacity="0.38"/>
+      <text x="28" y="44" fill="#25e0b0" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Review lane</text>
+      <text x="28" y="82" fill="#f5fff7" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">Check</text>
+      <text x="28" y="118" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="16">Tests</text>
+      <text x="28" y="148" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="16">Refactors</text>
+      <text x="28" y="178" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="16">Diff summaries</text>
+      <rect x="28" y="204" width="236" height="14" rx="7" fill="url(#accent)"/>
+    </g>
+    <g transform="translate(826 268)">
+      <rect width="286" height="238" rx="22" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.12"/>
+      <text x="28" y="44" fill="#ffbd8a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Reasoning lane</text>
+      <text x="28" y="82" fill="#fff7ef" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">Think</text>
+      <text x="28" y="118" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="16">Architecture</text>
+      <text x="28" y="148" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="16">Debugging</text>
+      <text x="28" y="178" fill="#a8b6af" font-family="Inter, Arial, sans-serif" font-size="16">Novel code</text>
+      <rect x="28" y="204" width="214" height="14" rx="7" fill="#ffbd8a" opacity="0.82"/>
+    </g>
+    <g transform="translate(1158 268)">
+      <rect width="200" height="238" rx="22" fill="#131918" stroke="#a2ff33" stroke-opacity="0.28"/>
+      <text x="26" y="44" fill="#e6f4ee" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Telemetry</text>
+      <text x="26" y="84" fill="#a2ff33" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">Pass?</text>
+      <text x="26" y="124" fill="#9facaa" font-family="Inter, Arial, sans-serif" font-size="16">Latency</text>
+      <text x="26" y="154" fill="#9facaa" font-family="Inter, Arial, sans-serif" font-size="16">Cost</text>
+      <text x="26" y="184" fill="#9facaa" font-family="Inter, Arial, sans-serif" font-size="16">Rollback</text>
+    </g>
+    <path d="M448 388 H486" stroke="url(#accent)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M780 388 H818" stroke="url(#accent)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M1112 388 H1150" stroke="url(#accent)" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <text x="162" y="588" fill="#f7fff8" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">The best model is a routing decision.</text>
+  <text x="162" y="624" fill="#a4b2aa" font-family="Inter, Arial, sans-serif" font-size="18">Simple work needs speed. Risky work needs evidence. Novel work needs reasoning depth.</text>
+</svg>
