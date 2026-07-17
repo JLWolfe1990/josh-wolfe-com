@@ -42,8 +42,7 @@ jobs:
           --delete
       - name: Deploy the existing Cloudflare Worker
         env:
-          CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
-          CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           sed -i "s/const DEPLOY_VERSION = '[^']*';/const DEPLOY_VERSION = '${GITHUB_SHA}';/" worker.js
           npx wrangler deploy
