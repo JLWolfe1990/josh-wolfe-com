@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { parsePublishedBlogPost } from '../src/lib/published-blog'
+import { getAllPosts } from '../src/lib/blog'
 
 describe('parsePublishedBlogPost', () => {
   it('loads the versioned BizBuzz Markdown contract', () => {
@@ -47,5 +48,12 @@ Body.`)
     expect(post.content).not.toContain('# Heading Cleanup for Published Posts')
     expect(post.content).toContain('## A nested heading')
     expect(post.content).not.toContain('###')
+  })
+
+  it('keeps the retired static model-routing duplicate out of the blog index', () => {
+    const slugs = getAllPosts().map((post) => post.slug)
+
+    expect(slugs).toContain('model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task')
+    expect(slugs).not.toContain('model-routing-ai-coding-tasks')
   })
 })

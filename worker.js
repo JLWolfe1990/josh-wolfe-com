@@ -1,6 +1,6 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
-const DEPLOY_VERSION = '20260716-bizbuzz-blog-publishing';
+const DEPLOY_VERSION = '20260717-model-routing-canonical';
 const SITE_URL = 'https://www.josh-wolfe.com';
 const BIZBUZZ_SUBSCRIBE_URL = 'https://bizbuzz.app/api/subscribe/cmlmdspty0004yd01xbkspf1d';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
@@ -29,12 +29,12 @@ const BLOG_INDEX_META = {
 };
 
 const BLOG_POST_META = {
-  'model-routing-ai-coding-tasks': {
+  'model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task': {
     title: 'Model Routing Unlocked: How to Pick the Right AI for Every Coding Task | Josh Wolfe',
     description:
-      'A practical guide to model routing for AI coding tools: classify tasks by speed, cost, context, risk, validation, and escalation needs.',
-    image: `${SITE_URL}/blog/model-routing-ai-coding-tasks/hero-meaningful.svg`,
-    date: '2026-07-16',
+      'Discover how model routing intelligently directs requests to different LLMs based on complexity, cost, and speed, optimizing your AI-powered coding tools.',
+    image: `${SITE_URL}/blog/social-card.jpg`,
+    date: '2026-07-17',
   },
   'ai-agent-file-deletion-guardrails': {
     title: 'When AI Coding Agents Delete Files, the Problem Is the Safety Model | Josh Wolfe',
@@ -127,6 +127,10 @@ const BLOG_POST_META = {
     image: `${SITE_URL}/blog/software-handoff-checklist/social.jpg`,
     date: '2026-07-07',
   },
+};
+
+const PERMANENT_REDIRECTS = {
+  '/blog/model-routing-ai-coding-tasks': '/blog/model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task',
 };
 
 const CONTENT_TYPES = {
@@ -330,6 +334,11 @@ async function handleRequest(request) {
   const url = new URL(request.url);
   const requestPath = url.pathname;
   let path = url.pathname;
+
+  const redirectPath = PERMANENT_REDIRECTS[path.replace(/\/$/, '') || '/'];
+  if (redirectPath) {
+    return Response.redirect(`${SITE_URL}${redirectPath}`, 308);
+  }
 
   if (path === '/api/subscribe') {
     return handleSubscribe(request);

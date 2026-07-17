@@ -18,6 +18,8 @@ export interface BlogPost {
 
 import { publishedPosts } from './published-blog'
 
+const retiredPostSlugs = new Set(['model-routing-ai-coding-tasks'])
+
 export const posts: BlogPost[] = [
   {
     slug: 'model-routing-ai-coding-tasks',
@@ -3474,6 +3476,7 @@ Production handoff is about confidence under real conditions, not just access to
 
 export function getAllPosts() {
   return [...publishedPosts, ...posts]
+    .filter((post) => !retiredPostSlugs.has(post.slug))
     .filter((post, index, all) => all.findIndex((candidate) => candidate.slug === post.slug) === index)
     .sort((a, b) => b.date.localeCompare(a.date))
 }

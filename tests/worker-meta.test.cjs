@@ -37,13 +37,13 @@ const baseHtml = `<!doctype html><html><head>
 
 test('injects article metadata for the model routing route', () => {
   const worker = loadWorker(async () => new Response(baseHtml))
-  const html = worker.injectRouteMeta(baseHtml, '/blog/model-routing-ai-coding-tasks')
+  const html = worker.injectRouteMeta(baseHtml, '/blog/model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task')
 
   assert.match(html, /<title>Model Routing Unlocked: How to Pick the Right AI for Every Coding Task \| Josh Wolfe<\/title>/)
-  assert.match(html, /rel="canonical" href="https:\/\/www\.josh-wolfe\.com\/blog\/model-routing-ai-coding-tasks"/)
+  assert.match(html, /rel="canonical" href="https:\/\/www\.josh-wolfe\.com\/blog\/model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task"/)
   assert.match(html, /property="og:type" content="article"/)
-  assert.match(html, /property="article:published_time" content="2026-07-16T00:00:00\.000Z"/)
-  assert.match(html, /property="og:image" content="https:\/\/www\.josh-wolfe\.com\/blog\/model-routing-ai-coding-tasks\/hero-meaningful\.svg"/)
+  assert.match(html, /property="article:published_time" content="2026-07-17T00:00:00\.000Z"/)
+  assert.match(html, /property="og:image" content="https:\/\/www\.josh-wolfe\.com\/blog\/social-card\.jpg"/)
   assert.doesNotMatch(html, /content="default description"/)
 })
 
@@ -75,13 +75,26 @@ test('serves route-specific HTML with an observable deploy-version header', asyn
   )
 
   const response = await worker.handleRequest(
-    new Request('https://www.josh-wolfe.com/blog/model-routing-ai-coding-tasks'),
+    new Request('https://www.josh-wolfe.com/blog/model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task'),
   )
   const html = await response.text()
 
   assert.equal(response.status, 200)
   assert.equal(response.headers.get('x-josh-deploy-version'), worker.DEPLOY_VERSION)
   assert.match(html, /<title>Model Routing Unlocked: How to Pick the Right AI for Every Coding Task \| Josh Wolfe<\/title>/)
+})
+
+test('permanently redirects the retired model-routing duplicate to the BizBuzz publication', async () => {
+  const worker = loadWorker(async () => new Response(baseHtml))
+  const response = await worker.handleRequest(
+    new Request('https://www.josh-wolfe.com/blog/model-routing-ai-coding-tasks'),
+  )
+
+  assert.equal(response.status, 308)
+  assert.equal(
+    response.headers.get('location'),
+    'https://www.josh-wolfe.com/blog/model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task',
+  )
 })
 
 test('wrangler config pins both production routes to this Worker', () => {
