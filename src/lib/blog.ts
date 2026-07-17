@@ -12,8 +12,11 @@ export interface BlogPost {
     question: string
     answer: string
   }[]
+  sourceHash?: string
   content: string
 }
+
+import { publishedPosts } from './published-blog'
 
 export const posts: BlogPost[] = [
   {
@@ -3470,11 +3473,13 @@ Production handoff is about confidence under real conditions, not just access to
 ]
 
 export function getAllPosts() {
-  return [...posts].sort((a, b) => b.date.localeCompare(a.date))
+  return [...publishedPosts, ...posts]
+    .filter((post, index, all) => all.findIndex((candidate) => candidate.slug === post.slug) === index)
+    .sort((a, b) => b.date.localeCompare(a.date))
 }
 
 export function getPost(slug: string) {
-  return posts.find((post) => post.slug === slug)
+  return publishedPosts.find((post) => post.slug === slug) || posts.find((post) => post.slug === slug)
 }
 
 export function formatPostDate(date: string) {
