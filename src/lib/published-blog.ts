@@ -10,6 +10,21 @@ function parseValue(raw: string): FrontmatterValue {
   return JSON.parse(value) as string
 }
 
+function normalizePublishedContent(raw: string, title: string): string {
+  return raw
+    .split('\n')
+    .flatMap((line) => {
+      const heading = line.match(/^(#{1,6})\s+(.+)$/)
+      if (!heading) return [line]
+
+      const text = heading[2].trim()
+      if (heading[1] === '#' && text === title.trim()) return []
+      return [`## ${text}`]
+    })
+    .join('\n')
+    .trim()
+}
+
 export function parsePublishedBlogPost(raw: string): BlogPost {
   const normalized = raw.replace(/\r\n/g, '\n')
   if (!normalized.startsWith('---\n')) throw new Error('Published blog post is missing frontmatter')
@@ -48,7 +63,7 @@ export function parsePublishedBlogPost(raw: string): BlogPost {
     imageAlt: metadata.imageAlt as string | undefined,
     faq: metadata.faq as { question: string; answer: string }[] | undefined,
     sourceHash: metadata.sourceHash as string,
-    content: normalized.slice(end + 5).trim(),
+    content: normalizePublishedContent(normalized.slice(end + 5), metadata.title as string),
   }
 }
 
@@ -65,4 +80,3 @@ export const publishedPosts = Object.entries(modules).map(([path, raw]) => {
     throw new Error(`Invalid published blog post ${path}: ${error instanceof Error ? error.message : String(error)}`)
   }
 })
-

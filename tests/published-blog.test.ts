@@ -25,4 +25,27 @@ Body.`)
   it('rejects missing publication metadata', () => {
     expect(() => parsePublishedBlogPost('---\nslug: "bad"\n---\nBody')).toThrow('missing title')
   })
+
+  it('removes a duplicate title heading and normalizes nested headings for the site renderer', () => {
+    const post = parsePublishedBlogPost(`---
+slug: "heading-cleanup"
+title: "Heading Cleanup for Published Posts"
+date: "2026-07-17"
+excerpt: "A sufficiently long excerpt for the published post parser contract."
+category: "Engineering"
+readTime: "3 min read"
+sourceHash: "hash123"
+---
+# Heading Cleanup for Published Posts
+
+Intro.
+
+### A nested heading
+
+Body.`)
+
+    expect(post.content).not.toContain('# Heading Cleanup for Published Posts')
+    expect(post.content).toContain('## A nested heading')
+    expect(post.content).not.toContain('###')
+  })
 })
