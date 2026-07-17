@@ -36,6 +36,11 @@ excerpt: "A sufficiently long excerpt for the published post parser contract."
 category: "Engineering"
 readTime: "3 min read"
 sourceHash: "hash123"
+image: "/blog/heading-cleanup/hero.webp"
+imageAlt: "A meaningful hero image for the heading cleanup article"
+imageWidth: 1520
+imageHeight: 760
+imageSchemaVersion: "blog-images/v1"
 ---
 # Heading Cleanup for Published Posts
 
@@ -48,6 +53,12 @@ Body.`)
     expect(post.content).not.toContain('# Heading Cleanup for Published Posts')
     expect(post.content).toContain('## A nested heading')
     expect(post.content).not.toContain('###')
+    expect(post).toMatchObject({
+      image: '/blog/heading-cleanup/hero.webp',
+      imageWidth: 1520,
+      imageHeight: 760,
+      imageSchemaVersion: 'blog-images/v1',
+    })
   })
 
   it('keeps the retired static model-routing duplicate out of the blog index', () => {

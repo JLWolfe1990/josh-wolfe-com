@@ -1,13 +1,13 @@
 import type { BlogPost } from './blog'
 
-type FrontmatterValue = string | string[] | { question: string; answer: string }[]
+type FrontmatterValue = string | number | string[] | { question: string; answer: string }[]
 
 function parseValue(raw: string): FrontmatterValue {
   const value = raw.trim()
   if (value.startsWith('[')) {
     return JSON.parse(value) as string[] | { question: string; answer: string }[]
   }
-  return JSON.parse(value) as string
+  return JSON.parse(value) as string | number
 }
 
 function normalizePublishedContent(raw: string, title: string): string {
@@ -61,6 +61,9 @@ export function parsePublishedBlogPost(raw: string): BlogPost {
     keywords: metadata.keywords as string[] | undefined,
     image: metadata.image as string | undefined,
     imageAlt: metadata.imageAlt as string | undefined,
+    imageWidth: metadata.imageWidth as number | undefined,
+    imageHeight: metadata.imageHeight as number | undefined,
+    imageSchemaVersion: metadata.imageSchemaVersion as string | undefined,
     faq: metadata.faq as { question: string; answer: string }[] | undefined,
     sourceHash: metadata.sourceHash as string,
     content: normalizePublishedContent(normalized.slice(end + 5), metadata.title as string),

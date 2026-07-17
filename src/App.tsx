@@ -106,7 +106,9 @@ function setBlogPostMeta(slug: string) {
   }
 
   const url = `${siteUrl}/blog/${post.slug}`
-  const image = `${siteUrl}/blog/${post.slug === 'ai-assisted-software-development-workflow' ? 'ai-assisted-software-workflow' : post.slug}/social.jpg`
+  const image = post.sourceHash && post.image
+    ? new URL(post.image, siteUrl).toString()
+    : `${siteUrl}/blog/${post.slug === 'ai-assisted-software-development-workflow' ? 'ai-assisted-software-workflow' : post.slug}/social.jpg`
   const title = `${post.title} | Josh Wolfe`
 
   document.title = title

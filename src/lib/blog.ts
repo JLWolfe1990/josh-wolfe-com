@@ -8,6 +8,9 @@ export interface BlogPost {
   keywords?: string[]
   image?: string
   imageAlt?: string
+  imageWidth?: number
+  imageHeight?: number
+  imageSchemaVersion?: string
   faq?: {
     question: string
     answer: string

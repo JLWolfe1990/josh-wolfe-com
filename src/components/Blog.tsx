@@ -242,12 +242,15 @@ function renderContent(raw: string, options: { skipHeroImage?: string } = {}) {
     if (line.startsWith('[IMAGE:')) {
       closeFaq()
       const inner = line.replace('[IMAGE:', '').replace(']', '').trim()
-      const [src, alt, caption] = inner.split('|').map((part) => part.trim())
+      const [src, alt, caption, rawDimensions] = inner.split('|').map((part) => part.trim())
       if (options.skipHeroImage && src === options.skipHeroImage) {
         i += 1
         continue
       }
-      const dimensions = imageDimensions[src]
+      const parsedDimensions = rawDimensions?.match(/^(\d+)x(\d+)$/)
+      const dimensions = parsedDimensions
+        ? { width: Number(parsedDimensions[1]), height: Number(parsedDimensions[2]) }
+        : imageDimensions[src]
       html.push(
         `<figure class="blog-image"><img src="${escapeAttr(src)}" alt="${escapeAttr(
           alt || '',
@@ -541,7 +544,9 @@ export function BlogPost({ slug }: { slug: string }) {
   }
 
   const toc = getTableOfContents(post.content)
-  const heroDimensions = post.image ? imageDimensions[post.image] : undefined
+  const heroDimensions = post.imageWidth && post.imageHeight
+    ? { width: post.imageWidth, height: post.imageHeight }
+    : post.image ? imageDimensions[post.image] : undefined
 
   return (
     <div className="site-shell min-h-screen text-slate-100">
