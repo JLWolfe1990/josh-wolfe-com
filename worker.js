@@ -131,6 +131,7 @@ const BLOG_POST_META = {
 
 const PERMANENT_REDIRECTS = {
   '/blog/model-routing-ai-coding-tasks': '/blog/model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task',
+  '/blog/model-routing-for-ai-coding-tasks': '/blog/model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task',
 };
 
 const CONTENT_TYPES = {

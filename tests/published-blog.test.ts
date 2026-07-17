@@ -66,5 +66,6 @@ Body.`)
 
     expect(slugs).toContain('model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task')
     expect(slugs).not.toContain('model-routing-ai-coding-tasks')
+    expect(slugs).not.toContain('model-routing-for-ai-coding-tasks')
   })
 })

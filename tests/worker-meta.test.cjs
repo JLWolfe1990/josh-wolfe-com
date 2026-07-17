@@ -97,6 +97,19 @@ test('permanently redirects the retired model-routing duplicate to the BizBuzz p
   )
 })
 
+test('permanently redirects a transient BizBuzz retry slug to the canonical publication', async () => {
+  const worker = loadWorker(async () => new Response(baseHtml))
+  const response = await worker.handleRequest(
+    new Request('https://www.josh-wolfe.com/blog/model-routing-for-ai-coding-tasks'),
+  )
+
+  assert.equal(response.status, 308)
+  assert.equal(
+    response.headers.get('location'),
+    'https://www.josh-wolfe.com/blog/model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task',
+  )
+})
+
 test('wrangler config pins both production routes to this Worker', () => {
   const config = JSON.parse(
     fs.readFileSync(path.resolve(__dirname, '..', 'wrangler.jsonc'), 'utf8'),

@@ -74,10 +74,11 @@ const modules = import.meta.glob('../../content/blog/*.md', {
   eager: true,
   query: '?raw',
   import: 'default',
-}) as Record<string, string>
+})
 
 export const publishedPosts = Object.entries(modules).map(([path, raw]) => {
   try {
+    if (typeof raw !== 'string') throw new Error('Vite raw import did not return text')
     return parsePublishedBlogPost(raw)
   } catch (error) {
     throw new Error(`Invalid published blog post ${path}: ${error instanceof Error ? error.message : String(error)}`)

@@ -21,7 +21,10 @@ export interface BlogPost {
 
 import { publishedPosts } from './published-blog'
 
-const retiredPostSlugs = new Set(['model-routing-ai-coding-tasks'])
+const retiredPostSlugs = new Set([
+  'model-routing-ai-coding-tasks',
+  'model-routing-for-ai-coding-tasks',
+])
 
 export const posts: BlogPost[] = [
   {
@@ -3485,7 +3488,7 @@ export function getAllPosts() {
 }
 
 export function getPost(slug: string) {
-  return publishedPosts.find((post) => post.slug === slug) || posts.find((post) => post.slug === slug)
+  return publishedPosts.find((post) => post.slug === slug) ?? posts.find((post) => post.slug === slug)
 }
 
 export function formatPostDate(date: string) {
