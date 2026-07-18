@@ -1,6 +1,6 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
-const DEPLOY_VERSION = '20260717-model-routing-canonical';
+const DEPLOY_VERSION = '20260718-ai-code-maintenance';
 const SITE_URL = 'https://www.josh-wolfe.com';
 const BIZBUZZ_SUBSCRIBE_URL = 'https://bizbuzz.app/api/subscribe/cmlmdspty0004yd01xbkspf1d';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
@@ -29,6 +29,13 @@ const BLOG_INDEX_META = {
 };
 
 const BLOG_POST_META = {
+  'ai-generated-code-maintenance-cost': {
+    title: 'AI-Generated Code Is Cheap to Write and Still Expensive to Own | Josh Wolfe',
+    description:
+      'A practical guide to the real maintenance cost of AI-generated code: ownership, review, tests, documentation, technical debt, and when to say no.',
+    image: `${SITE_URL}/blog/ai-generated-code-maintenance-cost/hero-meaningful.svg`,
+    date: '2026-07-18',
+  },
   'model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task': {
     title: 'Model Routing Unlocked: How to Pick the Right AI for Every Coding Task | Josh Wolfe',
     description:

@@ -47,6 +47,18 @@ test('injects article metadata for the model routing route', () => {
   assert.doesNotMatch(html, /content="default description"/)
 })
 
+test('injects article metadata for the AI-generated code maintenance route', () => {
+  const worker = loadWorker(async () => new Response(baseHtml))
+  const html = worker.injectRouteMeta(baseHtml, '/blog/ai-generated-code-maintenance-cost')
+
+  assert.match(html, /<title>AI-Generated Code Is Cheap to Write and Still Expensive to Own \| Josh Wolfe<\/title>/)
+  assert.match(html, /rel="canonical" href="https:\/\/www\.josh-wolfe\.com\/blog\/ai-generated-code-maintenance-cost"/)
+  assert.match(html, /property="og:type" content="article"/)
+  assert.match(html, /property="article:published_time" content="2026-07-18T00:00:00\.000Z"/)
+  assert.match(html, /property="og:image" content="https:\/\/www\.josh-wolfe\.com\/blog\/ai-generated-code-maintenance-cost\/hero-meaningful\.svg"/)
+  assert.doesNotMatch(html, /content="default description"/)
+})
+
 test('injects article metadata for the open-model AI coding route', () => {
   const worker = loadWorker(async () => new Response(baseHtml))
   const html = worker.injectRouteMeta(baseHtml, '/blog/open-models-ai-coding-agents')

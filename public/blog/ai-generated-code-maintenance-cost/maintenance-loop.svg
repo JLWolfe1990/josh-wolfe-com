@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="834" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">AI-assisted maintenance loop</title>
+  <desc id="desc">A loop connecting code generation, review, testing, documentation, production feedback, and refactoring.</desc>
+  <defs>
+    <linearGradient id="arc" x1="0" x2="1">
+      <stop offset="0" stop-color="#38d7ff"/>
+      <stop offset=".5" stop-color="#a2ff33"/>
+      <stop offset="1" stop-color="#f7d56f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1520" height="834" fill="#0a121d"/>
+  <circle cx="760" cy="430" r="248" fill="#111f31" stroke="#ffffff" stroke-opacity=".12" stroke-width="2"/>
+  <path d="M760 178 A252 252 0 1 1 531 536" fill="none" stroke="url(#arc)" stroke-width="18" stroke-linecap="round"/>
+  <path d="M520 538 l8 -58 l43 39 z" fill="#f7d56f"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="120" y="112" fill="#ffffff" font-size="42" font-weight="900">Maintenance is a loop, not a prompt.</text>
+    <text x="120" y="154" fill="#aebdd0" font-size="20">The model can help at every stage, but the team owns the gates.</text>
+    <g fill="#14263a" stroke="#ffffff" stroke-opacity=".16">
+      <rect x="640" y="114" width="240" height="88" rx="14"/>
+      <rect x="998" y="258" width="240" height="88" rx="14"/>
+      <rect x="998" y="538" width="240" height="88" rx="14"/>
+      <rect x="640" y="660" width="240" height="88" rx="14"/>
+      <rect x="282" y="538" width="240" height="88" rx="14"/>
+      <rect x="282" y="258" width="240" height="88" rx="14"/>
+    </g>
+    <g fill="#ffffff" font-size="22" font-weight="900" text-anchor="middle">
+      <text x="760" y="167">generate</text>
+      <text x="1118" y="311">review</text>
+      <text x="1118" y="591">test</text>
+      <text x="760" y="713">document</text>
+      <text x="402" y="591">monitor</text>
+      <text x="402" y="311">refactor</text>
+    </g>
+    <g fill="#9fb0c5" font-size="15" text-anchor="middle">
+      <text x="760" y="190">fast draft</text>
+      <text x="1118" y="334">system fit</text>
+      <text x="1118" y="614">evidence</text>
+      <text x="760" y="736">why it exists</text>
+      <text x="402" y="614">real signal</text>
+      <text x="402" y="334">keep it small</text>
+    </g>
+    <text x="622" y="424" fill="#a2ff33" font-size="30" font-weight="900">owned code</text>
+    <text x="580" y="462" fill="#cbd5e1" font-size="18">not just generated code</text>
+  </g>
+</svg>
