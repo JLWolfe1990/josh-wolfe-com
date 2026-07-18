@@ -1,0 +1,93 @@
+name: Blog candidate quality
+
+on:
+  workflow_dispatch:
+    inputs:
+      publication_id:
+        required: true
+        type: string
+      attempt:
+        required: true
+        type: string
+      slug:
+        required: true
+        type: string
+      candidate_hash:
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-quality-${{ inputs.publication_id }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.14.0'
+          cache: npm
+      - name: Install and build exact candidate
+        run: npm ci && npm run build
+      - name: Serve candidate locally
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/blog-quality-preview.log 2>&1 &
+          npx --yes wait-on@8.0.3 http://127.0.0.1:4173/blog/${{ inputs.slug }}
+      - name: Run pinned Lighthouse
+        run: |
+          started=$(date +%s%3N)
+          npx --yes lighthouse@12.8.2 http://127.0.0.1:4173/blog/${{ inputs.slug }} \
+            --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage' \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --output=json --output-path=/tmp/lighthouse.json --quiet
+          finished=$(date +%s%3N)
+          node - "$started" "$finished" <<'NODE'
+          const fs = require('node:fs');
+          const [started, finished] = process.argv.slice(2).map(Number);
+          const raw = JSON.parse(fs.readFileSync('/tmp/lighthouse.json', 'utf8'));
+          const score = id => Math.round((raw.categories[id]?.score ?? 0) * 100);
+          const failedAudits = Object.values(raw.audits)
+            .filter(a => a.scoreDisplayMode !== 'notApplicable' && typeof a.score === 'number' && a.score < 1)
+            .map(a => ({ id: a.id, title: a.title, score: a.score, ...(a.displayValue ? { displayValue: a.displayValue } : {}), ...(a.description ? { description: a.description } : {}) }))
+            .slice(0, 100);
+          const report = {
+            schemaVersion: 'blog-quality-report/v1',
+            runnerVersion: 'lighthouse/12.8.2-chrome-stable-v1',
+            publicationId: process.env.PUBLICATION_ID,
+            attempt: Number(process.env.ATTEMPT),
+            candidateHash: process.env.CANDIDATE_HASH,
+            scores: { performance: score('performance'), accessibility: score('accessibility'), bestPractices: score('best-practices'), seo: score('seo') },
+            failedAudits,
+            durationMs: finished - started,
+          };
+          const path = `.bizbuzz-quality/${process.env.PUBLICATION_ID}/${process.env.ATTEMPT}.json`;
+          fs.mkdirSync(require('node:path').dirname(path), { recursive: true });
+          fs.writeFileSync(path, JSON.stringify(report, null, 2) + '\n');
+          NODE
+        env:
+          PUBLICATION_ID: ${{ inputs.publication_id }}
+          ATTEMPT: ${{ inputs.attempt }}
+          CANDIDATE_HASH: ${{ inputs.candidate_hash }}
+      - name: Persist machine-readable result on candidate ref
+        run: |
+          git config user.name bizbuzz-quality[bot]
+          git config user.email 254764050+bizbuzz-quality[bot]@users.noreply.github.com
+          git add .bizbuzz-quality/
+          git commit -m "quality: report ${{ inputs.publication_id }} attempt ${{ inputs.attempt }}"
+          git push origin HEAD:${{ github.ref_name }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blog-quality-${{ inputs.publication_id }}-${{ inputs.attempt }}
+          path: |
+            /tmp/lighthouse.json
+            .bizbuzz-quality/${{ inputs.publication_id }}/${{ inputs.attempt }}.json
+          retention-days: 14
