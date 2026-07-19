@@ -72,7 +72,7 @@ export function Services() {
         </div>
 
         <div className="grid gap-5 lg:grid-cols-2">
-          <a href="#projects" className="artifact-card group min-h-[25rem] overflow-hidden p-0 lg:col-span-2">
+          <a href="#connect" className="artifact-card group min-h-[25rem] overflow-hidden p-0 lg:col-span-2">
             <div className="grid h-full md:grid-cols-[0.95fr_1.05fr] md:items-stretch">
               <div className="p-5 md:p-8">
                 <p className="eyebrow mb-4">Case Study</p>
@@ -83,7 +83,7 @@ export function Services() {
                   Took a stalled Superset beta environment from fragile deployment path to a credible customer-facing analytics platform, connecting engineering execution to adoption pressure.
                 </p>
                 <span className="mt-8 inline-flex items-center font-mono text-xs font-bold uppercase tracking-wider text-teal-400">
-                  Read the delivery story <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  Contact me for more info <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
               </div>
               <div className="card-side-art md:order-2">
@@ -92,7 +92,12 @@ export function Services() {
             </div>
           </a>
 
-          <div className="artifact-card overflow-hidden p-0 lg:col-span-2">
+          <a
+            href="https://co-pals.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="artifact-card group overflow-hidden p-0 lg:col-span-2"
+          >
             <div className="grid h-full md:grid-cols-[1.05fr_0.95fr] md:items-stretch">
               <div className="card-side-art md:order-1">
                 <CoPalsVisual />
@@ -106,13 +111,18 @@ export function Services() {
                   AI-powered knowledge management for teams: capture institutional expertise, search across documents and tools, speed up onboarding, and give people instant answers from DevPal, SalesPal, and SupportPal.
                 </p>
                 <span className="mt-8 inline-flex items-center font-mono text-xs font-bold uppercase tracking-wider text-teal-400">
-                  View Co-Pals <ArrowRight className="ml-2 h-4 w-4" />
+                  View Co-Pals <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
               </div>
             </div>
-          </div>
+          </a>
 
-          <div className="artifact-card overflow-hidden p-0 lg:col-span-2">
+          <a
+            href="https://bizbuzzapp.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="artifact-card group overflow-hidden p-0 lg:col-span-2"
+          >
             <div className="grid h-full md:grid-cols-[0.9fr_1.1fr] md:items-stretch">
               <div className="card-side-art md:order-2">
                 <div className="brand-card-outline card-feature-art min-h-72 brand-card-outline--bizbuzz md:min-h-full">
@@ -127,9 +137,12 @@ export function Services() {
                 <p className="mt-4 max-w-lg text-sm leading-relaxed text-slate-300">
                   LangGraph, GraphQL, Prisma, Postgres, scheduled jobs, Stripe billing, and Kubernetes deployment for a production SaaS workflow.
                 </p>
+                <span className="mt-8 inline-flex items-center font-mono text-xs font-bold uppercase tracking-wider text-teal-400">
+                  View BizBuzz <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
               </div>
             </div>
-          </div>
+          </a>
 
           <div className="artifact-card p-5 md:p-8 lg:col-span-2">
             <p className="eyebrow mb-5">Technical Proficiency</p>

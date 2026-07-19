@@ -1,6 +1,6 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
-const DEPLOY_VERSION = '20260719-prompt-injection-runtime';
+const DEPLOY_VERSION = '20260719-blog-pagination';
 const SITE_URL = 'https://www.josh-wolfe.com';
 const BIZBUZZ_SUBSCRIBE_URL = 'https://bizbuzz.app/api/subscribe/cmlmdspty0004yd01xbkspf1d';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
@@ -162,6 +162,7 @@ const CONTENT_TYPES = {
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
   '.ico': 'image/x-icon',
+  '.pdf': 'application/pdf',
 };
 
 function getContentType(path) {

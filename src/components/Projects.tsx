@@ -22,7 +22,7 @@ const projects = [
     name: 'BizBuzz',
     label: 'AI Newsletter SaaS',
     description: 'Newsletter automation for relationship-led businesses, with AI-assisted review, scheduling, and customer-safe delivery.',
-    url: 'https://bizbuzzapp.com',
+    url: 'https://bizbuzzapp.com/',
     visual: 'bizbuzz',
   },
 ]

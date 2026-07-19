@@ -5,6 +5,11 @@ const navLinks = [
   { href: '#services', label: 'Work' },
   { href: '#about', label: 'About' },
   { href: '/blog', label: 'Blog' },
+  {
+    href: '/Josh-Wolfe-Forward-Deployed-Engineer-Resume.pdf',
+    label: 'FDE Resume',
+    download: true,
+  },
 ]
 
 export function Header() {
@@ -42,6 +47,7 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href.startsWith('#') && window.location.pathname !== '/' ? `/${link.href}` : link.href}
+                download={link.download ? 'Josh-Wolfe-Forward-Deployed-Engineer-Resume.pdf' : undefined}
                 className="relative text-xs font-semibold text-slate-200 hover:text-teal-400 transition-colors duration-200"
               >
                 {link.label}
@@ -73,6 +79,7 @@ export function Header() {
                 <a
                   key={link.href}
                   href={link.href.startsWith('#') && window.location.pathname !== '/' ? `/${link.href}` : link.href}
+                  download={link.download ? 'Josh-Wolfe-Forward-Deployed-Engineer-Resume.pdf' : undefined}
                   className="block py-2 font-medium text-slate-300 transition-colors duration-200 hover:text-teal-400"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

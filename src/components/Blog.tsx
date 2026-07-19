@@ -1,4 +1,5 @@
-import { ArrowLeft, ArrowRight, Calendar, Clock } from 'lucide-react'
+import { useEffect, useMemo, useState } from 'react'
+import { ArrowLeft, ArrowRight, Calendar, ChevronLeft, ChevronRight, Clock, Search, X } from 'lucide-react'
 import { Footer } from './Footer'
 import { Header } from './Header'
 import { NewsletterSubscribe } from './NewsletterSubscribe'
@@ -12,6 +13,22 @@ const categoryClasses: Record<string, string> = {
 }
 
 const visuals = ['dashboard', 'orbital', 'terminal', 'lines']
+const postsPerPage = 6
+
+function getBlogQueryState() {
+  if (typeof window === 'undefined') {
+    return { topic: 'All', query: '', page: 1 }
+  }
+
+  const params = new URLSearchParams(window.location.search)
+  const page = Number.parseInt(params.get('page') ?? '1', 10)
+
+  return {
+    topic: params.get('topic') ?? 'All',
+    query: params.get('q') ?? '',
+    page: Number.isFinite(page) && page > 0 ? page : 1,
+  }
+}
 
 const imageDimensions: Record<string, { width: number; height: number }> = {
   '/blog/prompt-injection-defenses-runtime-revolution/hero-meaningful.svg': { width: 1520, height: 760 },
@@ -72,6 +89,9 @@ const imageDimensions: Record<string, { width: number; height: number }> = {
   '/blog/ai-assisted-software-workflow/hero.webp': { width: 760, height: 380 },
   '/blog/ai-assisted-software-workflow/delivery-loop.webp': { width: 760, height: 417 },
   '/blog/ai-assisted-software-workflow/review-checklist.webp': { width: 760, height: 417 },
+  '/blog/prompt-engineering-for-code/hero-meaningful.webp': { width: 1536, height: 1024 },
+  '/blog/prompt-engineering-for-code/prompt-stack.svg': { width: 1520, height: 834 },
+  '/blog/prompt-engineering-for-code/review-loop.svg': { width: 1520, height: 834 },
 }
 
 function slugifyHeading(text: string) {
@@ -384,10 +404,62 @@ function RelatedPosts({ currentSlug }: { currentSlug: string }) {
 }
 
 export function BlogIndex() {
-  const posts = getAllPosts()
+  const posts = useMemo(getAllPosts, [])
   const [featured, ...rest] = posts
-  const categoryCount = new Set(posts.map((post) => post.category)).size
+  const topics = useMemo(() => [...new Set(posts.map((post) => post.category))].sort(), [posts])
+  const categoryCount = topics.length
   const featuredImageDimensions = featured?.image ? imageDimensions[featured.image] : undefined
+  const initialQueryState = useMemo(getBlogQueryState, [])
+  const [activeTopic, setActiveTopic] = useState(
+    topics.includes(initialQueryState.topic) ? initialQueryState.topic : 'All',
+  )
+  const [query, setQuery] = useState(initialQueryState.query)
+  const [page, setPage] = useState(initialQueryState.page)
+  const normalizedQuery = query.trim().toLowerCase()
+  const isDefaultView = activeTopic === 'All' && !normalizedQuery
+  const filterSource = isDefaultView ? rest : posts
+  const filteredPosts = filterSource.filter((post) => {
+    const matchesTopic = activeTopic === 'All' || post.category === activeTopic
+    const searchableText = [post.title, post.excerpt, post.category, ...(post.keywords ?? [])]
+      .join(' ')
+      .toLowerCase()
+    return matchesTopic && (!normalizedQuery || searchableText.includes(normalizedQuery))
+  })
+  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / postsPerPage))
+  const currentPage = Math.min(page, totalPages)
+  const visiblePosts = filteredPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage)
+  const firstResult = filteredPosts.length ? (currentPage - 1) * postsPerPage + 1 : 0
+  const lastResult = Math.min(currentPage * postsPerPage, filteredPosts.length)
+
+  useEffect(() => {
+    const params = new URLSearchParams()
+    if (activeTopic !== 'All') params.set('topic', activeTopic)
+    if (query.trim()) params.set('q', query.trim())
+    if (currentPage > 1) params.set('page', String(currentPage))
+    const search = params.toString()
+    window.history.replaceState(null, '', `/blog${search ? `?${search}` : ''}`)
+  }, [activeTopic, currentPage, query])
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const state = getBlogQueryState()
+      setActiveTopic(topics.includes(state.topic) ? state.topic : 'All')
+      setQuery(state.query)
+      setPage(state.page)
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [topics])
+
+  function updateTopic(topic: string) {
+    setActiveTopic(topic)
+    setPage(1)
+  }
+
+  function updateQuery(value: string) {
+    setQuery(value)
+    setPage(1)
+  }
 
   return (
     <div className="site-shell min-h-screen text-slate-100">
@@ -464,16 +536,51 @@ export function BlogIndex() {
 
         <section className="blog-index-list py-14 md:py-16">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-8 flex flex-col gap-3 border-b border-white/10 pb-6 md:flex-row md:items-end md:justify-between">
+            <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="font-display text-2xl font-extrabold text-white">Latest Field Notes</p>
                 <p className="mt-1 max-w-2xl text-sm text-slate-300">Specific, field-tested writing for builders and business owners.</p>
               </div>
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-500">{rest.length} more posts</p>
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-500">
+                {filteredPosts.length ? `${firstResult}–${lastResult} of ${filteredPosts.length}` : 'No matches'}
+              </p>
             </div>
 
-            <div className="blog-post-grid">
-              {rest.map((post, index) => {
+            <div className="blog-filter-bar" aria-label="Filter articles">
+              <div className="blog-topic-filters" aria-label="Filter by topic">
+                {['All', ...topics].map((topic) => (
+                  <button
+                    key={topic}
+                    type="button"
+                    className={activeTopic === topic ? 'is-active' : ''}
+                    aria-pressed={activeTopic === topic}
+                    onClick={() => updateTopic(topic)}
+                  >
+                    {topic}
+                    <span>{topic === 'All' ? posts.length : posts.filter((post) => post.category === topic).length}</span>
+                  </button>
+                ))}
+              </div>
+              <label className="blog-search">
+                <Search aria-hidden="true" />
+                <span className="sr-only">Search articles</span>
+                <input
+                  type="search"
+                  value={query}
+                  onChange={(event) => updateQuery(event.target.value)}
+                  placeholder="Search field notes"
+                />
+                {query && (
+                  <button type="button" onClick={() => updateQuery('')} aria-label="Clear search">
+                    <X aria-hidden="true" />
+                  </button>
+                )}
+              </label>
+            </div>
+
+            {visiblePosts.length ? (
+              <div className="blog-post-grid">
+              {visiblePosts.map((post, index) => {
                 const visual = visuals[index % visuals.length]
                 const postImageDimensions = post.image ? imageDimensions[post.image] : undefined
                 return (
@@ -510,7 +617,46 @@ export function BlogIndex() {
                   </a>
                 )
               })}
-            </div>
+              </div>
+            ) : (
+              <div className="blog-empty-state">
+                <p>No field notes match those filters.</p>
+                <button type="button" onClick={() => { updateTopic('All'); updateQuery('') }}>Clear filters</button>
+              </div>
+            )}
+
+            {totalPages > 1 && (
+              <nav className="blog-pagination" aria-label="Blog pagination">
+                <button
+                  type="button"
+                  disabled={currentPage === 1}
+                  onClick={() => setPage((value) => Math.max(1, value - 1))}
+                >
+                  <ChevronLeft aria-hidden="true" /> Previous
+                </button>
+                <div>
+                  {Array.from({ length: totalPages }, (_, index) => index + 1).map((pageNumber) => (
+                    <button
+                      key={pageNumber}
+                      type="button"
+                      className={currentPage === pageNumber ? 'is-active' : ''}
+                      aria-current={currentPage === pageNumber ? 'page' : undefined}
+                      aria-label={`Page ${pageNumber}`}
+                      onClick={() => setPage(pageNumber)}
+                    >
+                      {pageNumber}
+                    </button>
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  disabled={currentPage === totalPages}
+                  onClick={() => setPage((value) => Math.min(totalPages, value + 1))}
+                >
+                  Next <ChevronRight aria-hidden="true" />
+                </button>
+              </nav>
+            )}
 
             <div className="blog-newsletter-block mt-16 border border-teal-400/20 bg-[radial-gradient(circle_at_50%_0%,rgba(162,255,51,0.14),transparent_22rem),#1a2119] px-6 py-14 text-center md:py-16">
               <h2 className="font-display text-4xl font-extrabold text-white md:text-5xl">

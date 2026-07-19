@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="834" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">Prompt, Draft, Review, Ship Loop</title>
+  <desc id="desc">A loop showing prompt, draft, tests, and review with the engineer owning the final decision.</desc>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="55%">
+      <stop offset="0" stop-color="#1f3536"/>
+      <stop offset="1" stop-color="#0c1115"/>
+    </radialGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1520" height="834" fill="url(#glow)"/>
+  <path d="M106 702C310 592 441 678 612 556c154-110 108-251 272-342 158-88 322-21 520-116" fill="none" stroke="#22383b" stroke-width="2" opacity="0.8"/>
+  <text x="86" y="115" fill="#f3f7f5" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="58" font-weight="800">Prompt, Draft, Review, Ship</text>
+  <text x="90" y="161" fill="#91a3a0" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="25">AI code gets safer when every generated draft passes through critique, tests, and human judgment.</text>
+
+  <g fill="none" stroke="#3f625f" stroke-width="6" stroke-linecap="round">
+    <path d="M760 282C934 282 1076 366 1076 470"/>
+    <path d="M1076 470c0 104-142 188-316 188"/>
+    <path d="M760 658c-174 0-316-84-316-188"/>
+    <path d="M444 470c0-104 142-188 316-188"/>
+  </g>
+  <g fill="#a2ff33">
+    <path d="M1073 450l18 26-31-2z"/>
+    <path d="M780 660l-30 12 10-30z"/>
+    <path d="M447 490l-18-26 31 2z"/>
+    <path d="M740 280l30-12-10 30z"/>
+  </g>
+
+  <g filter="url(#shadow)" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+    <g transform="translate(590 210)">
+      <rect width="340" height="140" rx="20" fill="#18282d" stroke="#2dd4bf" stroke-width="3"/>
+      <text x="54" y="58" fill="#2dd4bf" font-size="30" font-weight="800">PROMPT</text>
+      <text x="54" y="98" fill="#f3f7f5" font-size="22">Context + constraints</text>
+    </g>
+    <g transform="translate(940 400)">
+      <rect width="340" height="140" rx="20" fill="#18282d" stroke="#a2ff33" stroke-width="3"/>
+      <text x="54" y="58" fill="#a2ff33" font-size="30" font-weight="800">DRAFT</text>
+      <text x="54" y="98" fill="#f3f7f5" font-size="22">Fast implementation</text>
+    </g>
+    <g transform="translate(590 590)">
+      <rect width="340" height="140" rx="20" fill="#18282d" stroke="#f5a623" stroke-width="3"/>
+      <text x="54" y="58" fill="#f5a623" font-size="30" font-weight="800">REVIEW</text>
+      <text x="54" y="98" fill="#f3f7f5" font-size="22">Patterns + risks</text>
+    </g>
+    <g transform="translate(240 400)">
+      <rect width="340" height="140" rx="20" fill="#18282d" stroke="#2dd4bf" stroke-width="3"/>
+      <text x="54" y="58" fill="#2dd4bf" font-size="30" font-weight="800">TESTS</text>
+      <text x="54" y="98" fill="#f3f7f5" font-size="22">Build confidence</text>
+    </g>
+    <g transform="translate(592 384)">
+      <rect width="336" height="172" rx="24" fill="#101a1e" stroke="#587c76" stroke-width="2"/>
+      <text x="50" y="76" fill="#f3f7f5" font-size="36" font-weight="800">Engineer owns</text>
+      <text x="66" y="120" fill="#91a3a0" font-size="26">the final decision</text>
+    </g>
+  </g>
+</svg>
