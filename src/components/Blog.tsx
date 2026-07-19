@@ -14,6 +14,9 @@ const categoryClasses: Record<string, string> = {
 const visuals = ['dashboard', 'orbital', 'terminal', 'lines']
 
 const imageDimensions: Record<string, { width: number; height: number }> = {
+  '/blog/prompt-injection-defenses-runtime-revolution/hero-meaningful.svg': { width: 1520, height: 760 },
+  '/blog/prompt-injection-defenses-runtime-revolution/defense-layers.svg': { width: 1520, height: 834 },
+  '/blog/prompt-injection-defenses-runtime-revolution/runtime-loop.svg': { width: 1520, height: 834 },
   '/blog/model-routing-ai-coding-tasks/hero-meaningful.svg': { width: 1520, height: 760 },
   '/blog/model-routing-ai-coding-tasks/routing-lanes.svg': { width: 1520, height: 834 },
   '/blog/model-routing-ai-coding-tasks/escalation-loop.svg': { width: 1520, height: 834 },

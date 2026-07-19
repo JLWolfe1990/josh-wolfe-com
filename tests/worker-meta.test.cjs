@@ -59,6 +59,18 @@ test('injects article metadata for the AI-generated code maintenance route', () 
   assert.doesNotMatch(html, /content="default description"/)
 })
 
+test('injects article metadata for the prompt injection runtime route', () => {
+  const worker = loadWorker(async () => new Response(baseHtml))
+  const html = worker.injectRouteMeta(baseHtml, '/blog/prompt-injection-defenses-runtime-revolution')
+
+  assert.match(html, /<title>Prompt Injection Defenses and the Runtime Revolution \| Josh Wolfe<\/title>/)
+  assert.match(html, /rel="canonical" href="https:\/\/www\.josh-wolfe\.com\/blog\/prompt-injection-defenses-runtime-revolution"/)
+  assert.match(html, /property="og:type" content="article"/)
+  assert.match(html, /property="article:published_time" content="2026-07-19T00:00:00\.000Z"/)
+  assert.match(html, /property="og:image" content="https:\/\/www\.josh-wolfe\.com\/blog\/prompt-injection-defenses-runtime-revolution\/hero-meaningful\.svg"/)
+  assert.doesNotMatch(html, /content="default description"/)
+})
+
 test('injects article metadata for the open-model AI coding route', () => {
   const worker = loadWorker(async () => new Response(baseHtml))
   const html = worker.injectRouteMeta(baseHtml, '/blog/open-models-ai-coding-agents')

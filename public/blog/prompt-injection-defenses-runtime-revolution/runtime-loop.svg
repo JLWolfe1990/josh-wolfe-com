@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="834" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">Agent runtime loop for prompt injection tests</title>
+  <desc id="desc">A circular runtime loop showing read context, classify risk, propose action, enforce scope, validate outcome, and log evidence.</desc>
+  <rect width="1520" height="834" fill="#0a121e"/>
+  <circle cx="760" cy="418" r="292" fill="#101827" stroke="#263449" stroke-width="2"/>
+  <circle cx="760" cy="418" r="118" fill="#0f172a" stroke="#5eead4" stroke-width="3"/>
+  <text x="760" y="405" text-anchor="middle" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">Runtime</text>
+  <text x="760" y="446" text-anchor="middle" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="19">blocks unsafe cause and effect</text>
+  <g fill="none" stroke="#5eead4" stroke-width="5" stroke-linecap="round" opacity="0.9">
+    <path d="M760 126 A292 292 0 0 1 1013 272"/>
+    <path d="M1052 418 A292 292 0 0 1 1013 564"/>
+    <path d="M760 710 A292 292 0 0 1 507 564"/>
+    <path d="M468 418 A292 292 0 0 1 507 272"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="578" y="64" width="364" height="96" rx="18" fill="#111827" stroke="#334155"/>
+    <text x="760" y="106" text-anchor="middle" fill="#f8fafc" font-size="23" font-weight="700">Read context</text>
+    <text x="760" y="135" text-anchor="middle" fill="#94a3b8" font-size="16">docs, issues, web, logs</text>
+    <rect x="1004" y="232" width="364" height="96" rx="18" fill="#111827" stroke="#334155"/>
+    <text x="1186" y="274" text-anchor="middle" fill="#f8fafc" font-size="23" font-weight="700">Classify risk</text>
+    <text x="1186" y="303" text-anchor="middle" fill="#94a3b8" font-size="16">hostile instructions, sensitive paths</text>
+    <rect x="1004" y="506" width="364" height="96" rx="18" fill="#111827" stroke="#334155"/>
+    <text x="1186" y="548" text-anchor="middle" fill="#f8fafc" font-size="23" font-weight="700">Enforce scope</text>
+    <text x="1186" y="577" text-anchor="middle" fill="#94a3b8" font-size="16">allowlists, approvals, tool limits</text>
+    <rect x="578" y="674" width="364" height="96" rx="18" fill="#111827" stroke="#334155"/>
+    <text x="760" y="716" text-anchor="middle" fill="#f8fafc" font-size="23" font-weight="700">Validate outcome</text>
+    <text x="760" y="745" text-anchor="middle" fill="#94a3b8" font-size="16">tests, smoke checks, policy</text>
+    <rect x="152" y="506" width="364" height="96" rx="18" fill="#111827" stroke="#334155"/>
+    <text x="334" y="548" text-anchor="middle" fill="#f8fafc" font-size="23" font-weight="700">Log evidence</text>
+    <text x="334" y="577" text-anchor="middle" fill="#94a3b8" font-size="16">decision trail and recovery</text>
+    <rect x="152" y="232" width="364" height="96" rx="18" fill="#111827" stroke="#334155"/>
+    <text x="334" y="274" text-anchor="middle" fill="#f8fafc" font-size="23" font-weight="700">Propose action</text>
+    <text x="334" y="303" text-anchor="middle" fill="#94a3b8" font-size="16">separate plan from permission</text>
+  </g>
+  <g fill="#a3e635">
+    <circle cx="1009" cy="269" r="8"/>
+    <circle cx="1032" cy="561" r="8"/>
+    <circle cx="511" cy="565" r="8"/>
+    <circle cx="488" cy="272" r="8"/>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="834" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">Layered prompt injection defense model</title>
+  <desc id="desc">A stepped model showing defensive prompts as one layer beneath scoped tools, approval gates, validation, logs, and rollback.</desc>
+  <rect width="1520" height="834" fill="#08111f"/>
+  <rect x="84" y="86" width="1352" height="662" rx="34" fill="#0f172a" stroke="#263449" stroke-width="2"/>
+  <text x="132" y="156" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="800">Prompt injection defense is layered</text>
+  <text x="132" y="198" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="20">Tripwires help, but durable safety comes from authority boundaries and verification.</text>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="132" y="604" width="1256" height="72" rx="16" fill="#132033" stroke="#334155"/>
+    <text x="168" y="649" fill="#e2e8f0" font-size="24" font-weight="700">Rollback path</text>
+    <text x="390" y="649" fill="#94a3b8" font-size="18">restore, revert, replay, notify</text>
+    <rect x="132" y="520" width="1090" height="72" rx="16" fill="#132033" stroke="#334155"/>
+    <text x="168" y="565" fill="#e2e8f0" font-size="24" font-weight="700">Audit logs</text>
+    <text x="390" y="565" fill="#94a3b8" font-size="18">who asked, what context, which tool, why blocked</text>
+    <rect x="132" y="436" width="940" height="72" rx="16" fill="#132033" stroke="#334155"/>
+    <text x="168" y="481" fill="#e2e8f0" font-size="24" font-weight="700">Validation gates</text>
+    <text x="390" y="481" fill="#94a3b8" font-size="18">tests, policy, smoke checks, review</text>
+    <rect x="132" y="352" width="790" height="72" rx="16" fill="#132033" stroke="#334155"/>
+    <text x="168" y="397" fill="#e2e8f0" font-size="24" font-weight="700">Action approval</text>
+    <text x="390" y="397" fill="#94a3b8" font-size="18">destructive, external, deploy, credential access</text>
+    <rect x="132" y="268" width="640" height="72" rx="16" fill="#132033" stroke="#334155"/>
+    <text x="168" y="313" fill="#e2e8f0" font-size="24" font-weight="700">Scoped tools</text>
+    <text x="390" y="313" fill="#94a3b8" font-size="18">least privilege by task</text>
+    <rect x="132" y="184" width="490" height="72" rx="16" fill="#132033" stroke="#334155"/>
+    <text x="168" y="229" fill="#e2e8f0" font-size="24" font-weight="700">Defensive prompts</text>
+    <text x="390" y="229" fill="#94a3b8" font-size="18">tripwire layer</text>
+  </g>
+  <path d="M1222 220 C1300 272 1332 344 1328 424 C1323 522 1258 595 1168 640" fill="none" stroke="#5eead4" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="1222" cy="220" r="12" fill="#5eead4"/>
+  <circle cx="1168" cy="640" r="12" fill="#a3e635"/>
+  <text x="1116" y="314" fill="#d9f99d" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">agent authority narrows</text>
+  <text x="1148" y="350" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18">as action risk rises</text>
+</svg>

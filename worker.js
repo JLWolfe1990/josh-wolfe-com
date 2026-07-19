@@ -1,6 +1,6 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
-const DEPLOY_VERSION = '20260718-ai-code-maintenance';
+const DEPLOY_VERSION = '20260719-prompt-injection-runtime';
 const SITE_URL = 'https://www.josh-wolfe.com';
 const BIZBUZZ_SUBSCRIBE_URL = 'https://bizbuzz.app/api/subscribe/cmlmdspty0004yd01xbkspf1d';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
@@ -29,6 +29,13 @@ const BLOG_INDEX_META = {
 };
 
 const BLOG_POST_META = {
+  'prompt-injection-defenses-runtime-revolution': {
+    title: 'Prompt Injection Defenses and the Runtime Revolution | Josh Wolfe',
+    description:
+      'A practical guide to prompt injection defenses for AI coding agents: defensive context, scoped tools, runtime authority boundaries, validation gates, logging, and rollback.',
+    image: `${SITE_URL}/blog/prompt-injection-defenses-runtime-revolution/hero-meaningful.svg`,
+    date: '2026-07-19',
+  },
   'ai-generated-code-maintenance-cost': {
     title: 'AI-Generated Code Is Cheap to Write and Still Expensive to Own | Josh Wolfe',
     description:
