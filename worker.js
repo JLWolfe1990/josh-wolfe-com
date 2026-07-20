@@ -1,6 +1,6 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
-const DEPLOY_VERSION = '20260719-blog-pagination';
+const DEPLOY_VERSION = '20260720-prompt-engineering-code';
 const SITE_URL = 'https://www.josh-wolfe.com';
 const BIZBUZZ_SUBSCRIBE_URL = 'https://bizbuzz.app/api/subscribe/cmlmdspty0004yd01xbkspf1d';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
@@ -29,6 +29,13 @@ const BLOG_INDEX_META = {
 };
 
 const BLOG_POST_META = {
+  'prompt-engineering-for-code': {
+    title: 'Prompt Engineering for Code: How to Get Production-Ready Output | Josh Wolfe',
+    description:
+      'A practical guide to prompt engineering for code generation: context, requirements, constraints, examples, review loops, and validation gates that turn vague AI requests into usable software.',
+    image: `${SITE_URL}/blog/prompt-engineering-for-code/hero-meaningful.webp`,
+    date: '2026-07-20',
+  },
   'prompt-injection-defenses-runtime-revolution': {
     title: 'Prompt Injection Defenses and the Runtime Revolution | Josh Wolfe',
     description:
