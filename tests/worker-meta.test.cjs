@@ -35,6 +35,18 @@ const baseHtml = `<!doctype html><html><head>
   <meta property="og:title" content="Josh Wolfe | AI-Native Lead Engineer" />
 </head><body><div id="root"></div></body></html>`
 
+test('injects article metadata for the AI agent infrastructure route', () => {
+  const worker = loadWorker(async () => new Response(baseHtml))
+  const html = worker.injectRouteMeta(baseHtml, '/blog/ai-agent-infrastructure-vibe-coding')
+
+  assert.match(html, /<title>The AI Agent Infrastructure Layer Behind Vibe Coding \| Josh Wolfe<\/title>/)
+  assert.match(html, /rel="canonical" href="https:\/\/www\.josh-wolfe\.com\/blog\/ai-agent-infrastructure-vibe-coding"/)
+  assert.match(html, /property="og:type" content="article"/)
+  assert.match(html, /property="article:published_time" content="2026-07-21T00:00:00\.000Z"/)
+  assert.match(html, /property="og:image" content="https:\/\/www\.josh-wolfe\.com\/blog\/ai-agent-infrastructure-vibe-coding\/hero-meaningful\.svg"/)
+  assert.doesNotMatch(html, /content="default description"/)
+})
+
 test('injects article metadata for the model routing route', () => {
   const worker = loadWorker(async () => new Response(baseHtml))
   const html = worker.injectRouteMeta(baseHtml, '/blog/model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task')

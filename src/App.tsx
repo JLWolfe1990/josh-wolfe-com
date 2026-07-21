@@ -1,7 +1,6 @@
 import { Suspense, lazy } from 'react'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
-import { BlogIndex, BlogPost } from './components/Blog'
 import { getPost } from './lib/blog'
 import './App.css'
 
@@ -10,6 +9,8 @@ const Services = lazy(() => import('./components/Services').then((module) => ({ 
 const About = lazy(() => import('./components/About').then((module) => ({ default: module.About })))
 const Projects = lazy(() => import('./components/Projects').then((module) => ({ default: module.Projects })))
 const Connect = lazy(() => import('./components/Connect').then((module) => ({ default: module.Connect })))
+const BlogIndex = lazy(() => import('./components/Blog').then((module) => ({ default: module.BlogIndex })))
+const BlogPost = lazy(() => import('./components/Blog').then((module) => ({ default: module.BlogPost })))
 
 const siteUrl = 'https://www.josh-wolfe.com'
 
@@ -205,13 +206,21 @@ function App() {
 
   if (path === '/blog') {
     setBlogIndexMeta()
-    return <BlogIndex />
+    return (
+      <Suspense fallback={null}>
+        <BlogIndex />
+      </Suspense>
+    )
   }
 
   if (path.startsWith('/blog/')) {
     const slug = path.replace('/blog/', '').replace(/\/$/, '')
     setBlogPostMeta(slug)
-    return <BlogPost slug={slug} />
+    return (
+      <Suspense fallback={null}>
+        <BlogPost slug={slug} />
+      </Suspense>
+    )
   }
 
   setDefaultMeta()

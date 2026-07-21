@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="834" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">Three-layer AI agent infrastructure stack</title>
+  <desc id="desc">A stack diagram showing model efficiency, agent protocols, and economic rails underneath review and production controls.</desc>
+  <rect width="1520" height="834" fill="#f6fbf8"/>
+  <text x="110" y="96" fill="#102016" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">Three layers under the agent</text>
+  <text x="112" y="136" fill="#52615a" font-family="Inter, Arial, sans-serif" font-size="22">The more autonomous the workflow gets, the more explicit the infrastructure has to be.</text>
+  <g transform="translate(160 206)">
+    <rect x="0" y="0" width="1200" height="112" rx="18" fill="#102016"/>
+    <text x="42" y="50" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Human review and production controls</text>
+    <text x="42" y="84" fill="#b7c8bf" font-family="Inter, Arial, sans-serif" font-size="18">approval, rollback, observability, ownership</text>
+  </g>
+  <g transform="translate(220 368)">
+    <rect x="0" y="0" width="1080" height="104" rx="18" fill="#ddfbea" stroke="#b6ead0" stroke-width="2"/>
+    <circle cx="54" cy="52" r="22" fill="#a2ff33"/>
+    <text x="94" y="46" fill="#102016" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800">1. Model efficiency</text>
+    <text x="94" y="76" fill="#52615a" font-family="Inter, Arial, sans-serif" font-size="18">chips, smaller models, routing lanes, latency budgets</text>
+  </g>
+  <g transform="translate(220 500)">
+    <rect x="0" y="0" width="1080" height="104" rx="18" fill="#e5fbff" stroke="#adedf3" stroke-width="2"/>
+    <circle cx="54" cy="52" r="22" fill="#2dd4bf"/>
+    <text x="94" y="46" fill="#102016" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800">2. Agent protocols</text>
+    <text x="94" y="76" fill="#52615a" font-family="Inter, Arial, sans-serif" font-size="18">context, identity, tool contracts, inter-agent handoffs</text>
+  </g>
+  <g transform="translate(220 632)">
+    <rect x="0" y="0" width="1080" height="104" rx="18" fill="#edf4ff" stroke="#c9dcff" stroke-width="2"/>
+    <circle cx="54" cy="52" r="22" fill="#60a5fa"/>
+    <text x="94" y="46" fill="#102016" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800">3. Economic rails</text>
+    <text x="94" y="76" fill="#52615a" font-family="Inter, Arial, sans-serif" font-size="18">budgets, approvals, paid APIs, scoped spending authority</text>
+  </g>
+  <path d="M760 318V356" stroke="#102016" stroke-width="4" stroke-linecap="round"/>
+  <path d="M760 472V488" stroke="#7a8a82" stroke-width="4" stroke-linecap="round"/>
+  <path d="M760 604V620" stroke="#7a8a82" stroke-width="4" stroke-linecap="round"/>
+</svg>

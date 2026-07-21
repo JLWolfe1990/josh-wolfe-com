@@ -1,6 +1,6 @@
 // Cloudflare Worker to serve josh-wolfe.com from Civo Object Store
 const CIVO_BASE = 'https://objectstore.nyc1.civo.com/j-cubed/josh-wolfe-com';
-const DEPLOY_VERSION = '20260720-prompt-engineering-code';
+const DEPLOY_VERSION = '20260721-agent-infrastructure';
 const SITE_URL = 'https://www.josh-wolfe.com';
 const BIZBUZZ_SUBSCRIBE_URL = 'https://bizbuzz.app/api/subscribe/cmlmdspty0004yd01xbkspf1d';
 const SUBSCRIBE_WINDOW_MS = 60 * 60 * 1000;
@@ -29,6 +29,13 @@ const BLOG_INDEX_META = {
 };
 
 const BLOG_POST_META = {
+  'ai-agent-infrastructure-vibe-coding': {
+    title: 'The AI Agent Infrastructure Layer Behind Vibe Coding | Josh Wolfe',
+    description:
+      'Vibe coding only becomes reliable when model efficiency, agent protocols, payment rails, review gates, and deployment controls turn fast prompts into production-ready systems.',
+    image: `${SITE_URL}/blog/ai-agent-infrastructure-vibe-coding/hero-meaningful.svg`,
+    date: '2026-07-21',
+  },
   'prompt-engineering-for-code': {
     title: 'Prompt Engineering for Code: How to Get Production-Ready Output | Josh Wolfe',
     description:

@@ -92,6 +92,9 @@ const imageDimensions: Record<string, { width: number; height: number }> = {
   '/blog/prompt-engineering-for-code/hero-meaningful.webp': { width: 1536, height: 1024 },
   '/blog/prompt-engineering-for-code/prompt-stack.svg': { width: 1520, height: 834 },
   '/blog/prompt-engineering-for-code/review-loop.svg': { width: 1520, height: 834 },
+  '/blog/ai-agent-infrastructure-vibe-coding/hero-meaningful.svg': { width: 1520, height: 760 },
+  '/blog/ai-agent-infrastructure-vibe-coding/infrastructure-stack.svg': { width: 1520, height: 834 },
+  '/blog/ai-agent-infrastructure-vibe-coding/agent-control-loop.svg': { width: 1520, height: 834 },
 }
 
 function slugifyHeading(text: string) {

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="834" viewBox="0 0 1520 834" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic coding control loop</title>
+  <desc id="desc">A loop diagram from intake through context, plan, execution, validation, review, deployment, and observation.</desc>
+  <rect width="1520" height="834" fill="#101511"/>
+  <text x="110" y="94" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">A practical agentic coding loop</text>
+  <text x="112" y="134" fill="#b7c8bf" font-family="Inter, Arial, sans-serif" font-size="22">Autonomy is useful when each step leaves evidence.</text>
+  <circle cx="760" cy="438" r="212" fill="none" stroke="#2d3d34" stroke-width="28"/>
+  <circle cx="760" cy="438" r="212" fill="none" stroke="#a2ff33" stroke-width="6" stroke-dasharray="78 28"/>
+  <g font-family="Inter, Arial, sans-serif" font-size="21" font-weight="700">
+    <rect x="646" y="184" width="228" height="72" rx="18" fill="#e8fff2"/><text x="705" y="229" fill="#102016">intake</text>
+    <rect x="992" y="270" width="244" height="72" rx="18" fill="#ddfbea"/><text x="1062" y="315" fill="#102016">context</text>
+    <rect x="1060" y="526" width="224" height="72" rx="18" fill="#e5fbff"/><text x="1127" y="571" fill="#102016">plan</text>
+    <rect x="646" y="636" width="228" height="72" rx="18" fill="#edf4ff"/><text x="707" y="681" fill="#102016">execute</text>
+    <rect x="248" y="526" width="244" height="72" rx="18" fill="#f2ffe5"/><text x="305" y="571" fill="#102016">validate</text>
+    <rect x="284" y="270" width="224" height="72" rx="18" fill="#e8fff2"/><text x="347" y="315" fill="#102016">review</text>
+  </g>
+  <g>
+    <rect x="622" y="370" width="276" height="136" rx="24" fill="#182019" stroke="#3f5f55" stroke-width="2"/>
+    <text x="686" y="421" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">deploy</text>
+    <text x="674" y="456" fill="#b7c8bf" font-family="Inter, Arial, sans-serif" font-size="18">through the same</text>
+    <text x="668" y="483" fill="#b7c8bf" font-family="Inter, Arial, sans-serif" font-size="18">trusted release path</text>
+  </g>
+  <path d="M570 206C474 239 404 315 379 412" fill="none" stroke="#2dd4bf" stroke-width="5" stroke-linecap="round"/>
+  <path d="M948 206C1042 242 1110 318 1135 412" fill="none" stroke="#60a5fa" stroke-width="5" stroke-linecap="round"/>
+  <path d="M948 670C1042 634 1110 558 1135 464" fill="none" stroke="#60a5fa" stroke-width="5" stroke-linecap="round"/>
+  <path d="M570 670C474 634 404 558 379 464" fill="none" stroke="#2dd4bf" stroke-width="5" stroke-linecap="round"/>
+</svg>
