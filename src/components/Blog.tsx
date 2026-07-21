@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Calendar, ChevronLeft, ChevronRight, Clock, Sear
 import { Footer } from './Footer'
 import { Header } from './Header'
 import { NewsletterSubscribe } from './NewsletterSubscribe'
+import { BlogNewsletterModal } from './BlogNewsletterModal'
 import { formatPostDate, getAllPosts, getPost } from '../lib/blog'
 
 const categoryClasses: Record<string, string> = {
@@ -781,6 +782,7 @@ export function BlogPost({ slug }: { slug: string }) {
           </div>
         </article>
       </main>
+      <BlogNewsletterModal />
       <Footer />
     </div>
   )

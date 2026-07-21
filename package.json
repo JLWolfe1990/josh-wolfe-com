@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "test:worker": "node --test tests/worker-meta.test.cjs",
-    "test:unit": "vitest run tests/published-blog.test.ts",
+    "test:unit": "vitest run tests/published-blog.test.ts tests/newsletter-preferences.test.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lintFix": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "preview": "vite preview",

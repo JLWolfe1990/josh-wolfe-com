@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Check, Loader2 } from 'lucide-react'
+import { rememberNewsletterSubscription } from '../lib/newsletter-preferences'
 
 type SubscribeStatus = 'idle' | 'loading' | 'success' | 'error'
 
@@ -10,7 +11,13 @@ interface SubscribeResponse {
   message?: string
 }
 
-export function NewsletterSubscribe({ compact = false }: { compact?: boolean }) {
+export function NewsletterSubscribe({
+  compact = false,
+  onSuccess,
+}: {
+  compact?: boolean
+  onSuccess?: () => void
+}) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
@@ -42,6 +49,8 @@ export function NewsletterSubscribe({ compact = false }: { compact?: boolean }) 
 
       setStatus('success')
       setMessage(data.message ?? "You're subscribed.")
+      rememberNewsletterSubscription()
+      onSuccess?.()
       setFirstName('')
       setLastName('')
       setEmail('')
