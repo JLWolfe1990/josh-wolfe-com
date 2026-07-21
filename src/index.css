@@ -1151,7 +1151,8 @@
 
 .blog-category-pill {
   display: inline-flex;
-  width: 8.25rem;
+  width: fit-content;
+  max-width: 100%;
   min-height: 1.25rem;
   align-items: center;
   align-self: flex-start;
@@ -1164,7 +1165,7 @@
   line-height: 1;
   letter-spacing: 0.08em;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal;
   opacity: 0.76;
   text-transform: uppercase;
 }
