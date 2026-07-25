@@ -65,7 +65,7 @@ await run(config.buildCommand, timeoutMs);
 const preview = spawn(replaceTokens(config.previewCommand, tokens), {
   cwd: root,
   shell: true,
-  detached: false,
+  detached: true,
   stdio: ['ignore', 'pipe', 'pipe'],
 });
 preview.stdout.pipe(process.stdout);
@@ -122,5 +122,12 @@ try {
     await fs.appendFile(process.env.GITHUB_OUTPUT, `lighthouse_path=${lighthousePath}\n`);
   }
 } finally {
-  preview.kill('SIGTERM');
+  if (preview.pid) {
+    try {
+      process.kill(-preview.pid, 'SIGTERM');
+    } catch (error) {
+      if (error.code !== 'ESRCH') throw error;
+    }
+  }
+  preview.unref();
 }

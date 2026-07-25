@@ -1,16 +1,16 @@
 {
-  "runnerVersion": "1.0.1",
+  "runnerVersion": "1.0.2",
   "configSchemaVersion": "bizbuzz-blog-runner-config/v1",
   "reportSchemaVersion": "blog-quality-report/v2",
   "upstreamRepository": "j3-enterprises/bizbuzz-blog-runner-template",
-  "upstreamRelease": "v1.0.1",
-  "upstreamCommit": "807c8ea87edaa75e84b109fb1f94bbb76182d89a",
+  "upstreamRelease": "v1.0.2",
+  "upstreamCommit": "6f3d3b3717d73be13737be1dd289c262ed0273d8",
   "installedFileHashes": {
-    ".bizbuzz/runner/audit.mjs": "7d0c8acf96fd4ffc3513d836d0c37f71dcfa745ddc0ade8a27007a62229fcefd",
+    ".bizbuzz/runner/audit.mjs": "ac3aae501e9dc3fd6925beaf42965385b5886a242310cedbe0482e263caf06a4",
     ".bizbuzz/runner/schemas/config-v1.schema.json": "eeb9c44a045b798c2e8b8ed442de83613c145f975579bcaa389b88f945ad81ee",
     ".bizbuzz/runner/schemas/report-v2.schema.json": "a1196e29f309d4bcf4c197c06eb3d76ccb80c80dd38a7771d41665d8e1ecad66",
     ".github/workflows/bizbuzz-blog-quality.yml": "6a3e14bbddecfa7728378874ac16a8ddb4b6501ab76bc9864889d3cbb1a7b75e",
     ".bizbuzz/blog-publisher.json": "0b7b48670161414bb93534100174259b5b93941e3aafd4a40ef894d31ce1b98a"
   },
-  "installedAt": "2026-07-25T22:25:53.978Z"
+  "installedAt": "2026-07-25T22:47:28.898Z"
 }
