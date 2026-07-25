@@ -1,13 +1,13 @@
 {
   "name": "josh-wolfe-com",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && node scripts/generate-blog-pages.mjs",
     "test:worker": "node --test tests/worker-meta.test.cjs",
-    "test:unit": "vitest run tests/published-blog.test.ts tests/newsletter-preferences.test.ts",
+    "test:unit": "vitest run tests/published-blog.test.ts tests/newsletter-preferences.test.ts && node --test tests/generate-blog-pages.test.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lintFix": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "preview": "vite preview",

@@ -47,6 +47,24 @@ test('injects article metadata for the AI agent infrastructure route', () => {
   assert.doesNotMatch(html, /content="default description"/)
 })
 
+test('serves prebuilt blog route HTML without stripping its hero preload', async () => {
+  const routeHtml = baseHtml.replace(
+    '</head>',
+    '<link rel="preload" as="image" href="/blog/new-post/hero.webp" fetchpriority="high" /></head>',
+  )
+  let requestedUrl
+  const worker = loadWorker(async url => {
+    requestedUrl = String(url)
+    return new Response(routeHtml)
+  })
+
+  const response = await worker.handleRequest(new Request('https://www.josh-wolfe.com/blog/new-post'))
+  const html = await response.text()
+
+  assert.match(requestedUrl, /\/blog\/new-post\/index\.html\?v=/)
+  assert.match(html, /rel="preload" as="image" href="\/blog\/new-post\/hero\.webp" fetchpriority="high"/)
+})
+
 test('injects article metadata for the model routing route', () => {
   const worker = loadWorker(async () => new Response(baseHtml))
   const html = worker.injectRouteMeta(baseHtml, '/blog/model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task')
@@ -118,8 +136,12 @@ test('injects article metadata for the AI agent safety route', () => {
 })
 
 test('serves route-specific HTML with an observable deploy-version header', async () => {
+  const routeHtml = baseHtml.replace(
+    '<title>Josh Wolfe | AI-Native Lead Engineer</title>',
+    '<title>Model Routing Unlocked: How to Pick the Right AI for Every Coding Task | Josh Wolfe</title>',
+  )
   const worker = loadWorker(async () =>
-    new Response(baseHtml, { status: 200, headers: { 'content-type': 'text/html; charset=utf-8' } }),
+    new Response(routeHtml, { status: 200, headers: { 'content-type': 'text/html; charset=utf-8' } }),
   )
 
   const response = await worker.handleRequest(

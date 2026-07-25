@@ -715,6 +715,7 @@ export function BlogPost({ slug }: { slug: string }) {
                 width={heroDimensions?.width}
                 height={heroDimensions?.height}
                 loading="eager"
+                {...{ fetchPriority: 'high' }}
                 decoding="async"
               />
             )}

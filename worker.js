@@ -379,10 +379,13 @@ async function handleRequest(request) {
     path = '/index.html';
   }
 
-  // For SPA: if no file extension, serve index.html
+  // Blog builds include route-specific HTML so the LCP image and metadata are
+  // discoverable before the SPA boots. Other routes continue to use the SPA shell.
   const hasExtension = path.includes('.') && path.lastIndexOf('.') > path.lastIndexOf('/');
   if (!hasExtension) {
-    path = '/index.html';
+    path = /^\/blog\/[^/]+\/?$/.test(path)
+      ? `${path.replace(/\/$/, '')}/index.html`
+      : '/index.html';
   }
 
   const civoUrl = `${CIVO_BASE}${path}?v=${DEPLOY_VERSION}`;
@@ -419,7 +422,10 @@ async function handleRequest(request) {
       : 'public, max-age=300';
 
     if (contentType.startsWith('text/html')) {
-      const html = injectRouteMeta(await response.text(), requestPath);
+      const sourceHtml = await response.text();
+      const html = /^\/blog\/[^/]+\/?$/.test(requestPath)
+        ? sourceHtml
+        : injectRouteMeta(sourceHtml, requestPath);
       return new Response(html, {
         status: 200,
         headers: {
