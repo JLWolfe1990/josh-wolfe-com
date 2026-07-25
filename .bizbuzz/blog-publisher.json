@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "bizbuzz-blog-runner-config/v1",
+  "contentPath": "content/blog/{slug}.md",
+  "assetPath": "public/blog/{slug}",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "previewCommand": "npm run preview -- --host 127.0.0.1 --port {port}",
+  "previewPort": 4173,
+  "postUrl": "/blog/{slug}",
+  "timeoutMinutes": 15,
+  "thresholds": {
+    "performance": 95,
+    "accessibility": 95,
+    "bestPractices": 95,
+    "seo": 95
+  }
+}
