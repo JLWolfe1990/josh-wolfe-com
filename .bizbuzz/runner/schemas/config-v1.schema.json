@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bizbuzz.app/schemas/blog-runner/config-v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "contentPath",
+    "assetPath",
+    "installCommand",
+    "buildCommand",
+    "previewCommand",
+    "previewPort",
+    "postUrl",
+    "timeoutMinutes",
+    "thresholds"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "bizbuzz-blog-runner-config/v1" },
+    "contentPath": { "type": "string", "minLength": 1 },
+    "assetPath": { "type": "string", "minLength": 1 },
+    "installCommand": { "type": "string", "minLength": 1 },
+    "buildCommand": { "type": "string", "minLength": 1 },
+    "previewCommand": { "type": "string", "minLength": 1 },
+    "previewPort": { "type": "integer", "minimum": 1024, "maximum": 65535 },
+    "postUrl": { "type": "string", "pattern": "^/" },
+    "timeoutMinutes": { "type": "integer", "minimum": 1, "maximum": 30 },
+    "thresholds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["performance", "accessibility", "bestPractices", "seo"],
+      "properties": {
+        "performance": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "accessibility": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "bestPractices": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "seo": { "type": "integer", "minimum": 0, "maximum": 100 }
+      }
+    }
+  }
+}

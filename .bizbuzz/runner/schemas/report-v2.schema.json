@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bizbuzz.app/schemas/blog-runner/report-v2.json",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "runnerVersion",
+    "configSchemaVersion",
+    "publicationId",
+    "attempt",
+    "candidateRef",
+    "candidateHash",
+    "sourceHash",
+    "imageHashes",
+    "auditedUrl",
+    "scores",
+    "failedAudits",
+    "durationMs"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "blog-quality-report/v2" },
+    "runnerVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "configSchemaVersion": { "const": "bizbuzz-blog-runner-config/v1" },
+    "publicationId": { "type": "string", "minLength": 1 },
+    "attempt": { "type": "integer", "minimum": 1, "maximum": 3 },
+    "candidateRef": { "type": "string", "minLength": 1 },
+    "candidateHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "sourceHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "imageHashes": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+    },
+    "auditedUrl": { "type": "string", "format": "uri" },
+    "scores": {
+      "type": "object",
+      "required": ["performance", "accessibility", "bestPractices", "seo"]
+    },
+    "failedAudits": { "type": "array", "maxItems": 100 },
+    "durationMs": { "type": "integer", "minimum": 0 }
+  }
+}
