@@ -214,7 +214,11 @@ function getTableOfContents(raw: string) {
     })
 }
 
-function renderContent(raw: string, options: { skipHeroImage?: string } = {}) {
+function responsiveSrcSet(src: string) {
+  return `${src.replace(/\.webp$/, '-480.webp')} 480w, ${src.replace(/\.webp$/, '-960.webp')} 960w, ${src} 1520w`
+}
+
+function renderContent(raw: string, options: { skipHeroImage?: string; responsiveImages?: boolean } = {}) {
   const lines = raw.trim().split('\n')
   const html: string[] = []
   let i = 0
@@ -279,7 +283,7 @@ function renderContent(raw: string, options: { skipHeroImage?: string } = {}) {
         ? { width: Number(parsedDimensions[1]), height: Number(parsedDimensions[2]) }
         : imageDimensions[src]
       html.push(
-        `<figure class="blog-image"><img src="${escapeAttr(src)}" alt="${escapeAttr(
+        `<figure class="blog-image"><img src="${escapeAttr(src)}"${options.responsiveImages && src.endsWith('.webp') ? ` srcset="${escapeAttr(responsiveSrcSet(src))}" sizes="(max-width: 768px) calc(100vw - 2rem), 760px"` : ''} alt="${escapeAttr(
           alt || '',
         )}"${dimensions ? ` width="${dimensions.width}" height="${dimensions.height}"` : ''} loading="lazy" decoding="async" /><figcaption>${renderInline(caption || alt || '')}</figcaption></figure>`,
       )
@@ -717,6 +721,12 @@ export function BlogPost({ slug }: { slug: string }) {
                 loading="eager"
                 {...{ fetchPriority: 'high' }}
                 decoding="async"
+                {...(post.imageSchemaVersion === 'blog-images/v2' && post.image.endsWith('.webp')
+                  ? {
+                      srcSet: responsiveSrcSet(post.image),
+                      sizes: '100vw',
+                    }
+                  : {})}
               />
             )}
             <div className="blog-post-hero-overlay absolute inset-0" />
@@ -759,7 +769,10 @@ export function BlogPost({ slug }: { slug: string }) {
 
           <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:py-16 lg:px-8 xl:grid-cols-[minmax(0,48rem)_16rem] xl:gap-16">
             <div className="min-w-0">
-              <div className="prose-josh" dangerouslySetInnerHTML={{ __html: renderContent(post.content, { skipHeroImage: post.image }) }} />
+              <div className="prose-josh" dangerouslySetInnerHTML={{ __html: renderContent(post.content, {
+                skipHeroImage: post.image,
+                responsiveImages: post.imageSchemaVersion === 'blog-images/v2',
+              }) }} />
               <RelatedPosts currentSlug={post.slug} />
             </div>
 

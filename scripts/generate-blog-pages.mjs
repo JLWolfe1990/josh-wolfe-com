@@ -41,10 +41,16 @@ export function renderBlogRouteHtml(template, metadata) {
 
   const canonical = `${SITE_URL}/blog/${slug}`
   const absoluteImage = new URL(image, SITE_URL).href
+  const responsiveImage = metadata.imageSchemaVersion === 'blog-images/v2' && image.endsWith('.webp')
+  const imageSrcSet = responsiveImage
+    ? `${image.replace(/\.webp$/, '-480.webp')} 480w, ${image.replace(/\.webp$/, '-960.webp')} 960w, ${image} 1520w`
+    : ''
   const managedHead = [
     `<title>${escapeHtml(title)} | Josh Wolfe</title>`,
     `<link rel="canonical" href="${escapeHtml(canonical)}" />`,
-    `<link rel="preload" as="image" href="${escapeHtml(image)}" fetchpriority="high" />`,
+    responsiveImage
+      ? `<link rel="preload" as="image" href="${escapeHtml(image.replace(/\.webp$/, '-480.webp'))}" imagesrcset="${escapeHtml(imageSrcSet)}" imagesizes="100vw" fetchpriority="high" />`
+      : `<link rel="preload" as="image" href="${escapeHtml(image)}" fetchpriority="high" />`,
     `<meta name="description" content="${escapeHtml(description)}" />`,
     '<meta property="og:type" content="article" />',
     `<meta property="og:title" content="${escapeHtml(title)}" />`,
@@ -66,7 +72,11 @@ export function renderBlogRouteHtml(template, metadata) {
     .replace(/<meta\s+name="(?:description|keywords|twitter:[^"]+)"[^>]*>\s*/gi, '')
     .replace(/<meta\s+property="(?:og:[^"]+|article:[^"]+)"[^>]*>\s*/gi, '')
 
-  return stripped.replace('</head>', `    ${managedHead}\n  </head>`)
+  const initialHero = `<div class="site-shell min-h-screen text-slate-100"><main><article><header class="blog-post-hero relative overflow-hidden border-b border-white/10"><img class="blog-hero-background-image" src="${escapeHtml(responsiveImage ? image.replace(/\.webp$/, '-480.webp') : image)}"${responsiveImage ? ` srcset="${escapeHtml(imageSrcSet)}" sizes="100vw"` : ''} alt="${escapeHtml(metadata.imageAlt || title)}" width="${escapeHtml(metadata.imageWidth || 1520)}" height="${escapeHtml(metadata.imageHeight || 760)}" fetchpriority="high"><div class="blog-post-hero-overlay absolute inset-0"></div><div class="relative mx-auto flex min-h-[min(760px,92svh)] max-w-6xl items-end px-4 pb-14 pt-32 sm:px-6 md:pb-20 lg:px-8"><div class="blog-post-hero-copy"><h1 class="mt-5 mb-6 font-display text-4xl font-extrabold leading-[1.02] text-white md:text-6xl">${escapeHtml(title)}</h1><p class="max-w-3xl text-lg leading-8 text-slate-300">${escapeHtml(description)}</p></div></div></header></article></main></div>`
+
+  return stripped
+    .replace('</head>', `    ${managedHead}\n  </head>`)
+    .replace('<div id="root"></div>', `<div id="root">${initialHero}</div>`)
 }
 
 export function generateBlogPages({ contentDir, distDir }) {

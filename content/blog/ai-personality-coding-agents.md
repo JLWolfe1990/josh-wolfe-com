@@ -11,7 +11,7 @@ image: "/blog/ai-personality-coding-agents/hero.webp"
 imageAlt: "Conceptual illustration depicting an AI's communication evolving from rigid and technical to fluid and human-like, highlighting the importance of AI personality in coding assistants."
 imageWidth: 1520
 imageHeight: 760
-imageSchemaVersion: "blog-images/v1"
+imageSchemaVersion: "blog-images/v2"
 sourceHash: "81f5bc219dc8fcab7367110d726adab97d71fbda3d82e16f057ebe5a63e8b9e5"
 ---
 For years, the focus in AI development tools has been on raw model capability—token count, reasoning ability, and coding benchmarks. However, a significant shift is underway: **the interaction model between you and your AI pair programmer is rapidly becoming a competitive differentiator.**
