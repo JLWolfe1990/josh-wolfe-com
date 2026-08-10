@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { parsePublishedBlogPost } from '../src/lib/published-blog'
 import { getAllPosts } from '../src/lib/blog'
+import { renderInline } from '../src/lib/blog-renderer'
 
 describe('parsePublishedBlogPost', () => {
   it('loads the versioned BizBuzz Markdown contract', () => {
@@ -67,5 +68,22 @@ Body.`)
     expect(slugs).toContain('model-routing-unlocked-how-to-pick-the-right-ai-for-every-coding-task')
     expect(slugs).not.toContain('model-routing-ai-coding-tasks')
     expect(slugs).not.toContain('model-routing-for-ai-coding-tasks')
+  })
+})
+
+describe('renderInline', () => {
+  it('renders external Markdown links as safe HTML links', () => {
+    expect(renderInline("Read [Simon Willison's breakdown](https://simonwillison.net/example)."))
+      .toBe("Read <a href=\"https://simonwillison.net/example\" target=\"_blank\" rel=\"noopener noreferrer\">Simon Willison's breakdown</a>.")
+  })
+
+  it('renders internal Markdown links without opening a new tab', () => {
+    expect(renderInline('Read [the workflow guide](/blog/workflow-guide).'))
+      .toBe('Read <a href="/blog/workflow-guide">the workflow guide</a>.')
+  })
+
+  it('escapes attribute-breaking characters in Markdown link destinations', () => {
+    expect(renderInline('[unsafe](https://example.com/" onclick="alert(1))'))
+      .toContain('href="https://example.com/&quot; onclick=&quot;alert(1"')
   })
 })

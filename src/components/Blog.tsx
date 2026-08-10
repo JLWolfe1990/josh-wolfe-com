@@ -5,6 +5,7 @@ import { Header } from './Header'
 import { NewsletterSubscribe } from './NewsletterSubscribe'
 import { BlogNewsletterModal } from './BlogNewsletterModal'
 import { formatPostDate, getAllPosts, getPost } from '../lib/blog'
+import { renderInline } from '../lib/blog-renderer'
 
 const categoryClasses: Record<string, string> = {
   'AI Engineering': 'border-white/12 bg-white/5 text-slate-400',
@@ -134,13 +135,6 @@ function BlogVisual({ type }: { type: string }) {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_35%,rgba(0,127,255,0.25),transparent_12rem)]" />
     </div>
   )
-}
-
-function renderInline(text: string) {
-  return text
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/`(.+?)`/g, '<code>$1</code>')
 }
 
 function endsWithTerminalPunctuation(text: string) {
