@@ -13,5 +13,14 @@
     "accessibility": 95,
     "bestPractices": 95,
     "seo": 95
+  },
+  "connection": {
+    "protocolVersion": "bizbuzz-blog-connection/v1",
+    "connectionId": "99fd0e23-e0c0-4c47-9fe2-160eb3ef00df",
+    "repositoryId": "727756405",
+    "ownerId": "4398639",
+    "siteUrl": "https://www.josh-wolfe.com",
+    "secretVersion": 2,
+    "verifier": "Dj_8osDJS82mqu52O-RbJnHlkP8k9si765C4CR2fAlA"
   }
 }
