@@ -1,0 +1,28 @@
+name: BizBuzz connection verification
+
+on:
+  workflow_dispatch:
+    inputs:
+      challenge_payload: { required: true, type: string }
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.14.0'
+      - name: Prove repository connection secret possession
+        run: node .bizbuzz/runner/respond-challenge.mjs
+        env:
+          BIZBUZZ_CONNECTION_SECRET: ${{ secrets.BIZBUZZ_CONNECTION_SECRET }}
+          BIZBUZZ_API_URL: ${{ vars.BIZBUZZ_API_URL }}
+          BIZBUZZ_CHALLENGE_PAYLOAD: ${{ inputs.challenge_payload }}

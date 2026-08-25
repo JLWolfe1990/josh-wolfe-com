@@ -4,7 +4,8 @@ import path from 'node:path';
 import { promisify } from 'node:util';
 
 const exec = promisify(execCallback);
-const root = process.cwd();
+const root = path.resolve(process.env.BIZBUZZ_CANDIDATE_ROOT || process.cwd());
+const trustedRoot = path.resolve(process.env.BIZBUZZ_TRUSTED_ROOT || process.cwd());
 
 function required(name) {
   const value = process.env[name]?.trim();
@@ -37,8 +38,8 @@ async function waitFor(url, timeoutMs) {
   throw new Error(`Preview did not become ready: ${url}`);
 }
 
-const config = JSON.parse(await fs.readFile(path.join(root, '.bizbuzz/blog-publisher.json'), 'utf8'));
-const manifest = JSON.parse(await fs.readFile(path.join(root, '.bizbuzz/runner/manifest.json'), 'utf8'));
+const config = JSON.parse(await fs.readFile(path.join(trustedRoot, '.bizbuzz/blog-publisher.json'), 'utf8'));
+const manifest = JSON.parse(await fs.readFile(path.join(trustedRoot, '.bizbuzz/runner/manifest.json'), 'utf8'));
 if (config.schemaVersion !== manifest.configSchemaVersion) {
   throw new Error(`Runner configuration schema mismatch: ${config.schemaVersion}`);
 }
@@ -47,6 +48,7 @@ const publicationId = required('BIZBUZZ_PUBLICATION_ID');
 const attempt = Number(required('BIZBUZZ_ATTEMPT'));
 const slug = required('BIZBUZZ_SLUG');
 const candidateRef = required('BIZBUZZ_CANDIDATE_REF');
+const candidateSha = required('BIZBUZZ_CANDIDATE_SHA');
 const candidateHash = required('BIZBUZZ_CANDIDATE_HASH');
 const sourceHash = required('BIZBUZZ_SOURCE_HASH');
 const imageHashes = JSON.parse(required('BIZBUZZ_IMAGE_HASHES_JSON'));
@@ -101,6 +103,7 @@ try {
     publicationId,
     attempt,
     candidateRef,
+    candidateSha,
     candidateHash,
     sourceHash,
     imageHashes,
@@ -114,7 +117,7 @@ try {
     failedAudits,
     durationMs: finished - started,
   };
-  const reportPath = path.join(root, '.bizbuzz-quality', publicationId, `${attempt}.json`);
+  const reportPath = path.join(process.env.RUNNER_TEMP || '/tmp', 'unsigned-report.json');
   await fs.mkdir(path.dirname(reportPath), { recursive: true });
   await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
   if (process.env.GITHUB_OUTPUT) {

@@ -3,30 +3,22 @@ name: BizBuzz blog candidate quality
 on:
   workflow_dispatch:
     inputs:
-      publication_id:
-        required: true
-        type: string
-      attempt:
-        required: true
-        type: string
-      slug:
-        required: true
-        type: string
-      candidate_hash:
-        required: true
-        type: string
-      source_hash:
-        required: true
-        type: string
-      image_hashes_json:
-        required: true
-        type: string
-      expected_runner_version:
-        required: true
-        type: string
+      publication_id: { required: true, type: string }
+      attempt: { required: true, type: string }
+      slug: { required: true, type: string }
+      candidate_ref: { required: true, type: string }
+      candidate_sha: { required: true, type: string }
+      candidate_hash: { required: true, type: string }
+      source_hash: { required: true, type: string }
+      image_hashes_json: { required: true, type: string }
+      expected_runner_version: { required: true, type: string }
+      connection_json: { required: true, type: string }
+      contract_blob_sha: { required: true, type: string }
+      workflow_blob_sha: { required: true, type: string }
+      runner_hashes_json: { required: true, type: string }
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: bizbuzz-blog-quality-${{ inputs.publication_id }}
@@ -37,37 +29,77 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out trusted runner
+        uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref }}
-          fetch-depth: 1
+          ref: ${{ github.sha }}
+          path: trusted
+          persist-credentials: false
+      - name: Check out exact untrusted candidate
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.candidate_sha }}
+          path: candidate
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22.14.0'
-          cache: npm
       - id: audit
-        name: Build and audit exact candidate with installed runner
-        run: node .bizbuzz/runner/audit.mjs
+        name: Build and audit exact candidate without connection secrets
+        run: node trusted/.bizbuzz/runner/audit.mjs
         env:
+          BIZBUZZ_TRUSTED_ROOT: ${{ github.workspace }}/trusted
+          BIZBUZZ_CANDIDATE_ROOT: ${{ github.workspace }}/candidate
           BIZBUZZ_PUBLICATION_ID: ${{ inputs.publication_id }}
           BIZBUZZ_ATTEMPT: ${{ inputs.attempt }}
           BIZBUZZ_SLUG: ${{ inputs.slug }}
-          BIZBUZZ_CANDIDATE_REF: ${{ github.ref_name }}
+          BIZBUZZ_CANDIDATE_REF: ${{ inputs.candidate_ref }}
+          BIZBUZZ_CANDIDATE_SHA: ${{ inputs.candidate_sha }}
           BIZBUZZ_CANDIDATE_HASH: ${{ inputs.candidate_hash }}
           BIZBUZZ_SOURCE_HASH: ${{ inputs.source_hash }}
           BIZBUZZ_IMAGE_HASHES_JSON: ${{ inputs.image_hashes_json }}
           BIZBUZZ_EXPECTED_RUNNER_VERSION: ${{ inputs.expected_runner_version }}
-      - name: Persist machine-readable result on candidate ref
-        run: |
-          git config user.name bizbuzz-quality[bot]
-          git config user.email 254764050+bizbuzz-quality[bot]@users.noreply.github.com
-          git add .bizbuzz-quality/
-          git commit -m "quality: report ${{ inputs.publication_id }} attempt ${{ inputs.attempt }}"
-          git push origin HEAD:${{ github.ref_name }}
-      - uses: actions/upload-artifact@v4
+      - name: Upload unsigned audit result
+        uses: actions/upload-artifact@v4
         with:
-          name: bizbuzz-blog-quality-${{ inputs.publication_id }}-${{ inputs.attempt }}
-          path: |
-            ${{ steps.audit.outputs.lighthouse_path }}
-            ${{ steps.audit.outputs.report_path }}
-          retention-days: 14
+          name: bizbuzz-unsigned-${{ github.run_id }}
+          path: ${{ runner.temp }}/unsigned-report.json
+          if-no-files-found: error
+          retention-days: 1
+
+  sign:
+    needs: audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Check out trusted signer only
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          path: trusted
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.14.0'
+      - uses: actions/download-artifact@v4
+        with:
+          name: bizbuzz-unsigned-${{ github.run_id }}
+          path: unsigned
+      - name: Validate, sign, and return report
+        run: node trusted/.bizbuzz/runner/sign-report.mjs
+        env:
+          BIZBUZZ_CONNECTION_SECRET: ${{ secrets.BIZBUZZ_CONNECTION_SECRET }}
+          BIZBUZZ_API_URL: ${{ vars.BIZBUZZ_API_URL }}
+          BIZBUZZ_UNSIGNED_REPORT_PATH: ${{ github.workspace }}/unsigned/unsigned-report.json
+          BIZBUZZ_PUBLICATION_ID: ${{ inputs.publication_id }}
+          BIZBUZZ_ATTEMPT: ${{ inputs.attempt }}
+          BIZBUZZ_CANDIDATE_REF: ${{ inputs.candidate_ref }}
+          BIZBUZZ_CANDIDATE_SHA: ${{ inputs.candidate_sha }}
+          BIZBUZZ_CANDIDATE_HASH: ${{ inputs.candidate_hash }}
+          BIZBUZZ_SOURCE_HASH: ${{ inputs.source_hash }}
+          BIZBUZZ_CONNECTION_JSON: ${{ inputs.connection_json }}
+          BIZBUZZ_CONTRACT_BLOB_SHA: ${{ inputs.contract_blob_sha }}
+          BIZBUZZ_WORKFLOW_BLOB_SHA: ${{ inputs.workflow_blob_sha }}
+          BIZBUZZ_RUNNER_HASHES_JSON: ${{ inputs.runner_hashes_json }}

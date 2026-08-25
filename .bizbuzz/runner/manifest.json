@@ -1,16 +1,20 @@
 {
-  "runnerVersion": "1.0.2",
+  "runnerVersion": "2.0.0",
   "configSchemaVersion": "bizbuzz-blog-runner-config/v1",
-  "reportSchemaVersion": "blog-quality-report/v2",
+  "reportSchemaVersion": "blog-quality-report/v3",
   "upstreamRepository": "j3-enterprises/bizbuzz-blog-runner-template",
-  "upstreamRelease": "v1.0.2",
-  "upstreamCommit": "6f3d3b3717d73be13737be1dd289c262ed0273d8",
+  "upstreamRelease": "v2.0.0",
+  "upstreamCommit": "58960df12c66addbf0ad98536588c26160d248b0",
   "installedFileHashes": {
-    ".bizbuzz/runner/audit.mjs": "ac3aae501e9dc3fd6925beaf42965385b5886a242310cedbe0482e263caf06a4",
+    ".bizbuzz/runner/audit.mjs": "e2c0951f6f17d02b287d946cde6a41ef174690619c0c9322173ca26966e609a4",
+    ".bizbuzz/runner/connection-crypto.mjs": "513371b8b8c96cc202be0e709cb337b8a7b5375a9a1cb8776514abab71252dca",
+    ".bizbuzz/runner/respond-challenge.mjs": "4ecddb73a55d4bc3f1e6327dcf4ab56938c07adb4fd258da980b22077c58abba",
     ".bizbuzz/runner/schemas/config-v1.schema.json": "eeb9c44a045b798c2e8b8ed442de83613c145f975579bcaa389b88f945ad81ee",
     ".bizbuzz/runner/schemas/report-v2.schema.json": "a1196e29f309d4bcf4c197c06eb3d76ccb80c80dd38a7771d41665d8e1ecad66",
-    ".github/workflows/bizbuzz-blog-quality.yml": "6a3e14bbddecfa7728378874ac16a8ddb4b6501ab76bc9864889d3cbb1a7b75e",
+    ".bizbuzz/runner/sign-report.mjs": "c23b41513ad0e4ac6181cd2333d31f7f45bce6f8f00c6d0149b64a016418c789",
+    ".github/workflows/bizbuzz-blog-quality.yml": "d0ffa351a4c8e78d397574613d6512ad0c0bee4e41ebd5f713b43463c44f5a90",
+    ".github/workflows/bizbuzz-connection-verify.yml": "5f6e5d7a53fa6fe68fa561f1481736ac17aa3154f45008d8a91af103935ef5ca",
     ".bizbuzz/blog-publisher.json": "0b7b48670161414bb93534100174259b5b93941e3aafd4a40ef894d31ce1b98a"
   },
-  "installedAt": "2026-07-25T22:47:28.898Z"
+  "installedAt": "2026-08-25T03:31:12.149Z"
 }
