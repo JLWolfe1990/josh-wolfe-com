@@ -4,7 +4,7 @@
   "reportSchemaVersion": "blog-quality-report/v3",
   "upstreamRepository": "j3-enterprises/bizbuzz-blog-runner-template",
   "upstreamRelease": "v2.0.0",
-  "upstreamCommit": "58960df12c66addbf0ad98536588c26160d248b0",
+  "upstreamCommit": "690d736e35b02b7bb2950630d766b9cd40f67cb1",
   "installedFileHashes": {
     ".bizbuzz/runner/audit.mjs": "e2c0951f6f17d02b287d946cde6a41ef174690619c0c9322173ca26966e609a4",
     ".bizbuzz/runner/connection-crypto.mjs": "513371b8b8c96cc202be0e709cb337b8a7b5375a9a1cb8776514abab71252dca",
@@ -16,5 +16,5 @@
     ".github/workflows/bizbuzz-connection-verify.yml": "5f6e5d7a53fa6fe68fa561f1481736ac17aa3154f45008d8a91af103935ef5ca",
     ".bizbuzz/blog-publisher.json": "0b7b48670161414bb93534100174259b5b93941e3aafd4a40ef894d31ce1b98a"
   },
-  "installedAt": "2026-08-25T03:31:12.149Z"
+  "installedAt": "2026-08-25T03:35:42.666Z"
 }
