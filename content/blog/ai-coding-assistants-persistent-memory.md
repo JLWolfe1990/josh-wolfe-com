@@ -2,7 +2,7 @@
 slug: "ai-coding-assistants-persistent-memory"
 title: "Memory That Sticks: How AI Coding Assistants Are Finally Learning Your Workflow"
 date: "2026-08-26"
-excerpt: "AI coding assistants are evolving with persistent memory, enabling them to retain context, project preferences, and coding styles across sessions. This advancement transforms AI from a basic autocomplete tool into a knowledgeable, continuou"
+excerpt: "AI coding assistants now use persistent memory to retain project context, preferences, and coding styles across sessions, enabling more consistent development workflows."
 category: "Artificial Intelligence"
 readTime: "5 min read"
 keywords: ["AI coding assistants","persistent memory","AI pair programming","developer productivity","context management","prompt engineering","LLMs","workflow automation","software development","AI in coding"]
