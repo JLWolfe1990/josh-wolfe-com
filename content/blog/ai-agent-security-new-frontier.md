@@ -45,15 +45,15 @@ Ultimately, agent security aims to build trust through transparency and control.
 
 ## Industry Spotlight: OpenAI and Palo Alto Networks
 
-OpenAI is collaborating with Hacktron to proactively identify vulnerabilities in its systems and test connections with third-party services. This partnership highlights the industry's increasing recognition that agent security demands dedicated, ongoing effort rather than merely reactive patching. Learn more about their approach: [Partnering with Hacktron to find vulnerabilities in OpenAI’s systems](https://openai.com/index/partnering-with-hacktron).
+OpenAI is collaborating with Hacktron to proactively identify vulnerabilities in its systems and test connections with third-party services. This partnership highlights the industry's increasing recognition that agent security demands dedicated, ongoing effort rather than merely reactive patching. Learn more about their approach: <a href="https://openai.com/index/partnering-with-hacktron" target="_blank" rel="noopener noreferrer">Partnering with Hacktron to find vulnerabilities in OpenAI’s systems</a>.
 
-Palo Alto Networks' reported acquisition of Clutch for $500 million signals a strong market demand for AI agent security tools. This acquisition further validates that agent security is rapidly becoming a core engineering discipline rather than a theoretical concern. Read more: [TechCrunch](https://techcrunch.com/2026/11/05/palo-alto-networks-in-talks-to-buy-ai-agent-security-startup-clutch-for-500m/)
+Palo Alto Networks' reported acquisition of Clutch for $500 million signals a strong market demand for AI agent security tools. This acquisition further validates that agent security is rapidly becoming a core engineering discipline rather than a theoretical concern. Read more: <a href="https://techcrunch.com/2026/11/05/palo-alto-networks-in-talks-to-buy-ai-agent-security-startup-clutch-for-500m/" target="_blank" rel="noopener noreferrer">TechCrunch</a>
 
 ## Resource Spotlight
 
 ## Explore OpenAI's Security Partnership Model
 
-OpenAI's collaboration with Hacktron exemplifies how responsible AI labs approach security. Review their partnership announcement ([Partnering with Hacktron to find vulnerabilities in OpenAI’s systems](https://openai.com/index/partnering-with-hacktron)) to understand their methodology for stress-testing agent systems and integrations. This provides a valuable framework for assessing your own agent security posture, including what to test and which assumptions to challenge.
+OpenAI's collaboration with Hacktron exemplifies how responsible AI labs approach security. Review their partnership announcement (<a href="https://openai.com/index/partnering-with-hacktron" target="_blank" rel="noopener noreferrer">Partnering with Hacktron to find vulnerabilities in OpenAI’s systems</a>) to understand their methodology for stress-testing agent systems and integrations. This provides a valuable framework for assessing your own agent security posture, including what to test and which assumptions to challenge.
 
 Agent security is a present, not future, challenge. The good news is that the community is actively developing solutions. Your experiments, prompt engineering practices, and security decisions today are contributing to shaping industry standards. Begin with fundamental practices like logging, approval checkpoints, and prompt versioning. Stay informed about emerging tools and critically evaluate what your agents can do. Developers who master agent security now will be instrumental in building the most trusted AI systems of tomorrow. Let's build responsibly.
 
