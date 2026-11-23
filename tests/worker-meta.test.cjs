@@ -187,10 +187,13 @@ test('wrangler config pins both production routes to this Worker', () => {
 
   assert.equal(config.name, 'josh-wolfe-com')
   assert.equal(config.main, 'worker.js')
-  assert.equal(config.account_id, '55c84df414e8212cfcf7b7deef3e27ea')
+  // Zone josh-wolfe.com lives in the Josh@j3-enterprises account (re-created 2026-10-14)
+  assert.equal(config.account_id, 'd26416049d31166eb145d47d7b4f2a86')
   assert.equal(config.workers_dev, false)
   assert.deepEqual(
     config.routes.map((route) => route.pattern),
-    ['josh-wolfe.com/*', 'www.josh-wolfe.com/*'],
+    ['josh-wolfe.com/*', 'www.josh-wolfe.com'],
   )
+  // www has no standalone DNS record; the Worker custom domain provides it
+  assert.equal(config.routes[1].custom_domain, true)
 })
